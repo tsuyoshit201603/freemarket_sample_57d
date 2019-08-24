@@ -59,3 +59,6 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+# 吉松君のElastic IPを使用
+server '52.196.12.237', user: 'ec2-user', roles: %w{app db web}
