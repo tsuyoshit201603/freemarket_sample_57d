@@ -62,3 +62,6 @@
 
 # 吉松君のElastic IPを使用
 server '52.196.12.237', user: 'ec2-user', roles: %w{app db web}
+
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
