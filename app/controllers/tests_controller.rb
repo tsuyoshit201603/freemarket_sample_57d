@@ -1,10 +1,11 @@
 class TestsController < ApplicationController
   def index
     @test = Test.new
+    @tests = Test.all
   end
 
   def create
-    Test.create(image)
+    @test = Test.create(image)
   end
 
   private
