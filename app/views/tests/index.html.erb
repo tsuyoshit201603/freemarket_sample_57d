@@ -1,1 +1,10 @@
 自動デプロイ！！
+  <%= form_for(@test) do |f| %>
+    <%= f.label :image,"選択"%>
+    <%= f.file_field :image %>
+    <%= f.submit "送信" %>
+  <% end %>
+
+<% @tests.each do |test|%>
+<%= image_tag test.image.url %>
+<% end %>
