@@ -1,6 +1,6 @@
 自動デプロイ！！
   <%= form_for(@test) do |f| %>
-    <%= f.label :image %>
-    <%= f.file_field "選択" %>
+    <%= f.label :image,"選択"%>
+    <%= f.file_field :image %>
     <%= f.submit "送信" %>
   <% end %>

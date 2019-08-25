@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   private
 
   def image
-    params.require(:test).permit(:)
+    params.require(:test).permit(:image)
   end
 
 end
