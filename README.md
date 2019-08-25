@@ -8,13 +8,13 @@
 |prefacuture|string|null: false, index: true|
 |price|integer|null: false|
 ### Association
-- has_many :a_categories
-- has_many :commodity_conditions
-- has_many :shipping_charges
-- has_many :days_before_hipments
-- has_many :users_products
-- has_many :users, through: :users_products
-- belongs_to :condition
+- belongs_to :a_categorie
+- belongs_to :commodity_condition
+- belongs_to :shipping_charge
+- belongs_to :days_before_hipment
+- has_many :users_products, dependent: :destroy
+  belongs_to :user
+- belongs_to :condition, dependent: :destroy
 ## a_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -22,7 +22,7 @@
 |product_id|interger|null: false, foreign_key: true|
 ### Association
 - belongs_to :project
-- has_many :b_categories
+- belongs_to :b_categorie
 ## b_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -30,7 +30,7 @@
 |a_categorie_id|interger|null: false, foreign_key: true|
 ### Association
 - belongs_to :a_categorie
-- has_many :c_categories
+- belongs_to :c_categorie
 ## c_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -38,8 +38,8 @@
 |b_categorie_id|interger|null: false, foreign_key: true|
 ### Association
 - belongs_to :b_categorie
-- has_many :sizes
-- has_many :brands
+- belongs_to :size
+- belongs_to :brand
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -68,7 +68,7 @@
 |product_id|interger|null: false, foreign_key: true|
 ### Association
 - belongs_to :prodect
-- has_many : delivery_methods
+- belongs_to : delivery_method
 ## delivery_methodsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -106,9 +106,9 @@
 |nickname|string|null: false|
 |explan|text|null: true|
 ### Association
-- has_many :sns_credentials
-- has_many : users_products
-- has_many : products, through: :users_products
+- belongs_to : sns_credential, dependent: :destroy
+- has_many : users_products, dependent: :destroy
+- has_many : products, through: :users_products, dependent: :destroy
 ## sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -120,6 +120,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|null: false|
+|product_id|interger|null: false, foreign_key: true|
 ### Association
 - belongs_to :project
 
