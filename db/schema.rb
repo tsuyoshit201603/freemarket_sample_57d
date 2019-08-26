@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20190826073910) do
     t.string   "first_name_kanji",                                  null: false
     t.string   "family_name_cana",                                  null: false
     t.string   "first_name_cana",                                   null: false
-    t.string   "year",                                              null: false
-    t.string   "month",                                             null: false
-    t.string   "day",                                               null: false
+    t.integer  "year",                                              null: false
+    t.integer  "month",                                             null: false
+    t.integer  "day",                                               null: false
     t.text     "image",                  limit: 65535
     t.string   "nickname",                                          null: false
     t.text     "explain",                limit: 65535
