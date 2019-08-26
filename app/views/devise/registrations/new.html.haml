@@ -19,10 +19,25 @@
     = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
   .context
     %h2 本人確認
-    安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    .info
+      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
   .field
     = f.label :name, "お名前(全角)"
     %br
-    = f.text_field :name
+    = f.text_field :name, placeholder: "例) 山田"
+    = f.text_field :name, placeholder: "例) 彩"
+  .field
+    = f.label :name, "お名前カナ(全角) "
+    %br
+    = f.text_field :name, placeholder: "例) ヤマダ"
+    = f.text_field :name, placeholder: "例) アヤ"
+  .field
+    = f.label :birthday, "生年月日"
+    %br
+    = f.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
+    .info
+      ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+    .info
+      「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
   .actions
     = f.submit "次に進む"
