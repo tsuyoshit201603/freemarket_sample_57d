@@ -31,13 +31,19 @@
     %br
     = f.text_field :family_name_cana, placeholder: "例) ヤマダ"
     = f.text_field :first_name_cana, placeholder: "例) アヤ"
+
   .field
     = f.label :birthday, "生年月日"
     %br
-    = f.date_select :birthday, date_separator: "月"
-    .info
-      ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-    .info
-      「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+    = f.select :year, [*1900..2019]
+    年
+    = f.select :month, [*1..12]
+    月
+    = f.select :day, [*1..31]
+    日
+  .info
+    ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+  .info
+    「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
   .actions
     = f.submit "次に進む"
