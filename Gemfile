@@ -84,12 +84,12 @@ gem 'gretel'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 # クレジット
-gem 'payjp'
+# gem 'payjp'
 # 応用機能で使用
 gem 'ransack'
 
 gem 'devise'
-# gem 'pry-rails'
+gem 'pry-rails'
 # font-awesome,ver5を利用できるgem
 gem 'font-awesome-rails'
 gem "haml-rails"
