@@ -5,84 +5,80 @@
 |image|text|null: false|
 |name|string|null: false, index: true|
 |explan|text|null: false|
-|prefacuture|string|null: false, index: true|
+|prefacuture_id|integer|null: false|
 |price|integer|null: false|
+|categorie|integer|null: false, foreign_key: true|
+|size_id|integer|null: false, foreign_key: true|
+|brand_id|interger|null: false, foreign_key: true|
+|commodity_condition_id|interger|null: false, foreign_key: true|
+|shipping_charge_id|interger|null: false, foreign_key: true|
+|delivery_method_id|interger|null: false, foreign_key: true|
+|days＿before＿shipment_id|interger|null: false, foreign_key: true|
+|categorie_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :a_categorie
-- belongs_to :commodity_condition
-- belongs_to :shipping_charge
-- belongs_to :days_before_hipment
-- has_many :users_products, dependent: :destroy
-  belongs_to :user
-- belongs_to :condition, dependent: :destroy
-## a_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|product_id|interger|null: false, foreign_key: true|
-### Association
-- belongs_to :project
-- belongs_to :b_categorie
-## b_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|a_categorie_id|interger|null: false, foreign_key: true|
-### Association
-- belongs_to :a_categorie
-- belongs_to :c_categorie
-## c_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|b_categorie_id|interger|null: false, foreign_key: true|
-### Association
-- belongs_to :b_categorie
+- has_many   :pictures
+- belongs_to :categorie
 - belongs_to :size
 - belongs_to :brand
+- belongs_to :commodity_condition
+- belongs_to :shipping_charge
+- belongs_to :delivery_method
+- belongs_to :days_before_hipment
+- has_many   :users_products, dependent: :destroy
+- belongs_to :user
+- belongs_to :condition, dependent: :destroy
+- belongs_to_active_hash :prefecture
+## picturesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
+|product_id|interger|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|ancestry|string|null: false, index: true|
+### Association
+- has_many :products
+- has_ancestry
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |size|string|null: false, index: true|
-|c_categorie_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :c_categorie
+- has_many :products
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: true, index: true|
-|c_categorie_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :c_categorie
+- has_many :products
 ## commodity_conditionsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|null: false|
-|product_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :prodect
+- has_many :products
 ## shipping_chargesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |method|string|null: false|
-|product_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :prodect
-- belongs_to : delivery_method
+- has_many :products
 ## delivery_methodsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|shipping_charge_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :shipping_charge
+- has_many :products
 ## days_before_shipmentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |days|string|null: false|
-|product_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :product
+- has_many :products
 ## users_productsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -98,7 +94,7 @@
 |cana|string|null: false|
 |birthday|string|null: false|
 |postalcode|interger|null: true|
-|prefacture|string|null: true, index:true|
+|prefacture|integer|null: true|
 |municipalities|string|null: true|
 |address|string|null: true|
 |buildingname|string|null: true|
@@ -106,9 +102,10 @@
 |nickname|string|null: false|
 |explan|text|null: true|
 ### Association
-- belongs_to : sns_credential, dependent: :destroy
-- has_many : users_products, dependent: :destroy
-- has_many : products, through: :users_products, dependent: :destroy
+- belongs_to :sns_credential, dependent: :destroy
+- has_many   :users_products, dependent: :destroy
+- has_many   :products, through: :users_products, dependent: :destroy
+- belongs_to_active_hash :prefecture
 ## sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -120,9 +117,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|null: false|
-|product_id|interger|null: false, foreign_key: true|
 ### Association
-- belongs_to :project
+- has_many :projects
 
 
 
