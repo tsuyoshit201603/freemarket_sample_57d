@@ -91,5 +91,5 @@ gem 'ransack'
 gem 'devise'
 gem 'pry-rails'
 # font-awesome,ver5を利用できるgem
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem "haml-rails"
