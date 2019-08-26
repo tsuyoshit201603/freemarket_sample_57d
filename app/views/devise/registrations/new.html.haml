@@ -30,11 +30,11 @@
     = f.label :name, "お名前カナ(全角) "
     %br
     = f.text_field :family_name_cana, placeholder: "例) ヤマダ"
-    = f.text_field :family_name_cana, placeholder: "例) アヤ"
+    = f.text_field :first_name_cana, placeholder: "例) アヤ"
   .field
     = f.label :birthday, "生年月日"
     %br
-    = f.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
+    = f.date_select :birthday, date_separator: "月"
     .info
       ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
     .info
