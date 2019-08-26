@@ -8,7 +8,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name_kanji,   null: false
       t.string :family_name_cana,   null: false
       t.string :first_name_cana,    null: false
-      t.integer :birthday,          null: false
+      t.year :birthday,          null: false
+      t.month :birthday,          null: false
+      t.day :birthday,          null: false
       t.text   :image,              null: true
       t.string :nickname,           null: false
       t.text   :explain,            null: true

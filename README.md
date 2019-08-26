@@ -94,7 +94,9 @@
 |first_name_kanji|string|null: false|
 |family_name_cana|string|null: false|
 |first_name_cana|string|null: false|
-|birthday|integer|null: false|
+|year|string|null: false|
+|month|string|null: false|
+|day|string|null: false|
 |image|text|null: true|
 |nickname|string|null: false|
 |explain|text|null: true|
