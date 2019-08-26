@@ -35,11 +35,11 @@
   .field
     = f.label :birthday, "生年月日"
     %br
-    = f.select :year, [*1900..2019]
+    = f.select :year, [*1900..2019].reverse, prompt:"--"
     年
-    = f.select :month, [*1..12]
+    = f.select :month, [*1..12], prompt:"--"
     月
-    = f.select :day, [*1..31]
+    = f.select :day, [*1..31], prompt:"--"
     日
   .info
     ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
