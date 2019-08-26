@@ -37,6 +37,11 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem "faker"
+  gem 'capybara'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -63,3 +68,28 @@ end
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
+
+#カテゴリの集約
+gem 'ancestry'
+#テーブル省略
+gem 'active_hash'
+#生年月日計算
+gem 'happybirthday'
+
+# ページネーション
+gem 'kaminari'
+# パンくず
+gem 'gretel'
+# 認証
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+# クレジット
+gem 'payjp'
+# 応用機能で使用
+gem 'ransack'
+
+gem 'devise'
+gem 'pry-rails'
+# font-awesome,ver5を利用できるgem
+gem 'font-awesome-sass'
+gem "haml-rails"
