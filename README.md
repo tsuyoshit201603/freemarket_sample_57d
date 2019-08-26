@@ -94,12 +94,12 @@
 |first_name_kanji|string|null: false|
 |family_name_cana|string|null: false|
 |first_name_cana|string|null: false|
-|year|string|null: false|
-|month|string|null: false|
-|day|string|null: false|
+|year|integer|null: false|
+|month|integer|null: false|
+|day|integer|null: false|
 |image|text|null: true|
 |nickname|string|null: false|
-|explain|text|null: true|
+|explain|text|null: true|v
 ### Association
 - belongs_to :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
