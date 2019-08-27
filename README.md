@@ -99,7 +99,7 @@
 |day|integer|null: false|
 |image|text|null: true|
 |nickname|string|null: false|
-|explain|text|null: true|v
+|explain|text|null: true|
 ### Association
 - belongs_to :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
