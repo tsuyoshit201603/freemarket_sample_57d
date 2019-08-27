@@ -81,18 +81,6 @@ RSpec.describe User, type: :model do
         expect(user.errors[:email]).to include("を入力してください")
       end
 
-      it "passwordなし" do
-        user = build(:user, password: nil)
-        expect(user.errors[:password]).to include()
-      end
-
-      it "password確認なし" do
-        user = build(:user, password_confirmation: nil)
-        expect(user.errors[:password_confirmation]).to include()
-      end
-
-
-
       it "名前なし" do
         user = build(:user, family_name_kanji: nil, first_name_kanji: nil, family_name_cana: nil, first_name_cana: nil, nickname: nil)
         user.valid?
@@ -111,6 +99,24 @@ RSpec.describe User, type: :model do
         expect(user.errors[:family_name_kanji]).to include("を入力してください")
       end
 
+      it "名前なし、emailなし" do
+        user = build(:user, family_name_kanji: nil, first_name_kanji: nil, family_name_cana: nil, first_name_cana: nil, nickname: nil, email: nil)
+        user.valid?
+        expect(user.errors[:family_name_kanji]).to include("を入力してください")
+      end
+
+      it "emailなし、誕生日なし" do
+        user = build(:user, year: nil, month: nil, day: nil, email: nil)
+        user.valid?
+        expect(user.errors[:year]).to include("を入力してください")
+      end
+
+      it "名前なし、誕生日なし、emailなし" do
+        user = build(:user, family_name_kanji: nil, first_name_kanji: nil, family_name_cana: nil, first_name_cana: nil, nickname: nil, year: nil, month: nil, day: nil, email: nil)
+        user.valid?
+        expect(user.errors[:family_name_kanji]).to include("を入力してください")
+      end
+
       it "パスワードを7文字未満" do
         user = build(:user, password: "123456", password_confirmation: "123456")
         user.valid?
@@ -120,6 +126,18 @@ RSpec.describe User, type: :model do
         user = build(:user, password: "1234567")
         user.valid?
         expect(user.errors[:password_confirmation]).to include("とPasswordの入力が一致しません")
+      end
+      it 'passwordなし' do
+        user = build(:user, password: nil)
+        user.valid?
+        expect(user.errors[:password]).to include("を入力してください")
+      end
+
+      it "emailaddresが重複した場合" do
+        user = create(:user)
+        another_user = build(:user, email: user.email)
+        another_user.valid?
+        expect(another_user.errors[:email]).to include("はすでに存在します")
       end
     end
   end
