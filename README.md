@@ -90,9 +90,13 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|cana|string|null: false|
-|birthday|string|null: false|
+|family_name_kanji|string|null: false|
+|first_name_kanji|string|null: false|
+|family_name_cana|string|null: false|
+|first_name_cana|string|null: false|
+|year|integer|null: false|
+|month|integer|null: false|
+|day|integer|null: false|
 |image|text|null: true|
 |nickname|string|null: false|
 |explain|text|null: true|
