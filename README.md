@@ -100,8 +100,6 @@
 |image|text|null: true|
 |nickname|string|null: false|
 |explain|text|null: true|
-|uid|string|-|
-|provider|string|-|
 ### Association
 - belongs_to :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
