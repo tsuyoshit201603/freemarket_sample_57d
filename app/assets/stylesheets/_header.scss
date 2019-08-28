@@ -1,0 +1,97 @@
+.contents{
+  box-sizing: border-box;
+  &__header{
+    height: 100px;
+    background-color: #fff;
+    &__inner{
+      @include size(92px,1020px);
+      padding-top: 8px;
+      margin: 0px 210px;
+      &__top{
+        @include size($height:40px);
+        display: flex;
+        &__form{
+          margin-left: 45px;
+          width: 841px;
+          position: relative;
+          &__input{
+            @include size($width:785px);
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            padding: 0 42px 0 10px;
+          }
+          &__icon{
+            @include size(40px,36px);
+            @include absolute_position();
+            display: flex;
+            top: 0; 
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+      &__down{
+        @include size($height: 44px);
+        margin-top: 8px;
+        display: flex;
+        position: relative;
+        & a{
+          @include reset_a-tag(gray);
+        }
+        &__left{
+          height: 44px;
+          display: flex;
+          color: #333;
+          line-height: 32px;
+          &__category{
+            &__icon{
+              @include header_icon();
+            }
+          }
+          &__tag{
+            padding-left: 22px;
+            &__icon{
+              @include header_icon();
+            }
+          }
+        }
+        &__right{
+          height: 44px;
+          display: flex;
+          color: #333;
+          line-height: 32px;
+          @include absolute_position();
+          &__notice{
+            margin-right: 22px;
+            &__icon{
+              @include header_icon();
+            }
+          }
+          &__todo{
+            margin-right: 22px;
+            &__icon{
+              @include header_icon();
+            }
+          }
+          &__mypage{
+            width: 121px;
+            display: flex;
+            vertical-align: middle;
+            position: relative;
+            &__icon{
+              overflow: hidden;
+              border-radius: 50%;
+              padding-right: 3px;
+              display: inline-block;
+            }
+            &__text{
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

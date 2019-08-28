@@ -1,0 +1,120 @@
+.contents{
+  @include size();
+  &__product-information{
+    width: 100%;
+    background-color: #fff;
+    &__special-feature{
+      @include size($height:390px);
+      height: 390px;
+      text-align:center;
+      background: #d4d3d3;;
+      &__image{
+        height: 100%;
+      }
+    }
+    &__pickup{
+      padding: 40px 0;
+      background: #f5f5f5;
+      height: 1991px;
+      &--brand{
+        padding-top: 0; 
+      }
+      &__text{
+        font-size: 28px;
+        text-align: center;
+        height: 39px;
+      }
+      &__categorie{
+        @include size(442px,940px);
+        margin: 0 auto;
+        & a{
+          text-decoration: none;
+        }
+        &__text{
+          font-size: 22px;
+          margin: 26px 11px;
+          text-align: center;
+          color: #0099e8;
+        }
+        &__products{
+          height: 330px;
+          width: auto;
+          display: flex;
+          & a{
+            @include reset_a-tag(black);
+          }
+          &__product{
+            @include size($width:213px);
+            margin: 0 0 0 20px;
+            background-color: white;
+            &__picture{
+              @include size(220px,213px);
+            }
+            &__textbox{
+              padding: 16px;
+              height: 77px;
+              &__name{
+                font-size: 16px;
+                font-weight: 400;
+                color: #333;
+                height: 48px; 
+              }
+              &__num{
+                display: flex;
+                margin: 8px 0 0;
+                justify-content: space-between;
+                &__price{
+                  font-size: 17px;
+                  font-weight: 600;
+                  color: #333;
+                }
+                &__favorite{
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #333;
+                  &__icon{
+                    display: inline-block; 
+                    color: #ccc; 
+                  }
+                }
+              }
+            }
+          }
+        }
+        &__link{
+          padding: 20px 0 30px;
+          width: 99.5%;
+          height: 14px;
+          text-align: right;
+          color: #0099e8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__btn{
+    bottom: 32px;
+    right: 32px;
+    width: 160px;
+    height: 160px;
+    font-size: 22px;
+    position: fixed;
+    border-radius: 50%;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+    & a{
+      @include reset_a-tag(white);
+    }
+    & div{
+      margin-top: 30px;
+    }
+    &__camera{
+      margin: 4px 0 0;
+      font-size: 54px;
+      display: inline-block;
+      text-align: center;
+    }    
+  }
+}
