@@ -121,6 +121,7 @@
 ## sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|uid|string|null: false|
 |provider|string|null: false|
 |user_id|interger|null: false, foreign_key: true|
 ### Association

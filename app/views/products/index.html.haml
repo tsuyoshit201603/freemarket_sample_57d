@@ -1,1 +1,8 @@
 top
+
+- if user_signed_in?
+  %h3 ログインしています！
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+- else
+  %h3 ログインしていません
+  = link_to "ログイン", new_user_session_path, method: :get
