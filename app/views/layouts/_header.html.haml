@@ -2,7 +2,7 @@
   .contents__header__inner
     .contents__header__inner__top
       = link_to root_path do
-        %img{alt: "mercari", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?575670517", width: "134"}/  
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?575670517", width: "134", height: "36") 
       .contents__header__inner__top__form         
         %input.contents__header__inner__top__form__input{placeholder: "何かお探しですか？", type: "serch"}/ 
         =fa_icon "search" , class: "contents__header__inner__top__form__icon"        
@@ -27,6 +27,6 @@
             やることリスト  
         .contents__header__inner__down__right__mypage
           = link_to root_path do
-            %img{alt: "nico", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "contents__header__inner__down__right__mypage__icon" }/
+            = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "contents__header__inner__down__right__mypage__icon")
             .contents__header__inner__down__right__mypage__text
               マイページ
