@@ -88,9 +88,15 @@
             }
           }
           &__mypage{
+            display: flex;
+            vertical-align: middle;
+
             &__icon{
               overflow: hidden;
               border-radius: 50%;
+              padding-right: 3px;
+            }
+            & h{  
             }
           }
         }
@@ -101,6 +107,58 @@
     height: 391px;
     width: 100%;
     background-color: #212121;
+    padding: 0 20px 10px 20px;
+    color: #fff;
+    &__up{
+      width: 1020px;
+      margin: 0 auto;
+      display: flex;
+      & li{
+        list-style: none;
+        margin: 14px 0 0;
+        font-size: 65%;
+      }
+      &__cell{
+        padding: 0 20px 0 0;
+        width: 20%;
+        &__title{
+          padding-top: 18px;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 700;
+        }
+        &__twitter{
+          margin: 30px 18px 0 0;
+          font-size: 30px;
+        }
+        &__facebook{
+          margin: 30px 18px 0 0;
+          font-size: 30px;
+        }
+        &--double{
+          width: 40%;
+        }
+        &__inline{
+          display: flex;
+          &__left{
+            padding: 0 10px 0 0;
+          }
+        }
+      }
+    }
+    &__down{
+      margin: 30px auto 20px;
+      width: 1020px;
+      height: 45px;
+      display: flex;
+      &__text{
+        height: 33px;
+        width: 745px;
+        margin: 8px 0 0;
+        text-align: center;
+        font-size: 12px;
+      }
+    }
   }
   &__product-information{
     width: 100%;
@@ -225,10 +283,42 @@
               &__app{
                 line-height: 68px;
               }
+              &__google{
+                line-height: 68px;
+              }
             }
           }
         }
+        &__phone{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 300px;
+          height: 100%;
+        }
       }
     }
+  }
+  &__btn{
+    bottom: 32px;
+    right: 32px;
+    width: 160px;
+    height: 160px;
+    font-size: 22px;
+    position: fixed;
+    border-radius: 50%;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    & div{
+      margin-top: 30px;
+    }
+    &__camera{
+      margin: 4px 0 0;
+      font-size: 54px;
+      display: inline-block;
+      text-align: center;
+    }    
   }
 }

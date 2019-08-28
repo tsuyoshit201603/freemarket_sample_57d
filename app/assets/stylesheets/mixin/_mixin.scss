@@ -1,0 +1,31 @@
+// フォームやbuttonにはじめから適応されているCSSを打ち消す
+@mixin reset_form {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  resize: none;
+}
+// AタグのデフォルトのCSSを打ち消す
+@mixin reset_a-tag($color: white){
+  &:link{
+    color: $color;
+  }
+  &:visited{
+    color: $color;
+  }
+  text-decoration: none;
+}
+// floatのbugを打ち消す
+@mixin clearfloat {
+  &:after{
+    content: "";
+    clear: both;
+    display: inline-block;
+  }
+}
