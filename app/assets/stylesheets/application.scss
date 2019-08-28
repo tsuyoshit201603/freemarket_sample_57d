@@ -1,4 +1,12 @@
 @import "font-awesome";
 @import "config/colors";
 @import "./reset";
+@import "mixin/reset";
+@import "mixin/size";
+@import "mixin/position";
+@import "mixin/icon";
+
+
 @import "products/index";
+@import "header";
+@import "footer";

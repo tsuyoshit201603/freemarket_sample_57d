@@ -1,0 +1,5 @@
+// absolute後の右よせ
+@mixin absolute_position() {
+  position: absolute;
+  right: 0;
+}

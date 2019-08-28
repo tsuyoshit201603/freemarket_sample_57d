@@ -1,0 +1,12 @@
+// headerのアイコン
+@mixin header_icon() {
+  color: red;
+  font-size: 12px;
+  margin-right: 4px; 
+}
+
+@mixin footer_icon() {
+  margin: 30px 18px 0 0;
+  font-size: 30px;
+  color: white;
+}

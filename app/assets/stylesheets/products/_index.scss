@@ -1,171 +1,11 @@
 .contents{
-  height: 100%;
-  width: 100%;
-  &__header{
-    width: 100%;
-    height: 100px;
-    background-color: #fff;
-    &__inner{
-      height: 92px;
-      width: 1020px;
-      padding-top: 8px;
-      margin: 0px 210px;
-      &__top{
-        height: 40px;
-        width: 100%;
-        display: flex;
-        &__form{
-          margin-left: 45px;
-          width: 100%;
-          position: relative;
-          &__input{
-            height: 32px;
-            width: 785px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            padding: 0 42px 0 10px;
-          }
-          &__icon{
-            position: absolute;
-            width: 40px;
-            height: 36px;
-            display: flex;
-            right: 0;
-            top: 0; 
-            align-items: center;
-            justify-content: center;
-          }
-        }
-      }
-      &__down{
-        height: 44px;
-        width: 100%;
-        margin-top: 8px;
-        display: flex;
-        position: relative;
-        &__left{
-          height: 44px;
-          display: flex;
-          color: #333;
-          line-height: 32px;
-          &__category{
-            &__icon{
-              color: red;
-              font-size: 12px;
-              margin-right: 4px; 
-            }
-          }
-          &__tag{
-            padding-left: 22px;
-            &__icon{
-              color: red;
-              font-size: 12px;
-              margin-right: 4px; 
-            }
-          }
-        }
-        &__right{
-          height: 44px;
-          display: flex;
-          color: #333;
-          line-height: 32px;
-          position: absolute;
-          right: 0;
-          &__notice{
-            margin-right: 22px;
-            &__icon{
-              color: red;
-              font-size: 12px;
-              margin-right: 4px; 
-            }
-          }
-          &__todo{
-            margin-right: 22px;
-            &__icon{
-              color: red;
-              font-size: 12px;
-              margin-right: 4px; 
-            }
-          }
-          &__mypage{
-            display: flex;
-            vertical-align: middle;
-
-            &__icon{
-              overflow: hidden;
-              border-radius: 50%;
-              padding-right: 3px;
-            }
-            & h{  
-            }
-          }
-        }
-      }
-    }
-  }
-  &__footer{
-    height: 391px;
-    width: 100%;
-    background-color: #212121;
-    padding: 0 20px 10px 20px;
-    color: #fff;
-    &__up{
-      width: 1020px;
-      margin: 0 auto;
-      display: flex;
-      & li{
-        list-style: none;
-        margin: 14px 0 0;
-        font-size: 65%;
-      }
-      &__cell{
-        padding: 0 20px 0 0;
-        width: 20%;
-        &__title{
-          padding-top: 18px;
-          color: #fff;
-          font-size: 16px;
-          font-weight: 700;
-        }
-        &__twitter{
-          margin: 30px 18px 0 0;
-          font-size: 30px;
-        }
-        &__facebook{
-          margin: 30px 18px 0 0;
-          font-size: 30px;
-        }
-        &--double{
-          width: 40%;
-        }
-        &__inline{
-          display: flex;
-          &__left{
-            padding: 0 10px 0 0;
-          }
-        }
-      }
-    }
-    &__down{
-      margin: 30px auto 20px;
-      width: 1020px;
-      height: 45px;
-      display: flex;
-      &__text{
-        height: 33px;
-        width: 745px;
-        margin: 8px 0 0;
-        text-align: center;
-        font-size: 12px;
-      }
-    }
-  }
+  @include size();
   &__product-information{
     width: 100%;
     background-color: #fff;
     &__special-feature{
+      @include size($height:390px);
       height: 390px;
-      width: 100%;  
       text-align:center;
       background: #d4d3d3;;
       &__image{
@@ -185,26 +25,30 @@
         height: 39px;
       }
       &__categorie{
-        height: 442px;
-        width: 940px;
+        @include size(442px,940px);
         margin: 0 auto;
+        & a{
+          text-decoration: none;
+        }
         &__text{
           font-size: 22px;
           margin: 26px 11px;
           text-align: center;
+          color: #0099e8;
         }
         &__products{
-          width: auto;
           height: 330px;
+          width: auto;
           display: flex;
+          & a{
+            @include reset_a-tag(black);
+          }
           &__product{
+            @include size($width:213px);
             margin: 0 0 0 20px;
-            width: 213px;
             background-color: white;
-            height: 100%;
             &__picture{
-              width: 213px;
-              height: 220px;
+              @include size(220px,213px);
             }
             &__textbox{
               padding: 16px;
@@ -248,58 +92,6 @@
       }
     }
   }
-  &__banner{
-    height: 260px;
-    width: 100%;
-    position: relative;
-    &__image{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      &__inner{
-        width: 750px;
-        color: white;
-        height: 260px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        &__text{
-          position: absolute;
-          top: 50%;
-          transform: translate(0, -50%);
-          & p{
-            margin: 10px 0 0;
-            font-size: 35px;
-          }
-          & h{
-            font-size: 24px;
-          }
-          &__icon{
-            margin: 20px 0 0;
-            display: flex;
-            &__download{
-              margin: 0 0 0 24px;
-              &__app{
-                line-height: 68px;
-              }
-              &__google{
-                line-height: 68px;
-              }
-            }
-          }
-        }
-        &__phone{
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          width: 300px;
-          height: 100%;
-        }
-      }
-    }
-  }
   &__btn{
     bottom: 32px;
     right: 32px;
@@ -311,6 +103,10 @@
     background: #ea352d;
     color: #fff;
     text-align: center;
+    z-index: 1000;
+    & a{
+      @include reset_a-tag(white);
+    }
     & div{
       margin-top: 30px;
     }
