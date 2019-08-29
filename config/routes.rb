@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
   end
+  resources :singups, only:[:index]
+  resources :telphones, only:[:new,:create]
+  resources :addresses, only:[:new,:create]
+  resources :payings, only:[:new,:create]
+  resources :finishings, only:[:index]
 end
