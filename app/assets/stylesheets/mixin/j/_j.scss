@@ -22,4 +22,19 @@
   border: solid 1px $facebookBlue;
   border-radius: 5px;
 }
+
+// Googleボタン用のスタイル
+@mixin googleButton {
+  & a{
+    @include reset_a-tag(black);
+  }
+  & img{
+    width: 25px;
+    @include absoluteCenter(50%,0);
+    margin-left: 20px;
+  }
+  position: relative;
+  border: solid 1px #b4b4b4;
+  border-radius: 5px;
+  color: black;
 }
