@@ -13,20 +13,21 @@
             =fa_icon "list" , class: "contents__header__inner__down__left__category__icon"
             カテゴリーから探す
         .contents__header__inner__down__left__tag
-          = link_to root_path do
+          = link_to user_session_path , method: :post do
             =fa_icon "tag" , class: "contents__header__inner__down__left__tag__icon"
             ブランドから探す  
       .contents__header__inner__down__right
         .contents__header__inner__down__right__notice
-          = link_to root_path do
+          = link_to destroy_user_session_path , method: :delete do
             =fa_icon "bell" , class: "contents__header__inner__down__right__notice__icon"
             お知らせ  
         .contents__header__inner__down__right__todo
-          = link_to root_path do
+          = link_to new_user_registration_path do
             =fa_icon "check" , class: "contents__header__inner__down__right__todo__icon"
             やることリスト  
         .contents__header__inner__down__right__mypage
-          = link_to destroy_user_session_path, methdo: :delete do
-            = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "contents__header__inner__down__right__mypage__icon")
-            .contents__header__inner__down__right__mypage__text
-              マイページ
+          -if user_signed_in?
+            = link_to user_path(current_user) do
+              = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "contents__header__inner__down__right__mypage__icon")
+              .contents__header__inner__down__right__mypage__text
+                マイページ
