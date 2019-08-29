@@ -1,0 +1,8 @@
+// 親要素にrelativeが指定されていた場合に中央寄せする
+@mixin absoluteCenter($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  transform: translate(0, -$top);
+  left: $left;
+  transform: translate(0, -$left);
+}
