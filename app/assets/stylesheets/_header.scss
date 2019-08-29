@@ -6,7 +6,7 @@
     &__inner{
       @include size(92px,1020px);
       padding-top: 8px;
-      margin: 0px 210px;
+      margin: 0px auto;
       &__top{
         @include size($height:40px);
         display: flex;
