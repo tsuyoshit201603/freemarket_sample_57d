@@ -73,4 +73,17 @@
   font-weight: 300;
 }
 
+// 入力フォーム用
+@mixin mercariForm {
+  @include reset_form;
+  width: 343px;
+  height: 48px;
+  border: solid 1px #b4b4b4;
+  border-radius: 5px;
+  &::placeholder {
+    padding-left: 10px;
+  }
+  &:focus{
+    border: solid 1px $newRegistrationBlue;
+  }
 }
