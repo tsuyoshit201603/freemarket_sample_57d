@@ -21,6 +21,15 @@
   text-align: $align;
 }
 
+//以下のbuttonの親要素に当てる
+@mixin buttonParent($height: 50px, $width: 328px) {
+  @include text_center($height,center);
+  width: $width;
+  margin: 0 auto;
+  font-size: 14px;
+  position: relative;
+}
+
 //Facebookのボタン用スタイル
 @mixin facebookButton{
   & a{
