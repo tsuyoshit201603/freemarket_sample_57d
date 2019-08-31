@@ -75,3 +75,14 @@
     }
   }
 }
+
+#identification_prefecture_id {
+  @include reset_form;
+  padding-left: 16px;
+  margin-top: 8px;
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: calc(100% + 16px);
+}
