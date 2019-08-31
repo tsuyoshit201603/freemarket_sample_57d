@@ -1,0 +1,16 @@
+.signUp
+  .signUp__top
+    新規会員登録
+  .signUp__buttons
+    = link_to new_user_registration_path do
+      .signUp__buttons__mail
+        = fa_icon "envelope 2x"
+        メールアドレスで登録する
+    = link_to user_facebook_omniauth_authorize_path, method: :post do
+      .signUp__buttons__facebook
+        = fa_icon "facebook-square 2x"
+        Facebookで登録する
+    = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+      .signUp__buttons__google
+        = image_tag("https://img.icons8.com/color/48/000000/google-logo.png", class:"googleIcon" )
+        Googleで登録する
