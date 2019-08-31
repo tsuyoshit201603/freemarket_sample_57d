@@ -1,0 +1,54 @@
+.telphone{
+  background-color: #FFFFFF;
+  height: 500px;
+  width: 700px;
+  margin: 0 auto;
+
+  &__top{
+    @include mercariTitle;
+  }
+  &__main{
+    box-sizing: border-box;
+    width: 700px;
+    height: 400px;
+    padding: 40px 40px 64px;
+    &__content{
+      height: 300px;
+      width: 340px;
+      margin: 0 auto;
+      position: relative;
+      &__form{
+        & span{
+          @include font_data($mercariBlack,14px,bold);
+        }
+        & input{
+          @include reset_form;
+          @include mercariForm;
+        }
+      }
+      &__info{
+        margin-top: 8px;
+        @include font_data($mercariBlack,14px);
+      }
+      &__button{
+        @include buttonParent(50px,343px);
+        margin-top: 32px;
+        background-color: $mercariRed;
+      }
+      & a{
+        @include reset_a-tag(#FFFFFF);
+      }
+      &__alert{
+        margin-top: 8px;
+        @include font_data($mercariBlack,14px);
+      }
+      &__why{
+        @include mercariLink;
+        font-size: 14px;
+        position: absolute;
+        right:0;
+        bottom: 0;
+      }
+    }
+  }
+}
