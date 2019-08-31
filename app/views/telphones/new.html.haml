@@ -1,0 +1,21 @@
+.telphone
+  .telphone__top
+    電話番号の確認
+  .telphone__main
+    .telphone__main__content
+      .telphone__main__content__form
+        %span 携帯電話の番号
+        %input{placeholder:"携帯電話の番号を入力"}
+      .telphone__main__content__info
+        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+      = link_to new_address_path do
+        .telphone__main__content__button
+          SMSを送信する
+      .telphone__main__content__alert
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      %span.telphone__main__content__why
+        = link_to do
+          電話番号の確認が必要な理由
+          = fa_icon "chevron-right"
+
+

@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %title FreemarketSample57d
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body.simpleBody
+    %header.simpleHeader
+      = link_to root_path do
+        = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3312594182")
+    = yield
+    %footer.simpleFooter
+      .simpleFooter__links
+        = link_to "プライバシーポリシー", root_path, class: "simpleFooter__links__link"
+        = link_to "メルカリ利用規約", root_path, class: "simpleFooter__links__link"
+        = link_to "特定商取引に関する表記", root_path, class: "simpleFooter__links__link"
+      .simpleFooter__image
+        = link_to root_path do
+          = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3312594182")
+      .simpleFooter__copyright
+        © 2019 Mercari

@@ -1,0 +1,47 @@
+.payings
+  .payings__top
+    お支払い方法
+  .payings__main
+    .payings__main__input
+      %span.label
+        カード番号
+      %span.sticker
+        必須
+      %input{placeholder:"半角数字のみ"}
+      = image_tag("http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif",class:"cardImage")
+    .payings__main__input
+      %span.label
+        有効期限
+      %span.sticker
+        必須
+      %br
+      .payings__selectbox
+        .payings__main__input__select
+          %select
+            - @month.each do |month|
+              %option
+                = month
+          = fa_icon "chevron-down"
+        .payings__main__input__context
+          月
+        .payings__main__input__select
+          %select
+            - @year.each do |year|
+              %option
+                = year
+          = fa_icon "chevron-down"
+        .payings__main__input__context
+          年
+    .payings__main__input
+      %span.label
+        セキュリティコード
+      %span.sticker
+        必須
+      %input{placeholder:"カード背面4桁もしくは3桁の番号"}
+    .payings__main__info
+      = link_to do
+        = fa_icon "question-circle"
+        カード背面の番号とは
+    = link_to finishings_path do
+      .payings__main__button
+        次へ進む

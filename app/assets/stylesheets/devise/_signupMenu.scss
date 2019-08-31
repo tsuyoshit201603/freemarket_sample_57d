@@ -1,0 +1,43 @@
+.signUp{
+  width: 700px;
+  height: 384px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  & a{
+    @include reset_a-tag;
+  }
+  &__top{
+    @include text_center(97px,center);
+    @include font_data($mercariBlack,22px,bold);
+    border-bottom:solid 1px $backColor;
+  }
+  &__buttons{
+    padding: 40px 40px 64px;
+    &__mail{
+      @include buttonParent($width:343px);
+      background-color: $mercariRed;
+      border-radius: 5px;
+      &:hover{
+        opacity: 0.8;
+        transition: 0.3s ease-in-out;
+      }
+      & .fa-envelope{
+        color: white;
+        @include absoluteCenter(50%, 0);
+        margin-left: 20px;
+      }
+    }
+    &__facebook{
+      @include buttonParent($width:343px);
+      @include facebookButton;
+      margin-top: 16px;
+      border-radius: 5px;
+    }
+    &__google{
+      @include buttonParent($width:343px);
+      @include googleButton;
+      margin-top: 16px;
+      border-radius: 5px;
+    }
+  }
+}

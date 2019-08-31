@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :set_active
   def facebook
     callback_for(:facebook)
   end
@@ -25,5 +26,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     redirect_to root_path and return
+  end
+  private
+  def set_active
+    @active = ["","","",""]
   end
 end

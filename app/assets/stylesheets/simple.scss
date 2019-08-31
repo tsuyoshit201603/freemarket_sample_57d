@@ -1,0 +1,33 @@
+.simpleBody{
+  background-color: $backColor;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  .simpleHeader{
+    height: 49px;
+    width: 185px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  .simpleFooter{
+    &__links{
+      margin-bottom:30px;
+      &__link{
+          @include reset_a-tag(black);
+          font-size: 11px;
+          margin: 0 10px;
+      }
+    }
+    &__image{
+      height: 65px;
+      width: 80px;
+      margin:8px auto;
+    }
+    &__copyright{
+      text-align: center;
+      font-size: 10px;
+    }
+    margin: 0 auto;
+    padding: 45px 0;
+  }
+}

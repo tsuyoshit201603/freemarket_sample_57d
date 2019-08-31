@@ -1,0 +1,27 @@
+.finisings{
+  width: 700px;
+  height: 350px;
+  background: #FFFFFF;
+  margin: 0 auto 100px;
+  &__top{
+    @include mercariTitle;
+  }
+  &__main{
+    width: 400px;
+    height: 100%;
+    margin: 0 auto;
+    &__context{
+      margin: 40px 0;
+      @include font_data($mercariBlack,16px);
+      text-align: center;
+    }
+    &__button{
+      @include buttonParent;
+      margin-top: 32px;
+      background-color: $mercariRed;
+    }
+    & a{
+      @include reset_a-tag(#FFFFFF);
+    }
+  }
+}

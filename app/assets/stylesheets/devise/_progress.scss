@@ -1,0 +1,70 @@
+.progress-bar {
+  box-sizing: border-box;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  & li{
+    flex: 2;
+    position: relative;
+    padding: 0 0 14px 0;
+    font-size: 12px;
+    color: gray;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 2px solid #CCCCCC;
+    &:first-child{
+      flex: 1;
+      &:before {
+        left: 0;
+      }
+    }
+    &:last-child{
+      flex: 1;
+      text-align: right;
+      &:before {
+        right: 0;
+        left: auto;
+      }
+    }
+    &:before{
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      background-color: #CCCCCC;
+      border-radius: 50%;
+      position: absolute;
+      left: calc(50% - 7px);
+      bottom: -7px;
+      z-index: 3;
+    }
+  }
+  & .is-active{
+    color: $mercariRed;
+    font-weight: bold;
+    &:not(:first-child){
+      &:after{
+        content: "";
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: -2px;
+        left: -50%;
+        z-index: 2;
+        border-bottom: 2px solid $mercariRed;
+      }
+    }
+    &:last-child{
+      &:after{
+        width: 200%;
+        left: -100%;
+      }
+    }
+    &:before{
+      background-color: $mercariRed;
+    }
+  }
+}
