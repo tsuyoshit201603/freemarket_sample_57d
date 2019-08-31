@@ -1,0 +1,88 @@
+.identification {
+  width: 700px;
+  height: 1240px;
+  background-color: #fff;
+  color: $mercariBlack;
+  font-size: 14px;
+  &__head {
+    font-size: 24px;
+    padding: 8px 24px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid $backColor;
+  }
+  &__body {
+    width: 572px;
+    height: 1029px;
+    padding: 64px;
+    &__link {
+      text-decoration: none;
+    }
+    &__upload {
+      text-align: right;
+      margin-top: 8px;
+      color: $newRegistrationBlue;
+    }
+    &__form {
+      margin-top: 40px;
+      &__wrap {
+        width: 100%;
+        position: relative;
+        &__icon {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          line-height: 46px;
+          color: #888;
+          font-size: 35px;
+        }
+      }
+      &__label {
+        font-weight: 700;
+        &__arbitrary {
+          @include arbitrary;
+        }
+      }
+      &__data {
+        @include reset_form;
+        padding-left: 16px;
+        margin-top: 8px;
+        height: 48px;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        &--select {
+          width: calc(100% + 16px);
+        }
+      }
+      &__info {
+        margin-top: 8px;
+      }
+    }
+    &__btn {
+      width: 588px;
+      height: 48px;
+      background-color: $mercariRed;
+      text-align: center;
+      color: #fff;
+      line-height: 48px;
+      margin-top: 40px;
+    }
+    &__reg {
+      text-align: right;
+      margin-top: 40px;
+      color: $newRegistrationBlue;
+    }
+  }
+}
+
+#identification_prefecture_id {
+  @include reset_form;
+  padding-left: 16px;
+  margin-top: 8px;
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: calc(100% + 16px);
+}
