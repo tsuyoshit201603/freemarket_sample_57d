@@ -1,0 +1,81 @@
+.contents__outline
+  = render "shared/side"
+  .identification
+    %h2.identification__head
+      本人情報の登録
+    .identification__body
+      %p
+        お客さまの本人情報をご登録ください。
+      %p
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      %br
+      = link_to user_identifications_path, class: "identification__body__link" do
+        .identification__body__upload
+          本人確認書類のアップロードについて>
+      .identification__body__form
+        %p.identification__body__form__label
+          お名前
+        %p.identification__body__form__info
+          メルカリ太郎
+      .identification__body__form
+        %p.identification__body__form__label
+          お名前カナ
+        %p.identification__body__form__info
+          メルカリタロウ
+      .identification__body__form
+        %p.identification__body__form__label
+          生年月日
+        %p.identification__body__form__info
+          2000/10/10
+      .identification__body__form
+        .identification__body__form__wrap
+          %p.identification__body__form__label
+            郵便番号
+            %span.identification__body__form__label__arbitrary
+              任意
+        .identification__body__form__wrap
+          %input{class: "identification__body__form__data", placeholder: "例）1234567"}
+      .identification__body__form
+        .identification__body__form__wrap
+          %p.identification__body__form__label
+            都道府県
+            %span.identification__body__form__label__arbitrary
+              任意
+        .identification__body__form__wrap
+          = form_for(@identification, url: root_path) do |f|
+            =fa_icon "angle-down", class: "identification__body__form__wrap__icon"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+      .identification__body__form
+        .identification__body__form__wrap
+          %p.identification__body__form__label
+            市区町村
+            %span.identification__body__form__label__arbitrary
+              任意
+        .identification__body__form__wrap
+          %input{class: "identification__body__form__data", placeholder: "例）横浜市緑区"}
+      .identification__body__form
+        .identification__body__form__wrap
+          %p.identification__body__form__label
+            番地
+            %span.identification__body__form__label__arbitrary
+              任意
+        .identification__body__form__wrap
+          %input{ class: "identification__body__form__data", placeholder: "例）青山1-1-1"}
+      .identification__body__form
+        .identification__body__form__wrap
+          %p.identification__body__form__label
+            建物名
+            %span.identification__body__form__label__arbitrary
+              任意
+        .identification__body__form__wrap
+          %input{ class: "identification__body__form__data", placeholder: "例）柳ビル103"}
+      = link_to user_identifications_path, class: "identification__body__link" do
+        .identification__body__btn
+          登録する
+      = link_to user_identifications_path, class: "identification__body__link" do
+        .identification__body__reg
+          本人情報の登録について>
+.contents__btn
+  = link_to root_path do
+    %div 出品
+    =fa_icon "camera" , class: "contents__btn__camera"
