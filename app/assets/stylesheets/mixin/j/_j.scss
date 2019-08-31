@@ -58,7 +58,7 @@
 @mixin required {
   background-color: $mercariRed;
   font-size: 12px;
-  padding: 2px 4px;
+  padding: 3px 4px;
   margin-left: 8px;
   color: #fff;
   border-radius: 2px;
@@ -66,19 +66,17 @@
 }
 
 // 入力フォーム用
-@mixin mercariForm {
-  @include reset_form;
-  width: 343px;
-  height: 48px;
-  border: solid 1px #b4b4b4;
+@mixin mercariForm($height: 48px, $width: 343px) {
+  width: $width;
+  height: $height;
+  border: solid 1px #a89c9c;
   border-radius: 5px;
-  &::placeholder {
-    padding-left: 10px;
-  }
+  padding-left: 10px;
   &:focus{
     border: solid 1px $newRegistrationBlue;
   }
 }
+
 // メルカリのリンク
 @mixin mercariLink($color:$newRegistrationBlue){
   & a{
