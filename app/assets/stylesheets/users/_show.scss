@@ -36,7 +36,177 @@
     }
     &__mypage{
       width: 700px;
+      &__top{
+        @include size(200px,700px);
+        position: relative;
+        &__inner{
+          position: absolute;
+          top: 30%;
+          left: 56%;
+          transform: translate(0, -50%);
+          text-align: center;
+          color: #333;
+          &  div{
+            margin: 4px 0 0;
+            font-size: 14px;
+          }
+          &__icon{
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius: 50%;
+          }
+          &__count{
+            &  span{
+              margin: 0 8px 0 8px;
+            }
+          }
+        }
+      }
+      &__midle{
+        height: 625px;
+        background: #fff;
+        &__tab{
+          background: #eee;
+          display: flex;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          font-weight: bold;
+          &__left{
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+          }
+          &__right{
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+          }
+        }
+        &__contents{
+          &  a{
+            @include reset_a-tag(#333);
+          }
+          &__left{
+            &__content{
+              min-height: 80px;
+              padding: 16px;
+              color: #333;
+              display: flex;
+              position: relative;
+              border-bottom: 0.1px solid #eee;
+              &__image{
+                width: 48px;
+                height: 48px;
+                position: absolute;
+              }
+              &__textbox{
+                margin: 0 40px 0 68px;
+                &__time{
+                  color: #888888;
+                }
+              }
+              &__icon{
+                position: absolute;
+                top: 50%;
+                right:0;
+                right: 16px;
+                transform: translate(0, -50%);
+              }
+            }
+          }
+          &__right{
+            &__content{
+              min-height: 80px;
+              padding: 16px;
+              color: #333;
+              display: flex;
+              position: relative;
+              &__image{
+                width: 48px;
+                height: 48px;
+                position: absolute;
+              }
+              &__textbox{
+                margin: 0 40px 0 68px;
+                &__time{
+                  color: #888888;
+                }
+              }
+              &__icon{
+                position: absolute;
+                top: 50%;
+                right:0;
+                right: 16px;
+                transform: translate(0, -50%);
+              }
+            }
+          }
+          &__down{
+            margin: 16px;
+            text-align: center;
+            line-height: 56px;
+            background: #eee;
+          }
+        }    
+      }
+      &__down{
+        margin: 40px 0 0;
+        background: #fff;
+        height: 420px;
+        &__head{
+          height: 72px;
+          padding: 0 16px;
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+        }
+        &__tab{
+          background: #eee;
+          display: flex;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          font-weight: bold;
+          &__left{
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+          }
+          &__right{
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+          }
+        }
+        &__left{
+          &__contents{
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            &__image{
+              background-position: center 40px;
+              margin-top: 40px;
+            }
+          }
+        }
+        &__right{
+          &__contents{
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            &__image{
+              background-position: center 40px;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
     }
   }
 }
 
+.active{
+  background: #fff;  
+  border-top: 2px solid #ea352d;        
+}
