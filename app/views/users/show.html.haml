@@ -1,3 +1,78 @@
 .contents__outline
   = render "shared/side"
   .contents__outline__mypage
+    .contents__outline__mypage__top
+      = image_tag("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?716030", class: "contents__outline__mypage__top__image")
+    = link_to root_path do
+      .contents__outline__mypage__top__inner
+        = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "contents__outline__mypage__top__inner__icon" , width: "60", height: "60")
+        %div UserA
+        .contents__outline__mypage__top__inner__count
+          %span 評価 0
+          %span 出品数 0
+    .contents__outline__mypage__midle
+      .contents__outline__mypage__midle__tab
+        .contents__outline__mypage__midle__tab__left
+          お知らせ
+        .contents__outline__mypage__midle__tab__right
+          やることリスト
+      .contents__outline__mypage__midle__contents
+        = link_to root_path do
+          .contents__outline__mypage__midle__contents__left
+            .contents__outline__mypage__midle__contents__left__content
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "contents__outline__mypage__midle__contents__left__content__image")
+              .contents__outline__mypage__midle__contents__left__content__textbox
+                3日後、10%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .contents__outline__mypage__midle__contents__left__content__textbox__time
+                  = fa_icon "history" , class: "contents__outline__mypage__midle__contents__left__content__textbox__time__icon"
+                  %span １日前
+              = fa_icon "chevron-right" , class: "contents__outline__mypage__midle__contents__left__content__icon"
+            .contents__outline__mypage__midle__contents__left__content
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "contents__outline__mypage__midle__contents__left__content__image")
+              .contents__outline__mypage__midle__contents__left__content__textbox
+                3日後、10%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .contents__outline__mypage__midle__contents__left__content__textbox__time
+                  = fa_icon "history" , class: "contents__outline__mypage__midle__contents__left__content__textbox__time__icon"
+                  %span １日前
+              = fa_icon "chevron-right" , class: "contents__outline__mypage__midle__contents__left__content__icon"
+            .contents__outline__mypage__midle__contents__left__content
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "contents__outline__mypage__midle__contents__left__content__image")
+              .contents__outline__mypage__midle__contents__left__content__textbox
+                3日後、10%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .contents__outline__mypage__midle__contents__left__content__textbox__time
+                  = fa_icon "history" , class: "contents__outline__mypage__midle__contents__left__content__textbox__time__icon"
+                  %span １日前
+              = fa_icon "chevron-right" , class: "contents__outline__mypage__midle__contents__left__content__icon"
+            .contents__outline__mypage__midle__contents__left__content
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "contents__outline__mypage__midle__contents__left__content__image")
+              .contents__outline__mypage__midle__contents__left__content__textbox
+                3日後、10%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .contents__outline__mypage__midle__contents__left__content__textbox__time
+                  = fa_icon "history" , class: "contents__outline__mypage__midle__contents__left__content__textbox__time__icon"
+                  %span １日前
+              = fa_icon "chevron-right" , class: "contents__outline__mypage__midle__contents__left__content__icon"
+          .contents__outline__mypage__midle__contents__right
+            .contents__outline__mypage__midle__contents__right__content
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "contents__outline__mypage__midle__contents__right__content__image")
+              .contents__outline__mypage__midle__contents__right__content__textbox
+                ご登録のメールアドレスに認証メールを送りました。メールに記載のURLをクリックして、メールアドレスを認証してください。
+                .contents__outline__mypage__midle__contents__right__content__textbox__time
+                  = fa_icon "history" , class: "contents__outline__mypage__midle__contents__right__content__textbox__time__icon"
+                  %span １日前
+              = fa_icon "chevron-right" , class: "contents__outline__mypage__midle__contents__right__content__icon"
+          .contents__outline__mypage__midle__contents__down
+            一覧をみる
+    .contents__outline__mypage__down
+      .contents__outline__mypage__down__head
+        購入した商品
+      .contents__outline__mypage__down__tab
+        .contents__outline__mypage__down__tab__left
+          取引中
+        .contents__outline__mypage__down__tab__right
+          過去の取引
+      .contents__outline__mypage__down__left__contents
+        = image_tag("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?716030" , class:"contents__outline__mypage__down__left__contents__image", widht:"78px",height:"85px")
+        %div 取引中の商品がありません
+      .contents__outline__mypage__down__right__contents
+        = image_tag("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?716030", class:"contents__outline__mypage__down__right__contents__image", widht:"78px",height:"85px")
+        %div 過去に取引した商品がありません
