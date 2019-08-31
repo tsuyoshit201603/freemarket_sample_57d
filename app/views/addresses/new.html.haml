@@ -1,0 +1,47 @@
+.addressSignup
+  .addressSignup__top
+    住所入力
+  .addressSignup__form
+    .addressSignup__form__margin
+      .addressSignup__form__margin__input
+        %span.label
+          郵便番号
+        %span.sticker
+          必須
+        %input{placeholder:"例）123-4567"}
+      .addressSignup__form__margin__input
+        %span.label
+          都道府県
+        %span.sticker
+          必須
+        = form_for(@prefectures, url: root_path) do |f|
+          .addressSignup__form__margin__input__select
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+            = fa_icon "chevron-down"
+      .addressSignup__form__margin__input
+        %span.label
+          市区町村
+        %span.sticker
+          必須
+        %input{placeholder:"例）横浜市緑区"}
+      .addressSignup__form__margin__input
+        %span.label
+          番地
+        %span.sticker
+          必須
+        %input{placeholder:"例）青山1-1-1"}
+      .addressSignup__form__margin__input
+        %span.label
+          建物名
+        %span.sticker.sticker--non
+          任意
+        %input{placeholder:"例）柳ビル103"}
+      .addressSignup__form__margin__input
+        %span.label
+          電話
+        %span.sticker.sticker--non
+          任意
+        %input{placeholder:"例）090123456789"}
+      = link_to new_paying_path do
+        .addressSignup__form__margin__button
+          次へ進む
