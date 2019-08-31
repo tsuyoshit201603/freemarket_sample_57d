@@ -1,49 +1,76 @@
-%h2 会員情報入力
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname, "ニックネーム"
-    %br/
-    = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
-  .field
-    = f.label :email, "メールアドレス"
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-  .field
-    = f.label :password, "パスワード"
-    %br/
-    = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
-  .field
-    = f.label :password_confirmation,"パスワード (確認)"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
-  .context
-    %h2 本人確認
-    .info
-      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-  .field
-    = f.label :name, "お名前(全角)"
-    %br
-    = f.text_field :family_name_kanji, placeholder: "例) 山田"
-    = f.text_field :first_name_kanji, placeholder: "例) 彩"
-  .field
-    = f.label :name, "お名前カナ(全角) "
-    %br
-    = f.text_field :family_name_cana, placeholder: "例) ヤマダ"
-    = f.text_field :first_name_cana, placeholder: "例) アヤ"
+.deviseSignup
+  %h2.deviseSignup__top 会員情報入力
+  .deviseSignup__form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .deviseSignup__form__area
+        .field
+          = f.label :nickname, "ニックネーム",class: "deviseSignup__label"
+          = f.label :nickname, "必須",class: "deviseSignup__required"
+          %br/
+          = f.text_field :nickname, autofocus: true, placeholder: "例）メルカリ太郎"
+        .field
+          = f.label :email, "メールアドレス",class: "deviseSignup__label"
+          = f.label :email, "必須",class: "deviseSignup__required"
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+        .field
+          = f.label :password, "パスワード",class: "deviseSignup__label"
+          = f.label :password, "必須",class: "deviseSignup__required"
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
+        .field
+          = f.label :password_confirmation,"パスワード (確認)",class: "deviseSignup__label"
+          = f.label :password_confirmation, "必須",class: "deviseSignup__required"
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
+        .deviseSignup__context
+          本人確認
+          .deviseSignup__context__info
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .field.field--half
+          = f.label :name, "お名前(全角)",class: "deviseSignup__label"
+          = f.label :name, "必須",class: "deviseSignup__required"
+          %br
+          .field--half__flex
+            = f.text_field :family_name_kanji, placeholder: "例) 山田"
+            = f.text_field :first_name_kanji, placeholder: "例) 彩"
+        .field.field--half
+          = f.label :name, "お名前カナ(全角) ",class: "deviseSignup__label"
+          = f.label :name, "必須",class: "deviseSignup__required"
+          %br
+          .field--half__flex
+            = f.text_field :family_name_cana, placeholder: "例) ヤマダ"
+            = f.text_field :first_name_cana, placeholder: "例) アヤ"
 
-  .field
-    = f.label :birthday, "生年月日"
-    %br
-    = f.select :year, [*1900..2019].reverse, prompt:"--"
-    年
-    = f.select :month, [*1..12], prompt:"--"
-    月
-    = f.select :day, [*1..31], prompt:"--"
-    日
-  .info
-    ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-  .info
-    「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-  .actions
-    = f.submit "次に進む"
+        .field.field--third
+          = f.label :birthday, "生年月日",class: "deviseSignup__label"
+          = f.label :birthday, "必須",class: "deviseSignup__required"
+          %br
+          .field--third__flex
+            .field--third__flex__birthday
+              = f.select :year, [*1900..2019].reverse, prompt: "--"
+              = fa_icon "chevron-down"
+            年
+            .field--third__flex__birthday
+              = f.select :month, [*1..12], prompt: "--", class: "field--third__flex__month"
+              = fa_icon "chevron-down"
+            月
+            .field--third__flex__birthday
+              = f.select :day, [*1..31], prompt: "--", class: "field--third__flex__day"
+              = fa_icon "chevron-down"
+            日
+        .deviseSignup__alert
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .deviseSignup__recaptcha
+          - if ENV["RECAPTCHA_SITE_KEY"].present?
+            = recaptcha_tags
+        .deviseSignup__terms
+          「次へ進む」のボタンを押すことにより、
+          = link_to "利用規約"
+          に同意したものとみなします
+        .deviseSignup__submit
+          = f.submit "次に進む"
+        .deviseSignup__info
+          = link_to "本人情報の登録について"
+          = fa_icon "chevron-right"
