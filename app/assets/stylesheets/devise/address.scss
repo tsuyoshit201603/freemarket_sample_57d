@@ -1,0 +1,49 @@
+.addressSignup{
+  width: 700px;
+  height: 870px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  &__top{
+    @include mercariTitle;
+  }
+  &__form{
+    width: 400px;
+    margin: 0 auto;
+    &__margin{
+      width: 340px;
+      margin: 0 auto;
+      &__input{
+        margin-top: 32px;
+        & .label{
+          @include font_data($mercariBlack, 14px, bold);
+        }
+        & .sticker{
+          @include required;
+          &--non{
+            @include arbitrary;
+          }
+        }
+        & input{
+          @include reset-form;
+          @include mercariForm;
+        }
+        &__select{
+          position: relative;
+          @include reset-form;
+          & .fa{
+            @include absoluteCenter($left: 95%);
+            color: gray;
+          }
+        }
+      }
+      &__button{
+        @include buttonParent(50px,343px);
+        margin-top: 32px;
+        background-color: $mercariRed;
+      }
+      & a{
+        @include reset_a-tag(#FFFFFF);
+      }
+    }
+  }
+}
