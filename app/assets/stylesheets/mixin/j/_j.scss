@@ -79,3 +79,13 @@
     border: solid 1px $newRegistrationBlue;
   }
 }
+// メルカリのリンク
+@mixin mercariLink($color:$newRegistrationBlue){
+  & a{
+    @include reset_a-tag($color);
+  }
+  &:hover{
+    text-decoration:underline;
+  }
+}
+
