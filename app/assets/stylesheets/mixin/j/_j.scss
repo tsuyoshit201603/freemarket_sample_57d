@@ -89,3 +89,9 @@
   }
 }
 
+// メルカリ入力フォームのタイトル
+@mixin mercariTitle{
+  @include font_data($mercariBlack,22px,bold);
+  @include text_center(95px,center);
+  border-bottom: solid 1px $backColor;
+}
