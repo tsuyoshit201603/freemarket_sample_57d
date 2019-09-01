@@ -1,0 +1,28 @@
+.contents{
+  box-sizing: border-box;
+  background: #f5f5f5;
+  &__outline{
+    @include size(1350px,1020px);
+    margin: 40px auto 0;
+    display: flex;
+    &__right{
+      width: 700px;
+      &__inner{
+        background: #fff;
+        padding: 64px;
+        margin: 0 auto;
+        &  a{
+          @include reset_a-tag(#fff);
+        }
+        &__input{
+          @include size(50px,320px);
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          text-align: center;
+          line-height: 52px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
