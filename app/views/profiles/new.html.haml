@@ -1,0 +1,13 @@
+.contents__outline
+  = render 'shared/side.html.haml'
+  .contents__outline__profile
+    .contents__outline__profile__top
+      プロフィール
+    .contents__outline__profile__icon
+      = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "contents__outline__profile__icon__image")
+      %input.contents__outline__profile__icon__nickname{type: "text", name: "nickname", placeholder: "例)AYA☆セール中"}/
+    .contents__outline__profile__main
+      %textarea.contents__outline__profile__main__text{placeholder: '例)こんにちわ☆ご覧いただきありがとうございます！かわいいものやきれいめオフィス&#13;&#10;カジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'.html_safe}
+      .contents__outline__profile__main__btn
+        変更する
+= render "shared/exhibitbtn"
