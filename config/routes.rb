@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
+    resources :profiles, only:[:new]
   end
   resources :signups, only:[:index]
   resources :finishings, only:[:index]
