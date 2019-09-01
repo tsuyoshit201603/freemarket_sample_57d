@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
-    resources :logouts, only:[:destroy]
   end
+  resources :logouts, only:[:destroy]
   resources :signups, only:[:index]
   resources :finishings, only:[:index]
   resources :telphones, only:[:new,:create]
