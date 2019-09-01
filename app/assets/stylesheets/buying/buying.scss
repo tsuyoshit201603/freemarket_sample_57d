@@ -1,0 +1,108 @@
+.buying{
+  width: 700px;
+  height: 750px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  .buyingPadding{
+    box-sizing: border-box;
+    padding: 24px 87.5px 35px;
+    border-bottom: solid 1px $backColor;
+  }
+  &__top{
+    @include mercariTitle(65px);
+  }
+  &__main{
+    width: 320px;
+    margin: 0 auto;
+    &__product{
+      display: flex;
+      &__image{
+        margin-right: 15px;
+        & img{
+          width: 64px;
+        }
+      }
+      &__title{
+        @include font_data($mercariBlack, 15px, bold);
+      }
+    }
+    &__cost{
+      display: flex;
+      justify-content: center;
+      height: 33px;
+      &__num{
+        @include font_data($mercariBlack,18px,bold);
+        margin-right:15px;
+        line-height: 33px;
+      }
+      &__way{
+        @include font_data($mercariBlack, 14px);
+        line-height: 33px;
+      }
+    }
+    &__points{
+      @include buttonParent($width: 320px);
+      margin-top: 20px;
+      background-color: rgb(194, 194, 194);
+      color: $mercariBlack;
+    }
+    &__allCost{
+      display: flex;
+      justify-content: space-between;
+      height: 60px;
+      &__label{
+        @include font_data($mercariBlack, 16px, bold);
+        line-height: 60px;
+      }
+      &__num{
+        @include font_data($mercariBlack, 28px, bold);
+        line-height: 60px;
+      }
+    }
+    &__button{
+      @include buttonParent($width: 320px);
+      background-color: $mercariRed;
+      color: #FFFFFF;
+    }
+  }
+  &__address{
+    width: 320px;
+    margin: 0 auto;
+    @include font_data($mercariBlack,14px);
+    &__label{
+      @include font_data($mercariBlack,14px,bold);
+    }
+    &__num{
+      @include font_data($mercariBlack,10px,bold);
+    }
+    &__change{
+      margin-top: 10px;
+      @include mercariLink;
+      text-align: right;
+    }
+  }
+  &__paying{
+    width: 320px;
+    margin: 0 auto;
+    @include font_data($mercariBlack,14px);
+    &__label{
+      @include font_data($mercariBlack,14px,bold);
+    }
+    &__image{
+      & img{
+        width: 30px;
+      }
+    }
+    &__num{
+      @include font_data($mercariBlack,10px,bold);
+    }
+    &__term{
+      @include font_data($mercariBlack,12px);
+    }
+    &__change{
+      margin-top: 10px;
+      @include mercariLink;
+      text-align: right;
+    }
+  }
+}

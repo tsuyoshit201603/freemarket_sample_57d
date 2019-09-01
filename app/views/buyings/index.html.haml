@@ -1,0 +1,52 @@
+.buying
+  .buying__top
+    購入内容の確認
+  .buyingPadding
+    .buying__main
+      .buying__main__product
+        .buying__main__product__image
+          = image_tag("https://static.mercdn.net/thumb/photos/m59992978524_1.jpg?1561704174")
+        .buying__main__product__title
+          ユーロ96予選 イタリア ナイキ 10番
+      .buying__main__cost
+        .buying__main__cost__num
+          ¥2,200
+        .buying__main__cost__way
+          送料込み
+      .buying__main__points
+        ポイントはありません
+      .buying__main__allCost
+        .buying__main__allCost__label
+          支払い金額
+        .buying__main__allCost__num
+          ¥2,200
+      .buying__main__button
+        購入する
+  .buyingPadding
+    .buying__address
+      .buying__address__label
+        配送先
+      .buying__address__num
+        〒150−0041
+      .buying__address__text
+        東京都渋谷区神南1丁目12−16アジアビル8F
+      .buying__address__name
+        株式会社div
+      .buying__address__change
+        = link_to do
+          変更する
+          = fa_icon "chevron-right"
+  .buyingPadding
+    .buying__paying
+      .buying__paying__label
+        支払い方法
+      .buying__paying__num
+        **********0909
+      .buying__paying__term
+        08/23
+      .buying__paying__image
+        = image_tag("https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2394192159")
+      .buying__paying__change
+        = link_to do
+          変更する
+          = fa_icon "chevron-right"
