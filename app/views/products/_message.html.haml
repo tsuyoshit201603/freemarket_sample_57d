@@ -1,0 +1,18 @@
+.details__messages__content__item
+  .details__messages__content__item__icon
+    = link_to root_path do
+      = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "40", class: "contents__header__inner__down__right__mypage__icon")
+  .details__messages__content__item__right
+    .details__messages__content__item__right__user
+      メルカリ太郎
+    .details__messages__content__item__right__message
+      .details__messages__content__item__right__message__top
+        メッセージです
+      .details__messages__content__item__right__message__bottom
+        .details__messages__content__item__right__message__bottom__clock
+          = fa_icon "clock-o"
+          %span 1日前
+        .details__messages__content__item__right__message__bottom__flag
+          = fa_icon "flag"
+      .details__messages__content__item__right__message__cursor
+        = fa_icon "mouse-pointer"

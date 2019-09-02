@@ -1,0 +1,306 @@
+.details {
+  &__content {
+    width: 620px;
+    height: 754px;
+    padding: 24px 40px 24px;
+    margin: 40px auto 0;
+    background-color: #fff;
+    &__title {
+      font-size: 24px;
+      text-align: center;
+      font-weight: bold;
+      color: $mercariBlack;
+    }
+    &__main {
+      display: flex;
+      margin-top: 16px;
+      &__table {
+        width: 300px;
+        height: 420px;
+        background-color: $backColor;
+        font-size: 14px;
+        color: $mercariBlack;
+        th {
+          background-color: #fafafa;
+          border: 1px solid #f5f5f5;
+        }
+        td {
+          background-color: #fff;
+          border: 1px solid #f5f5f5;
+        }
+        &__faces {
+          display: flex;
+          &__face {
+            margin: 5px 20px 0 0;
+            &__good {
+              font-size: 16px;
+              color: #ef5185;
+            }
+            &__normal {
+              font-size: 16px;
+              color: #fba993;
+            }
+            &__bad {
+              font-size: 16px;
+              color: #6ab5d8;
+            }
+          }
+        }
+        &__right {
+          text-decoration: none;
+          color: $newRegistrationBlue;
+        }
+        &__main {
+          height: 300px;
+          width: 300px;
+          vertical-align: bottom;
+        }
+        &__sub {
+          height: 60px;
+          width: 60px;
+          vertical-align: bottom;
+          padding: 0;
+          margin: 0 -3px;
+          position: relative;
+          left: 3px;
+          opacity: .4;
+        }
+      }
+      &__margin {
+        width: 20px;
+      }
+    }
+    &__prices {
+      width: 620px;
+      height: 50px;
+      margin-top: 24px;
+      text-align: center;
+      color: $mercariBlack;
+      &__price {
+        font-weight: bold;
+        font-size: 40px;
+        margin-right: 16px;
+      }
+      &__tax {
+        font-size: 10px;
+      }
+      &__postage {
+        font-size: 16px;
+      }
+    }
+    &__comment {
+      height: 54px;
+      width: 100%;
+      padding-top: 32px;
+      color: $mercariBlack;
+      font-size: 18px;
+    }
+    &__bottom {
+      display: flex;
+      margin-top: 16px;
+      &__left {
+        display: flex;
+        color: $mercariBlack;
+        height: 33px;
+        font-size: 14px;
+      &__like {
+        padding: 8px 16px;
+        background-color: $backColor;
+        border-radius: 40px;
+      }
+      &__report {
+        padding: 8px 16px;
+        margin-left: 16px;
+        background-color: $backColor;
+        border-radius: 40px;
+      }
+      }
+      &__right {
+        color: $newRegistrationBlue;
+        margin-left: auto;
+        padding: 8px 0 8px 16px;
+        font-size: 14px;
+        text-decoration: none;
+      }
+    }
+    &__buy {
+      display: block;
+      width: 620px;
+      height: 60px;
+      margin-top: 16px;
+      background-color: $mercariRed;
+      text-align: center;
+      &__btn {
+      color: #fff;
+      line-height: 60px;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      }
+    }
+  }
+  &__messages {
+    width: 700px;
+    height: 700px;
+    margin: 8px auto 0;
+    background-color: #fff;
+    &__content {
+      padding: 24px;
+      width: 652px;
+      height: 300px;
+      &__item {
+        display: flex;
+        &__icon {
+          height: 40px;
+        }
+        &__right {
+          &__user {
+            font-weight: bold;
+            font-size: 14px;
+            margin-left: 10px;
+          }
+          &__message {
+            padding: 16px;
+            margin-top: 14px;
+            width: 568px;
+            height: 72px;
+            border-radius: 15px;
+            background-color: #eef0f4;
+            position: relative;
+            &__top {
+              font-size: 14px;
+              height: 42px;
+              color: $mercariBlack;
+            }
+            &__bottom {
+              font-size: 14px;
+              margin-top :8px;
+              color :#aaa;
+              display: flex;
+              &__flag {
+                margin-left: auto;
+              }
+            }
+            &__cursor {
+              position: absolute;
+              top: -5px;
+              left: 0;
+              color: #eef0f4;
+            }
+          }
+        }
+      }
+      &__margin {
+        height: 40px;
+        width: 100%;
+      }
+      &__top {
+        padding: 8px;
+        font-size: 14px;
+        background-color: #fff6de;
+      }
+      &__mid {
+        margin-top: 8px;
+        height: 104px;
+        width: 654px;
+        &__form {
+          height: 82px;
+          width: 632px;
+          padding: 10px;
+          border: solid 1px #ccc;
+        }
+      }
+      &__bottom {
+        margin-top: 8px;
+        height: 48px;
+        width: 100%;
+        text-align: center;
+        line-height: 48px;
+        background-color: #aaa;
+        color: $backColor;
+        font-size: 14px;
+        text-decoration: none;
+      }
+    }
+  }
+  &__page {
+    width: 700px;
+    height: 14px;
+    margin: 24px auto 0;
+    display: flex;
+    &__pre {
+      text-decoration: none;
+      color: $newRegistrationBlue;
+    }
+    &__next {
+      margin-left: auto;
+      text-decoration: none;
+      color: $newRegistrationBlue;
+    }
+  }
+  &__sns {
+    width: 700px;
+    height: 82px;
+    background-color: #fff;
+    padding: 32px 0 24px;
+    margin: 24px auto;
+    &__box {
+      height: 82px;
+      text-align: center;
+      line-height: 120px;
+      &__facebook {
+        font-size: 46px;
+        color: $facebookBlue;
+        margin-right: 5px;
+      }
+      &__twitter {
+        font-size: 46px;
+        color: $newRegistrationBlue;
+        margin-right: 5px;
+      }
+      &__pinterest {
+        font-size: 46px;
+        color: #aa262a;
+      }
+    }
+  }
+  &__products {
+    width: 700px;
+    height: 1500px;
+    margin: 0 auto;
+    &__name {
+      font-size: 22px;
+      color: $newRegistrationBlue;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    &__wrap {
+      display: flex;
+      margin-bottom: 20px;
+    }
+  }
+  &__bottom {
+    border-top: 1px solid #eee;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    &__contents {
+      margin: 0 auto;
+      width: 70%;
+      color: $mercariBlack;
+      font-size: 14px;
+      &__top {
+        text-decoration: none;
+      }
+      .fa {
+        font-weight: bold;
+        margin: 0 8px;
+        color: #888;
+        font-size: 18px;
+      }
+      &__name {
+        font-weight: bold;
+      }
+    }
+  }
+}

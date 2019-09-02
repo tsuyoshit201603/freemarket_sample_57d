@@ -71,6 +71,7 @@
       .contents__outline__side__nav__list__text
         電話番号の確認
         =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
+
       = link_to logout_path(current_user.id), method: :delete do
         .contents__outline__side__nav__list__text
           ログアウト

@@ -1,0 +1,148 @@
+.details__content
+  %h1.details__content__title
+    サンダル
+  .details__content__main
+    .details__content__main__table
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__main"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+    .details__content__main__margin
+    .details__content__main__table
+      %table.details__content__main__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                メルカリ太郎
+              .details__content__main__table__faces
+                .details__content__main__table__faces__face
+                  =fa_icon "smile-o", class: "details__content__main__table__faces__face__good"
+                  200
+                .details__content__main__table__faces__face
+                  =fa_icon "meh-o	", class: "details__content__main__table__faces__face__normal"
+                  10
+                .details__content__main__table__faces__face
+                  =fa_icon "frown-o", class: "details__content__main__table__faces__face__bad"
+                  0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to root_path, class: "details__content__main__table__right" do
+                レディース
+              %br
+              = link_to root_path , class: "details__content__main__table__right" do
+                >靴
+              %br
+              = link_to root_path , class: "details__content__main__table__right" do
+                >サンダル
+          %tr
+            %th ブランド
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                シャネル
+          %tr
+            %th 商品のサイズ
+            %td M
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td 未定
+          %tr
+            %th 配送元地域
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                大阪府
+          %tr
+            %th 発送日の目安
+            %td 1~2日で発送
+  .details__content__prices
+    %span.details__content__prices__price
+      ¥12,000
+    %span.details__content__prices__tax
+      (税込)
+    %span.details__content__prices__postage
+      送料込み
+  = link_to root_path, class: "details__content__buy__btn" do
+    .details__content__buy
+      購入画面に進む
+  .details__content__comment
+    %p
+      とても良いサンダルです！
+    %p
+      とても良いサンダルです！
+  .details__content__bottom
+    .details__content__bottom__left
+      .details__content__bottom__left__like
+        = fa_icon "heart"
+        いいね! 8
+      .details__content__bottom__left__report
+        = fa_icon "flag"
+        不適切な商品の報告
+    = link_to root_path, class: "details__content__bottom__right" do
+      .details__content__bottom__right
+        = fa_icon "lock"
+        あんしん・あんぜんへの取り組み
+.details__messages
+  .details__messages__content
+    = render "products/message"
+    .details__messages__content__margin
+    = render "products/message"
+  .details__messages__content
+    .details__messages__content__top
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .details__messages__content__mid
+      %textarea{class: "details__messages__content__mid__form"}
+      = link_to root_path, class: "details__messages__content__bottom" do
+        .details__messages__content__bottom
+          コメントする
+.details__page
+  = link_to root_path, class: "details__page__pre" do
+    .details__page__pre
+      <サンダル1
+  = link_to root_path, class: "details__page__next" do
+    .details__page__next
+      サンダル3>
+.details__sns
+  .details__sns__box
+    = link_to "https://www.facebook.com/" do
+      = fa_icon "facebook-square", class: "details__sns__box__facebook"
+    = link_to "https://twitter.com/home?lang=ja" do
+      = fa_icon "twitter-square", class: "details__sns__box__twitter"
+    = link_to "https://www.pinterest.jp/" do
+      = fa_icon "pinterest-square", class: "details__sns__box__pinterest"
+.details__products
+  = link_to root_path, class: "details__products__name" do
+    .details__products__name
+      メルカリ太郎さんのその他の出品
+  .details__products__wrap
+    - for i in 1..3
+      = render "products/product"
+  .details__products__wrap
+    - for i in 1..3
+      = render "products/product"
+  = link_to root_path, class: "details__products__name" do
+    .details__products__name
+      サンダル その他の出品
+  .details__products__wrap
+    - for i in 1..3
+      = render "products/product"
+  .details__products__wrap
+    - for i in 1..3
+      = render "products/product"
+.details__bottom
+  .details__bottom__contents
+    = link_to root_path, class: "details__bottom__contents__top" do
+      メルカリ
+    = fa_icon "angle-right"
+    %span.details__bottom__contents__name
+      サンダル
