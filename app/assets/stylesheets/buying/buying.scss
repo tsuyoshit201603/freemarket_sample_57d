@@ -62,7 +62,9 @@
     &__button{
       @include buttonParent($width: 320px);
       background-color: $mercariRed;
-      color: #FFFFFF;
+    }
+    & a{
+      @include reset_a-tag(#FFFFFF);
     }
   }
   &__address{
