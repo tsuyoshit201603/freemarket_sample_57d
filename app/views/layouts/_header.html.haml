@@ -17,18 +17,27 @@
             =fa_icon "tag" , class: "contents__header__inner__down__left__tag__icon"
             ブランドから探す
       .contents__header__inner__down__right
-        .contents__header__inner__down__right__notice
-          = link_to destroy_user_session_path , method: :delete do
-            =fa_icon "bell" , class: "contents__header__inner__down__right__notice__icon"
-            お知らせ
-        .contents__header__inner__down__right__todo
-          = link_to new_user_registration_path do
-            =fa_icon "check" , class: "contents__header__inner__down__right__todo__icon"
-            やることリスト
-        .contents__header__inner__down__right__mypage
-          -if user_signed_in?
+        -if user_signed_in?
+          .contents__header__inner__down__right__notice
+            = link_to destroy_user_session_path , method: :delete do
+              =fa_icon "bell" , class: "contents__header__inner__down__right__notice__icon"
+              お知らせ
+          .contents__header__inner__down__right__todo
+            = link_to new_user_registration_path do
+              =fa_icon "check" , class: "contents__header__inner__down__right__todo__icon"
+              やることリスト
+          .contents__header__inner__down__right__mypage
             = link_to user_path(current_user) do
               = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "contents__header__inner__down__right__mypage__icon")
               .contents__header__inner__down__right__mypage__text
                 マイページ
+        -else
+          .contents__header__inner__down__right__new
+            = link_to new_user_registration_path do
+              .contents__header__inner__down__right__new__context
+                新規会員登録
+          .contents__header__inner__down__right__login
+            = link_to user_session_path, method: :post do
+              .contents__header__inner__down__right__login__context
+                ログイン
 
