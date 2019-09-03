@@ -1,7 +1,7 @@
 .contents__outline__side
   .contents__outline__side__nav
     .contents__outline__side__nav__list
-      = link_to new_user_profile_path(current_user.id) do
+      = link_to user_path(current_user.id) do
         .contents__outline__side__nav__list__text
           マイページ
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
@@ -83,7 +83,7 @@
         .contents__outline__side__nav__list__text
           メール/パスワード
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
-      = link_to new_user_profile_path(current_user.id) do
+      = link_to user_identifications_path(current_user.id) do
         .contents__outline__side__nav__list__text
           本人情報
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
