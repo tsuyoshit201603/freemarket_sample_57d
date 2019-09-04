@@ -58,6 +58,9 @@
         @include reset_form();
         line-height: 48px;
         margin-left: 10px;
+        &:-webkit-autofill {
+          transition: background-color 50000s ease-in-out 0s;
+        }
       }
       width: 328px;
       height: 48px;
@@ -73,6 +76,9 @@
         line-height: 48px;
         margin-left: 10px;
         color: white;
+        &:-webkit-autofill {
+          transition: background-color 50000s ease-in-out 0s;
+        }
       }
       font-size: 14px;
       width: 328px;
