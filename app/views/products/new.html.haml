@@ -1,0 +1,105 @@
+.main
+  .main__product
+    .main__product__top
+      商品の情報を入力
+    .main__product__item
+      .main__product__item__h1
+        出品画像 
+        %span 必須
+      .main__product__item__h2
+        最大10枚までアップロードできます
+      .main__product__item__h3
+        %label{name: "image"}
+          %input{type: "file", name:"image",accept: "image/*", multiple_name: "image", class: "main__product__item__h3-image", style: "display: none;"}
+          .main__product__item__h3-image__p
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード
+    .main__product__name-explain
+      .main__product__name-explain__h1
+        商品名
+        %span 必須
+      %input.main__product__name-explain__h1-text{type: "text", placeholder: "商品名（必須 40文字まで)"}/
+      .main__product__name-explain__h2
+        商品の説明
+        %span 必須
+      %textarea.main__product__name-explain__h2-text{placeholder: '商品の説明 (必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）&#13;&#10;2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe}
+    .main__product__details
+      .main__product__details__h1
+        商品の詳細
+      .main__product__details__sell-box
+        .main__product__details__h2
+          カテゴリー
+          %span 必須
+        %select.main__product__details__h2-choice
+        = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a" 
+        .main__product__details__h3
+          商品の状態
+          %span 必須
+        %select.main__product__details__h3-choice
+          %option{value: "---"} ---
+          %option{value: "1"} 新品、未使用
+          %option{value: "2"} 未使用に近い
+          %option{value: "3"} 目立った傷や汚れなし
+          %option{value: "4"} やや傷や汚れあり
+          %option{value: "5"} 傷や汚れあり
+          %option{value: "6"} 全体的に状態が悪い
+        = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-b" 
+    .main__product__delivery
+      .main__product__delivery__h1
+        配送について
+      .main__product__delivery__sell-box
+        .main__product__delivery__h2
+          配送料の負担
+          %span 必須
+        %select.main__product__delivery__h2-choice
+          %option{value: "---"} ---
+          %option{value: "2"} 送料込み(出品者負担)
+          %option{value: "1"} 着払い(購入者負担)
+        = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-c"
+        .main__product__delivery__h3
+          発送元の地域
+          %span 必須
+        .main__product__delivery__h3-choice
+          = form_for(@identification, url: root_path) do |f|
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-d"
+        .main__product__delivery__h4
+          発送までの日数
+          %span 必須
+        %select.main__product__delivery__h4-choice
+          %option{value: "---"} ---
+          %option{value: "1"} 1~2日で発送
+          %option{value: "2"} 2~3日で発送
+          %option{value: "3"} 4~7日で発送
+        = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-e"
+    .main__product__price
+      .main__product__price__h1
+        販売価格(300~9,999,999)
+      .main__product__price__sell-box
+        .main__product__price__h2
+          価格
+          %span 必須
+          %input.main__product__price__h2-choice{type: "text", placeholder: "例) 300"}/
+        .main__product__price__h3
+          販売手数料 (10%)-
+        .main__product__price__h4
+          販売利益
+    .main__product__btn-box
+      .main__product__btn-box__p
+        %p 
+          %span 禁止されている出品
+          、
+          %span 行為
+          を必ずご確認ください。
+        %p
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          %span 偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+        %p 
+          また、出品をもちまして
+          %span 加盟店規約に
+          同意したことになります。
+      .main__product__btn-box__exhibit
+        出品する
+      .main__product__btn-box__return
+        もどる
