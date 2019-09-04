@@ -9,21 +9,21 @@
     .contents__header__inner__down
       .contents__header__inner__down__left
         .contents__header__inner__down__left__category
-          = link_to product_buyings_path(1) do
+          = link_to root_path  do
             =fa_icon "list" , class: "contents__header__inner__down__left__category__icon"
             カテゴリーから探す
         .contents__header__inner__down__left__tag
-          = link_to user_session_path , method: :post do
+          = link_to root_path do
             =fa_icon "tag" , class: "contents__header__inner__down__left__tag__icon"
             ブランドから探す
       .contents__header__inner__down__right
         -if user_signed_in?
           .contents__header__inner__down__right__notice
-            = link_to destroy_user_session_path , method: :delete do
+            = link_to root_path do
               =fa_icon "bell" , class: "contents__header__inner__down__right__notice__icon"
               お知らせ
           .contents__header__inner__down__right__todo
-            = link_to new_user_registration_path do
+            = link_to root_path  do
               =fa_icon "check" , class: "contents__header__inner__down__right__todo__icon"
               やることリスト
           .contents__header__inner__down__right__mypage
