@@ -12,10 +12,13 @@
 
 
 @import "products/index";
+
 @import "products/new";
+@import "products/show";
 @import "users/show";
 @import "header";
 @import "footer";
+@import "logouts/destroy";
 
 @import "identifications/index";
 @import "profiles/profiles";
