@@ -105,6 +105,7 @@
 - has_many   :users_products, dependent: :destroy
 - has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
 - belongs_to :address
+- has_one :card
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -130,6 +131,14 @@
 |condition|string|null: false|
 ### Association
 - has_many :products
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
+### Association
+- belongs_to :user
 
 
 

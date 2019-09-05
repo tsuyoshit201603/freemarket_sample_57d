@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many   :users_products, dependent: :destroy
   has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
   belongs_to :address
+  has_one    :card
 
   def self.find_oauth(auth)
     uid = auth.uid
