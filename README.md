@@ -104,7 +104,7 @@
 - has_one :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
 - has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
-- belongs_to :address
+- has_one :address
 - has_one :card
 ## addressesテーブル
 |Column|Type|Options|
