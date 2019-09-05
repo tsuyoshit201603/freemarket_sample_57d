@@ -1,10 +1,18 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.devisePassword
+  .devisePassword__top
+    パスワードをお忘れの方
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,class: "devisePassword__form" }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .devisePassword__form__margin
+      .devisePassword__form__margin__email
+        = f.label "メールアドレス"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ご登録されたメールアドレス"
+      .devisePassword__form__margin__info
+        ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
+      .devisePassword__form__margin__recaptcha
+        - if ENV["RECAPTCHA_SITE_KEY"].present?
+          = recaptcha_tags
+      = link_to root_path do
+        .devisePassword__form__margin__submit
+          送信する

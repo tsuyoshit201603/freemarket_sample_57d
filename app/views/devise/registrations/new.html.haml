@@ -1,3 +1,4 @@
+- hidden = request.url.match("auth")? "hidden_field" : ""
 .deviseSignup
   %h2.deviseSignup__top 会員情報入力
   .deviseSignup__form
@@ -14,12 +15,12 @@
           = f.label :email, "必須",class: "deviseSignup__required"
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-        .field
+        .field{class:hidden}
           = f.label :password, "パスワード",class: "deviseSignup__label"
           = f.label :password, "必須",class: "deviseSignup__required"
           %br/
           = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上"
-        .field
+        .field{class:hidden}
           = f.label :password_confirmation,"パスワード (確認)",class: "deviseSignup__label"
           = f.label :password_confirmation, "必須",class: "deviseSignup__required"
           %br/
