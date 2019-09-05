@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_one :sns_credential, dependent: :destroy
   has_many   :users_products, dependent: :destroy
-  has_many   :products, through: :users_products, dependent: :destroy
+  has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
   belongs_to :address
 
   def self.find_oauth(auth)
