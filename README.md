@@ -24,8 +24,8 @@
 - belongs_to :shipping_charge
 - belongs_to :delivery_method
 - belongs_to :days_before_hipment
-- has_many   :users_products, dependent: :destroy
-- belongs_to :user
+- has_one    :users_product, dependent: :destroy
+- belongs_to :buyer, class_name: 'User', through: :users_products, dependent: :destroy
 - belongs_to :condition, dependent: :destroy
 - belongs_to_active_hash :prefecture
 ## picturesテーブル
@@ -103,7 +103,7 @@
 ### Association
 - has_one :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
-- has_many   :products, through: :users_products, dependent: :destroy
+- has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
 - belongs_to :address
 ## addressesテーブル
 |Column|Type|Options|
