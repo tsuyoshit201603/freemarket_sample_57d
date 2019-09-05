@@ -19,6 +19,7 @@
     margin: 0;
   }
   &__icon {
+    position: relative;
     padding: 72px 16px 24px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,10 +29,10 @@
       height: 60px;
       border-radius: 30px;
       position: absolute;
-      right: 46%;
+      right: 62%;
     }
     &__nickname {
-      right: 34%;
+      right: 30%;
       margin: 0 0 0 8px;
       vertical-align: middle;
       padding: 10px 16px 8px;
@@ -41,7 +42,7 @@
       line-height: 1.5;
       font-size: 16px;
       position: absolute;
-      top: 270px;
+      top: 80px;
     }
   }
   &__main {
