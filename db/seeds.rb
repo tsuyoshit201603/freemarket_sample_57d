@@ -3,7 +3,7 @@ Category.create!(
     {
       name: 'メンズ',
       ancestry: '2',
-    },
+    }
   ]
 )
 
@@ -11,7 +11,7 @@ Size.create!(
   [
     {
       size: 'S',
-    },
+    }
   ]
 )
 
@@ -19,7 +19,7 @@ Brand.create!(
   [
     {
       name: 'NIKE',
-    },
+    }
   ]
 )
 
@@ -27,7 +27,7 @@ CommodityCondition.create!(
   [
     {
       condition: '新品',
-    },
+    }
   ]
 )
 
@@ -35,7 +35,7 @@ ShippingCharge.create!(
   [
     {
       method: '送料込み',
-    },
+    }
   ]
 )
 
@@ -43,7 +43,7 @@ DeliveryMethod.create!(
   [
     {
       name: 'クロネコヤマト',
-    },
+    }
   ]
 )
 
@@ -51,7 +51,7 @@ DaysBeforeShipment.create!(
   [
     {
       days: '1〜2日で発送',
-    },
+    }
   ]
 )
 
@@ -79,7 +79,7 @@ Condition.create!(
   [
     {
       condition: '傷付いている',
-    },
+    }
   ]
 )
 
@@ -100,7 +100,7 @@ Product.create!(
       days_before_shipment_id:'1',
       user_id:'1',
       condition_id:'1',
-    },
+    }
   ]
 )
 
@@ -109,7 +109,7 @@ UsersProduct.create!(
     {
       user_id: '1',
       product_id: '1',
-    },
+    }
   ]
 )
 
@@ -120,6 +120,6 @@ Picture.create!(
     {
       image: 'https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718',
       product_id: '1',
-    },
+    }
   ]
 )
