@@ -4,17 +4,17 @@
 |------|----|-------|
 |name|string|null: false, index: true|
 |explain|text|null: false|
-|prefacuture_id|integer|null: false|
+|prefecture_id|integer|null: false|
 |price|integer|null: false|
-|category_id|integer|null: false, foreign_key: true|
-|size_id|integer|null: false, foreign_key: true|
-|brand_id|interger|null: false, foreign_key: true|
-|commodity_condition_id|interger|null: false, foreign_key: true|
-|shipping_charge_id|interger|null: false, foreign_key: true|
-|delivery_method_id|interger|null: false, foreign_key: true|
-|days＿before＿shipment_id|interger|null: false, foreign_key: true|
-|user_id|interger|null: false, foreign_key: true|
-|condition_id|interger|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|size_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+|commodity_condition_id|references|null: false, foreign_key: true|
+|shipping_charge_id|references|null: false, foreign_key: true|
+|delivery_method_id|references|null: false, foreign_key: true|
+|days＿before＿shipment_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|condition_id|references|null: false, foreign_key: true|
 ### Association
 - has_many   :pictures
 - belongs_to :category
@@ -24,18 +24,18 @@
 - belongs_to :shipping_charge
 - belongs_to :delivery_method
 - belongs_to :days_before_hipment
-- has_many   :users_products, dependent: :destroy
-- belongs_to :user
+- has_one    :users_product, dependent: :destroy
+- belongs_to :buyer, class_name: 'User', through: :users_products, dependent: :destroy
 - belongs_to :condition, dependent: :destroy
 - belongs_to_active_hash :prefecture
 ## picturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
-|product_id|interger|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -82,8 +82,8 @@
 ## users_productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|interger|null: false, foreign_key: true|
-|product_id|interger|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 - belongs_to :user
@@ -101,15 +101,16 @@
 |nickname|string|null: false|
 |explain|text|null: true|
 ### Association
-- belongs_to :sns_credential, dependent: :destroy
+- has_one :sns_credential, dependent: :destroy
 - has_many   :users_products, dependent: :destroy
-- has_many   :products, through: :users_products, dependent: :destroy
+- has_many   :bought_items, class_name: 'Product', through: :users_products, dependent: :destroy
 - belongs_to :address
+- has_one :card
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postalcode|interger|null: true|
-|prefacture|integer|null: true|
+|postalcode|integer|null: true|
+|prefecture|integer|null: true|
 |municipalities|string|null: true|
 |address|string|null: true|
 |buildingname|string|null: true|
@@ -121,7 +122,7 @@
 |------|----|-------|
 |uid|string|null: false|
 |provider|string|null: false|
-|user_id|interger|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 ## conditionsテーブル
@@ -129,7 +130,15 @@
 |------|----|-------|
 |condition|string|null: false|
 ### Association
-- has_many :projects
+- has_many :products
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
+### Association
+- belongs_to :user
 
 
 
