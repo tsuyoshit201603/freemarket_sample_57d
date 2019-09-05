@@ -74,7 +74,6 @@
         height: 100%;
         @include reset_form();
         line-height: 48px;
-        margin-left: 10px;
         color: white;
         &:-webkit-autofill {
           transition: background-color 50000s ease-in-out 0s;
