@@ -1,0 +1,20 @@
+.contents__outline
+  = render 'shared/side.html.haml'
+  .payments
+    .payments__top
+      支払い方法
+    .payments__contents 
+      %section 
+        .payments__contents__header
+          %h1 クレジットカード一覧
+          %li
+            %form.payments__contents__header__list
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2482339763", width:"26",height:"20",class:"payments__contents__header__list__image")
+              %div *************
+              %div 5/23
+              .payments__contents__header__list__delete
+                削除する
+      .payments__contents__guide
+        支払い方法について
+        =fa_icon "chevron-right"
+= render "shared/exhibitbtn"

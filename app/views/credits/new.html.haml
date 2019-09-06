@@ -1,0 +1,50 @@
+.contents__outline
+  = render 'shared/side.html.haml'
+  .credits
+    .credits__top
+      クレジットカード情報入力
+    .credits__main
+      .credits__main__input
+        %span.label
+          カード番号
+        %span.sticker
+          必須
+        %input{placeholder:"半角数字のみ"}
+        = image_tag("http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif",class:"cardImage")
+      .credits__main__input
+        %span.label
+          有効期限
+        %span.sticker
+          必須
+        %br
+        .credits__selectbox
+          .credits__main__input__select
+            %select
+              - @month.each do |month|
+                %option
+                  = month
+            = fa_icon "chevron-down"
+          .credits__main__input__context
+            月
+          .credits__main__input__select
+            %select
+              - @year.each do |year|
+                %option
+                  = year
+            = fa_icon "chevron-down"
+          .credits__main__input__context
+            年
+      .credits__main__input
+        %span.label
+          セキュリティコード
+        %span.sticker
+          必須
+        %input{placeholder:"カード背面4桁もしくは3桁の番号"}
+      .credits__main__info
+        = link_to do
+          = fa_icon "question-circle"
+          カード背面の番号とは
+      = link_to new_payment_path do
+        .credits__main__button
+          次へ進む
+= render "shared/exhibitbtn"
