@@ -3,5 +3,22 @@
     = image_tag("https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?4148637188", class: "contents__product-information__special-feature__image")
     = fa_icon "chevron-left" , class: "contents__product-information__special-feature__icon-left"
     = fa_icon "chevron-right" , class: "contents__product-information__special-feature__icon-right"
-  = render "products/products"
+  .contents__product-information__pickup.contents__product-information__pickup--category
+    .contents__product-information__pickup__text
+      ピックアップカテゴリー
+    .contents__product-information__pickup__categorie
+      - for i in 1..4
+        .contents__product-information__pickup__categorie__text
+          新着アイテム
+        .contents__product-information__pickup__categorie__products
+          = render @products
+  .contents__product-information__pickup.contents__product-information__pickup--brand
+    .contents__product-information__pickup__text
+      ピックアップブランド
+    .contents__product-information__pickup__categorie
+      - for i in 1..4
+        .contents__product-information__pickup__categorie__text
+          新着アイテム
+        .contents__product-information__pickup__categorie__products
+          = render @products
 = render "shared/exhibitbtn"
