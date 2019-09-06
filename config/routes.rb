@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :finishings, only:[:index]
   resources :telphones, only:[:new,:create]
   resources :addresses, only:[:new,:create]
-  resources :payings, only:[:new,:create]
+  resources :payings, only:[:new,:create,:destroy,:show]
   resources :payments, only:[:new,:create]
   resources :credits, only: [:new]
 end
