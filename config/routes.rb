@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
-    resources :payings, only:[:new,:create,:destroy,:show]
   end
   resources :logouts, only:[:destroy]
   resources :signups, only:[:index]
@@ -16,4 +15,9 @@ Rails.application.routes.draw do
   resources :addresses, only:[:new,:create]
   resources :payments, only:[:new,:create]
   resources :credits, only: [:new]
+  resources :payings, only:[:new,:show] do
+    collection do
+      post 'pay', to: 'payings#pay'
+    end
+  end
 end
