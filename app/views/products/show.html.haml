@@ -126,19 +126,19 @@
       メルカリ太郎さんのその他の出品
   .details__products__wrap
     - for i in 1..3
-      = render "products/product"
+      = render @products
   .details__products__wrap
     - for i in 1..3
-      = render "products/product"
+      = render @products
   = link_to root_path, class: "details__products__name" do
     .details__products__name
       サンダル その他の出品
   .details__products__wrap
     - for i in 1..3
-      = render "products/product"
+      = render @products
   .details__products__wrap
     - for i in 1..3
-      = render "products/product"
+      = render @products
 .details__bottom
   .details__bottom__contents
     = link_to root_path, class: "details__bottom__contents__top" do

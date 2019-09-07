@@ -16,6 +16,7 @@
           position: relative;
           &__input{
             @include size($width:785px);
+            height: 35px;
             background-color: #f5f5f5;
             border-radius: 4px;
             padding: 0 42px 0 10px;
