@@ -1,5 +1,6 @@
 class PayingsController < TelphonesController
   require "payjp"
+  layout "simple"
   def new
     @active = ["is-active","is-active","is-active",""]
     @year = [*19..30]
@@ -10,14 +11,18 @@ class PayingsController < TelphonesController
   def pay
     Payjp.api_key = Rails.application.secrets.payjp_private_key
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to request.fullpath
     else
       customer = Payjp::Customer.create(card: params['payjp-token'])
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
+      card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if card.save && request.referer.match("payings")
         redirect_to finishings_path
+      elsif card.save && request.referer.match("credits")
+        redirect_to credit_path(card.id)
+      elsif card.save && request.referer.match("buyings")
+        redirect_to product_buyings_path(1)
       else
-        redirect_to action: "new"
+        redirect_to request.fullpath
       end
     end
   end

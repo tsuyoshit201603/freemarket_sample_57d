@@ -1,0 +1,38 @@
+.buying
+  .buying__top
+    購入が完了しました
+  .buyingPadding
+    .buying__main
+      .buying__main__product
+        .buying__main__product__image
+          = image_tag("https://static.mercdn.net/thumb/photos/m59992978524_1.jpg?1561704174")
+        .buying__main__product__title
+          ユーロ96予選 イタリア ナイキ 10番
+      .buying__main__cost
+        .buying__main__cost__num
+          ¥2,200
+        .buying__main__cost__way
+          送料込み
+      .buying__main__allCost
+        .buying__main__allCost__label
+          支払い金額
+        .buying__main__allCost__num
+          ¥2,200
+  .buyingPadding
+    .buying__address
+      .buying__address__label
+        配送先
+      .buying__address__num
+        〒150−0041
+      .buying__address__text
+        東京都渋谷区神南1丁目12−16アジアビル8F
+      .buying__address__name
+        株式会社div
+  .finisings__main
+    .finisings__main__context
+      ありがとうございます。
+      %br/
+      購入が完了しました。
+    = link_to root_path do
+      .finisings__main__button
+        ホームに戻る

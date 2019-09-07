@@ -20,9 +20,9 @@
           支払い金額
         .buying__main__allCost__num
           ¥2,200
-      = link_to do
-        .buying__main__button
-          購入する
+      .buying__main__button
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_3b45bb3cee90abd0c86c4e80"}
   .buyingPadding
     .buying__address
       .buying__address__label
@@ -42,11 +42,14 @@
       .buying__paying__label
         支払い方法
       .buying__paying__num
-        **********0909
+        **********
+        = @default_card_information.last4
       .buying__paying__term
-        08/23
+        = @default_card_information.exp_month.to_s
+        \/
+        = @default_card_information.exp_year.to_s.slice(2,3)
       .buying__paying__image
-        = image_tag("https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2394192159")
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763")
       .buying__paying__change
         = link_to do
           変更する

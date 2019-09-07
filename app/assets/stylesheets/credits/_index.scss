@@ -1,0 +1,18 @@
+.payments__contents {
+  &__title {
+    font-weight: bold;
+    margin: 10px auto;
+    width: 318px;
+  }
+  &__btn {
+  background-color: $mercariRed;
+  color: #fff;
+  height: 48px;
+  width: 318px;
+  margin: 30px auto;
+  font-size: 14px;
+  line-height: 48px;
+  text-align: center;
+  text-decoration: none;
+ }
+}
