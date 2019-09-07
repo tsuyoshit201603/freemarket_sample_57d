@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   layout "simple" ,only: :new
   def index
-    @products = Product.all.limit(4)
+    @products = Product.limit(4)
   end
 
   def new
