@@ -9,7 +9,7 @@ class PayingsController < TelphonesController
   end
 
   def pay
-    Payjp.api_key = Rails.application.secrets.payjp_private_key
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to request.fullpath
     else
