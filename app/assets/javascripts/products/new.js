@@ -5,4 +5,7 @@ $(function(){
   var list = [];
   list[0] = $("#uploadedListFirst");
   list[1] = $("#uploadedListFinal");
+  var num = 0;
+  var arrayNum = 0;
+
 });
