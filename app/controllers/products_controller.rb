@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   layout "simple" ,only: :new
+  before_action :authenticate_user!, only: :new
   def index
   end
 
