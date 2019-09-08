@@ -7,5 +7,11 @@ class ProductsController < ApplicationController
     @product = Product.new
     setting_for_product
   end
+
+  def create
+    binding.pry
+    Product.create(products_params)
+  end
+
   end
 end
