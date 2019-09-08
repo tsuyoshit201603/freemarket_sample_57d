@@ -27,4 +27,9 @@ $(function(){
     list[arrayNum].append(html);
   }
 
+  file.on('change',function() {
+    var image = this.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(image);
+  });
 });
