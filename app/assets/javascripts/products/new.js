@@ -30,6 +30,23 @@ $(function(){
   file.on('change',function() {
     var image = this.files[0];
     var reader = new FileReader();
+    reader.onload = (function() {
+      appendHTML(reader.result,arrayNum,num);
+      fileArea.removeClass(`main__product__item__h3--num${num}`);
+      context.removeClass(`main__product__item__h3__context--num${num}`);
+      if(num >= 0 && num <= 3){
+        num++;
+      }
+      else{
+        num = 0;
+        if(arrayNum == 1){
+          $(".removefileuploader").html("");
+        }
+        arrayNum++;
+      }
+      fileArea.addClass(`main__product__item__h3--num${num}`);
+      context.addClass(`main__product__item__h3__context--num${num}`);
+    });
     reader.readAsDataURL(image);
   });
 });
