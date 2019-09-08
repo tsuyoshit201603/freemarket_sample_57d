@@ -1,12 +1,14 @@
-= link_to product_path(1) do
+= link_to product_path(product.id) do
   .contents__product-information__pickup__categorie__products__product
-    = image_tag("https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "contents__product-information__pickup__categorie__products__product__picture")
+    - product.pictures.each do |picture|
+      = image_tag(picture.image , class: "contents__product-information__pickup__categorie__products__product__picture")
     .contents__product-information__pickup__categorie__products__product__textbox
       .contents__product-information__pickup__categorie__products__product__textbox__name
-        サンダル
+        = product.name
       .contents__product-information__pickup__categorie__products__product__textbox__num
         .contents__product-information__pickup__categorie__products__product__textbox__num__price
-          $3,000
+          $
+          = product.price
         .contents__product-information__pickup__categorie__products__product__textbox__num__favorite
           =fa_icon "heart" , class: "contents__product-information__pickup__categorie__products__product__textbox__num__favorite__icon"
           7

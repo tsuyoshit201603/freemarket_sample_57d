@@ -8,8 +8,12 @@ Rails.application.routes.draw do
         post 'pay', to: 'buyings#pay'
         get 'done', to: 'buyings#done'
       end
+    resources :buyings, only: :index
+    collection do
+      get 'search'
     end
   end
+  
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
