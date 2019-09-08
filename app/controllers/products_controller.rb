@@ -24,5 +24,22 @@ class ProductsController < ApplicationController
     @categories = Category.all.limit(1)
   end
 
+  def products_params
+    params.require(:product).permit(
+      :name,
+      :explain,
+      :prefecture_id,
+      :price,
+      :category_id,
+      :commodity_condition_id,
+      :size_id,
+      :shipping_charge_id,
+      :days_before_shipment_id,
+      :delivery_method_id
+    ).merge(
+        condition_id: 1,
+        user_id: current_user.id,
+        brand_id: 1
+      )
   end
 end
