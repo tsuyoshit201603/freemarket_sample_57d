@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @identification = Identification.new
+    @product = Product.new
+    setting_for_product
+  end
   end
 end
