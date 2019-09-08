@@ -61,7 +61,6 @@
     }
     &__button{
       @include buttonParent($width: 320px);
-      background-color: $mercariRed;
     }
     & a{
       @include reset_a-tag(#FFFFFF);

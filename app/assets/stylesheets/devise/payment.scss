@@ -20,6 +20,7 @@
       max-width: 320px;
       margin: 0 auto;
       list-style: none;
+      position: relative;
       &  h1 {
         font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
         font-weight: 600;
@@ -36,6 +37,8 @@
           top: 8%;
           right: 0;
           padding: 4px 6px;
+          height: 30px;
+          line-height: 30px;
           background: #fff;
           border-radius: 3px;
           border: 1px solid #ea352d;
