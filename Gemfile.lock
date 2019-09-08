@@ -145,7 +145,6 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
-    happybirthday (1.0.0)
     hashie (3.6.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
@@ -169,18 +168,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.2.0)
     jwt (2.2.1)
-    kaminari (1.1.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
-      actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
-      activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
     kgio (2.11.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -391,10 +378,8 @@ DEPENDENCIES
   font-awesome-rails
   gretel
   haml-rails
-  happybirthday
   jbuilder (~> 2.5)
   jquery-rails
-  kaminari
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
