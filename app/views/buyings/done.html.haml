@@ -5,19 +5,21 @@
     .buying__main
       .buying__main__product
         .buying__main__product__image
-          = image_tag("https://static.mercdn.net/thumb/photos/m59992978524_1.jpg?1561704174")
+          = image_tag(@product.pictures.first.image)
         .buying__main__product__title
-          ユーロ96予選 イタリア ナイキ 10番
+          = @product.name
       .buying__main__cost
         .buying__main__cost__num
-          ¥2,200
+          ¥
+          = @product.price.to_s(:delimited)
         .buying__main__cost__way
           送料込み
       .buying__main__allCost
         .buying__main__allCost__label
           支払い金額
         .buying__main__allCost__num
-          ¥2,200
+          ¥
+          = @product.price.to_s(:delimited)
   .buyingPadding
     .buying__address
       .buying__address__label

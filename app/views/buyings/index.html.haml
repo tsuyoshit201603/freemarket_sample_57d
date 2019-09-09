@@ -5,12 +5,13 @@
     .buying__main
       .buying__main__product
         .buying__main__product__image
-          = image_tag("https://static.mercdn.net/thumb/photos/m59992978524_1.jpg?1561704174")
+          = image_tag(@product.pictures.first.image)
         .buying__main__product__title
-          ユーロ96予選 イタリア ナイキ 10番
+          = @product.name
       .buying__main__cost
         .buying__main__cost__num
-          ¥2,200
+          ¥
+          = @product.price.to_s(:delimited)
         .buying__main__cost__way
           送料込み
       .buying__main__points
@@ -19,7 +20,8 @@
         .buying__main__allCost__label
           支払い金額
         .buying__main__allCost__num
-          ¥2,200
+          ¥
+          = @product.price.to_s(:delimited)
       .buying__main__button
         = form_tag(action: :pay, method: :post) do
           %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_7f4c832c284c0bf15db78a3b"}
