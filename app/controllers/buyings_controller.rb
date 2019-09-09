@@ -1,6 +1,8 @@
 class BuyingsController < ApplicationController
+  before_action :authenticate_user!
   layout "simple"
   def index
+    @product = Product.find(params[:product_id])
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "buyings", action: "new"
@@ -25,5 +27,10 @@ class BuyingsController < ApplicationController
     :currency => 'jpy',
   )
   redirect_to action: 'done'
+  end
+
+  def done
+    @product = Product.find(params[:product_id])
+    @product.update(condition_id: '2')
   end
 end

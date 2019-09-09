@@ -1,15 +1,11 @@
 .details__content
   %h1.details__content__title
-    サンダル
+    = @product.name
   .details__content__main
     .details__content__main__table
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__main"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
-      = image_tag "https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718", class: "details__content__main__table__sub"
+      = image_tag @product.pictures.first.image, class: "details__content__main__table__main"
+      - @product.pictures.each do |picture|
+        = image_tag picture.image, class: "details__content__main__table__sub"
     .details__content__main__margin
     .details__content__main__table
       %table.details__content__main__table
@@ -18,7 +14,7 @@
             %th 出品者
             %td
               = link_to root_path , class: "details__content__main__table__right" do
-                メルカリ太郎
+                = @product.user.nickname
               .details__content__main__table__faces
                 .details__content__main__table__faces__face
                   =fa_icon "smile-o", class: "details__content__main__table__faces__face__good"
@@ -33,53 +29,64 @@
             %th カテゴリー
             %td
               = link_to root_path, class: "details__content__main__table__right" do
-                レディース
+                = @product.category.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
-                >靴
+                >
+                = @product.category.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
-                >サンダル
+                >
+                = @product.category.name
           %tr
             %th ブランド
             %td
               = link_to root_path , class: "details__content__main__table__right" do
-                シャネル
+                - if @product.brand != nil
+                  = @product.brand.name
           %tr
             %th 商品のサイズ
-            %td M
+            %td
+              = @product.size.size
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @product.commodity_condition.condition
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @product.shipping_charge.method
           %tr
             %th 配送の方法
-            %td 未定
+            %td
+              = @product.delivery_method.name
           %tr
             %th 配送元地域
             %td
               = link_to root_path , class: "details__content__main__table__right" do
-                大阪府
+                = @product.prefecture.name
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td
+              = @product.days_before_shipment.days
   .details__content__prices
     %span.details__content__prices__price
-      ¥12,000
+      ¥
+      = @product.price.to_s(:delimited)
     %span.details__content__prices__tax
       (税込)
     %span.details__content__prices__postage
       送料込み
-  = link_to product_buyings_path(1), class: "details__content__buy__btn" do
-    .details__content__buy
-      購入画面に進む
+  - if @product.condition_id != 2
+    = link_to product_buyings_path(@product.id), class: "details__content__buy__btn" do
+      .details__content__buy
+        購入画面に進む
+  - else
+    .details__content__buy.details__content__buy__sold
+      売り切れました
   .details__content__comment
     %p
-      とても良いサンダルです！
-    %p
-      とても良いサンダルです！
+      = @product.explain
   .details__content__bottom
     .details__content__bottom__left
       .details__content__bottom__left__like
@@ -106,12 +113,16 @@
         .details__messages__content__bottom
           コメントする
 .details__page
-  = link_to root_path, class: "details__page__pre" do
+  = link_to product_path(@product.id - 1), class: "details__page__pre" do
     .details__page__pre
-      <サンダル1
-  = link_to root_path, class: "details__page__next" do
+      - if @pre_product != nil
+        <
+        = @pre_product.name
+  = link_to product_path(@product.id + 1), class: "details__page__next" do
     .details__page__next
-      サンダル3>
+      - if @next_product != nil
+        = @next_product.name
+        >
 .details__sns
   .details__sns__box
     = link_to "https://www.facebook.com/" do
@@ -123,22 +134,17 @@
 .details__products
   = link_to root_path, class: "details__products__name" do
     .details__products__name
-      メルカリ太郎さんのその他の出品
+      = @product.user.nickname
+      さんのその他の出品
   .details__products__wrap
-    - for i in 1..3
-      = render @products
+    = render @products
   .details__products__wrap
-    - for i in 1..3
-      = render @products
   = link_to root_path, class: "details__products__name" do
     .details__products__name
-      サンダル その他の出品
+      = @product.name
+      その他の出品
   .details__products__wrap
-    - for i in 1..3
-      = render @products
-  .details__products__wrap
-    - for i in 1..3
-      = render @products
+    = render @same_products
 .details__bottom
   .details__bottom__contents
     = link_to root_path, class: "details__bottom__contents__top" do
