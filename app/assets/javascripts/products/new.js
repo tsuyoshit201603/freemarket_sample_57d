@@ -8,7 +8,7 @@ $(function(){
   list[1] = $("#uploadedListFinal");
   var num = 0;
   var arrayNum = 0;
-
+  var form = 2;
   function appendHTML(url,arrayNum,num){
     var html = `
     <li class= "uploadedItem" data-num = "${num}">
@@ -33,6 +33,8 @@ $(function(){
     var reader = new FileReader();
     reader.onload = (function() {
       appendHTML(reader.result,arrayNum,num);
+      fileArea.attr("for",`product_image${form}`)
+      form++
       fileArea.removeClass(`main__product__item__h3--num${num}`);
       context.removeClass(`main__product__item__h3__context--num${num}`);
       if(num >= 0 && num <= 3){
@@ -41,7 +43,7 @@ $(function(){
       else{
         num = 0;
         if(arrayNum == 1){
-          $(".removefileuploader").html("");
+          $(".removefileuploader").css("display","none");
         }
         arrayNum++;
       }
