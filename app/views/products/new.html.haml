@@ -106,10 +106,17 @@
           価格
           %span 必須
           = f.text_field :price, placeholder:"例) 300", class: "main__product__price__h2-choice"
+          %p ￥
         .main__product__price__h3
-          販売手数料 (10%)-
+          .main__product__price__h3__info
+            販売手数料 (10%)
+          .main__product__price__h3__cost
+            \-
         .main__product__price__h4
-          販売利益
+          .main__product__price__h4__info
+            販売利益
+          .main__product__price__h4__profit
+            \-
     .main__product__btn-box
       .main__product__btn-box__p
         = link_to root_path do
