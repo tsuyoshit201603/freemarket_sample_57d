@@ -24,4 +24,32 @@ $(function(){
     });
     return option
   }
+  //非同期通信を行うfunction
+  function ajaxForCategory(selected, i){
+    var selectedNum = {selected: selected.find("select").val()};
+    console.table(selectedNum);
+    $.ajax({
+      url: url,
+      data: selectedNum
+    })
+    .done(function(data){
+      if(data.length){
+        var option = createSelect(data);
+        selectbox[i].html("");
+        appendHTML(selectbox[i],option);
+      }else{
+        if(i == 1){
+          selectbox[1].html("");
+          selectbox[2].html("");
+        }
+        else{
+          selectbox[2].html("");
+        }
+      }
+    })
+    .fail(function(e) {
+      console.log(e);
+    });
+  }
+
 })
