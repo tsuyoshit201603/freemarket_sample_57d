@@ -68,7 +68,7 @@
           %span 必須
         .main__product__details__h3-choice
           = f.collection_select :commodity_condition_id, @commodityConditions, :id, :condition, prompt:"---"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-b"
+          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
     .main__product__delivery
       .main__product__delivery__h1
         配送について
@@ -91,13 +91,13 @@
           %span 必須
         .main__product__delivery__h3-choice
           = f.collection_select :prefecture_id, @prefectures, :id, :name, prompt: "---"
-          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-d"
+          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .main__product__delivery__h4
           発送までの日数
           %span 必須
         .main__product__delivery__h4-choice
           = f.collection_select :days_before_shipment_id, @days,:id, :days, prompt: "---"
-          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-e"
+          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
     .main__product__price
       .main__product__price__h1
         販売価格(300~9,999,999)
