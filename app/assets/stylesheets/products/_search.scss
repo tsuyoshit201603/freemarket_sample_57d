@@ -3,7 +3,7 @@
   width: 1020px;
   display: flex;
   &__left{
-    height: 1500px;
+    height: 1600px;
     width: 280px;
     margin: 0 40px 0 0;
     position: relative;
@@ -41,8 +41,7 @@
           right:5%;
         }
         &__input{
-          width: 216px;
-          height: 30px;
+          width: 248px;
           margin: 8px 0 0;
           padding: 10px 16px 8px;
           border-radius: 4px;
@@ -56,15 +55,9 @@
         }
         &  div{
           display: flex;
-        }
-        &__box{
           margin: 16px 0 0;
-          width: 48%;
-          &__checkbox{
-            width: 17px;
-            height: 17px;
-          }
         }
+
         &__select{
           width: 248px;
           height: 48px;
@@ -72,6 +65,21 @@
           -webkit-appearance: none;
           padding: 0 16px;
         }
+        #q_category_id_eq{
+          width: 248px;
+          height: 48px;
+          margin: 8px 0 0;
+          -webkit-appearance: none;
+          padding: 0 16px;
+        }
+        #q_size_id_eq{
+          width: 248px;
+          height: 48px;
+          margin: 8px 0 0;
+          -webkit-appearance: none;
+          padding: 0 16px;
+        }
+
         &  i{
           margin: 0 4px 0 0;
           color: #888;
@@ -114,7 +122,7 @@
   &__right{
     width: 700px;
     &__head{
-      font-size: １８px;
+      font-size: 18px;
       margin: 0 0 8px;
     }
     &__number{
@@ -124,10 +132,11 @@
     }
     &__products{
       display: flex;
+      flex-flow: row wrap;
+      width: 700px;
       &  a{
         @include reset_a-tag;
       }
-    }
+    } 
   }
-
 }
