@@ -17,15 +17,15 @@
         .contents__outline__side__nav__list__text
           出品する
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
-      = link_to new_user_profile_path(current_user.id) do
+      = link_to user_exhibiting_path(current_user.id) do
         .contents__outline__side__nav__list__text
           出品した商品 - 出品中
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
-      = link_to new_user_profile_path(current_user.id) do
+      = link_to user_trading_path(current_user.id) do
         .contents__outline__side__nav__list__text
           出品した商品 - 取引中
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
-      = link_to new_user_profile_path(current_user.id) do
+      = link_to user_sold_path(current_user.id) do
         .contents__outline__side__nav__list__text
           出品した商品 - 売却済み
           =fa_icon "chevron-right" , class: "contents__outline__side__nav__list__text__icon"
