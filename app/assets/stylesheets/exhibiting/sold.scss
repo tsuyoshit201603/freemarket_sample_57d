@@ -1,7 +1,6 @@
 .sold__contents {
   width: 100%;
-  height: 400px;
-  background-color: #fff;
+  height: auto;
   color: $mercariBlack;
   &__head {
     padding: 0 16px;
@@ -21,27 +20,68 @@
     &__exhibiting {
       width: 33%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
     }
     &__trading {
       width: 33%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
     }
     &__sold {
-      width: 33%;
+      width: 34%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
       border-top: 2px solid $mercariRed;
       background-color: #fff;
     }
   }
   &__content {
-    text-align: center;
+    background-color: #fff;
+    height: 236px;
+    &__mercari {
+      text-align: center;
+    }
     &__text {
       color: #ccc;
       font-weight: bold;
       margin-top: 20px;
+      text-align: center;
     }
   }
+  &__selected {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    height: 84px;
+    &__image {
+      padding: 16px;
+    }
+    &__right {
+      padding: 16px 0;
+      font-size: 14px;
+      &__top {
+        font-size: 14px;
+      }
+      &__bottom {
+        &__status {
+          background-color: $newRegistrationBlue;
+          font-weight: bold;
+          padding: 5px;
+          color: #fff;
+          border-radius: 2px;
+        }
+      }
+    }
+    &__icon {
+      font-size: 30px;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+    }
+  }
+}
+.reset {
+  @include reset_a-tag($mercariBlack);
 }

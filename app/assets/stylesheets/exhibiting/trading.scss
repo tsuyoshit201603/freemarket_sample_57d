@@ -1,7 +1,5 @@
 .trading__contents {
   width: 100%;
-  height: 400px;
-  background-color: #fff;
   color: $mercariBlack;
   &__head {
     padding: 0 16px;
@@ -21,19 +19,19 @@
     &__exhibiting {
       width: 33%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
     }
     &__trading {
       width: 33%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
       border-top: 2px solid $mercariRed;
       background-color: #fff;
     }
     &__sold {
       width: 33%;
       text-align: center;
-      text-decoration: none;
+      @include reset_a-tag($mercariBlack);
     }
   }
   &__content {
