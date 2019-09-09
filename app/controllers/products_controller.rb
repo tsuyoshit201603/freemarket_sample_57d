@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     @prefectures = Prefecture.all
     @shippingCharges = ShippingCharge.all
     @size = Size.all
-    @categories = Category.all.limit(1)
+    @categories = Category.where(ancestry: nil)
   end
 
   def products_params
