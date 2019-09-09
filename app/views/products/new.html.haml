@@ -43,27 +43,26 @@
         .main__product__details__h2
           カテゴリー
           %span 必須
-        .main__product__details__h2-choice
-          = f.collection_select :category_id, @categories, :id, :name, prompt:"---"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a"
-        .main__product__details__h2-choice
-          = f.collection_select :category_id, @categories.first.children, :id, :name, prompt:"---"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a"
-        .main__product__details__h2-choice
-          = f.collection_select :category_id, @categories.first.children.first.children, :id, :name, prompt:"---"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a"
-        .main__product__details__h2
-          サイズ
-          %span 必須
-        .main__product__details__h2-choice
-          = f.collection_select :size_id, @size, :id, :size, prompt:"---"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a"
-        .main__product__details__h2
-          ブランド
-          %span 任意
-        .main__product__details__h2-choice
-          = f.text_field :brand_id, placeholder: "例) シャネル"
-          = fa_icon "chevron-down", class: "main__product__details__sell-box__icon-a"
+        .ancestry
+          .ancestry__parent
+            .main__product__details__h2-choice
+              = f.collection_select :category_id, @categories, :id, :name, prompt:"---"
+              = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
+          .ancestry__child
+          .ancestry__grandChild
+        .hiddenInputForDetails
+          .main__product__details__h2.main__product__details__h2--margin
+            サイズ
+            %span 必須
+          .main__product__details__h2-choice
+            = f.collection_select :size_id, @size, :id, :size, prompt:"---"
+            = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
+        .hiddenInputForDetails
+          .main__product__details__h2.main__product__details__h2--margin
+            ブランド
+            %span.label__nini 任意
+          .main__product__details__h2-choice
+            = f.text_field :brand_id, placeholder: "例) シャネル"
         .main__product__details__h3
           商品の状態
           %span 必須
@@ -79,13 +78,14 @@
           %span 必須
         .main__product__delivery__h2-choice
           = f.collection_select :shipping_charge_id, @shippingCharges, :id, :method, prompt: "---"
-          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-c"
-        .main__product__delivery__h2
-          配送の方法
-          %span 必須
-        .main__product__delivery__h2-choice
-          = f.collection_select :delivery_method_id, @deliveryMethods, :id, :name, prompt: "---"
-          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon-c"
+          = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
+        .hiddenInputForDelivery
+          .main__product__delivery__h2.main__product__delivery__h2--margin
+            配送の方法
+            %span 必須
+          .main__product__delivery__h2-choice
+            = f.collection_select :delivery_method_id, @deliveryMethods, :id, :name, prompt: "---"
+            = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .main__product__delivery__h3
           発送元の地域
           %span 必須
