@@ -23,6 +23,68 @@
       border-top: 1px solid #eee;
       padding: 40px;
       width: 620px;
+      &__area{
+        &__flex{
+          width: 620px;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+        }
+        & .uploadedList{
+          max-width: 620px;
+          display: flex;
+          justify-content: flex-start;
+          flex-flow: row wrap;
+          & .uploadedItem {
+            width: 116px;
+            height: 164px;
+            border: 1px solid #cecece;
+            margin: 16px 3px 0px;
+            &__figure{
+              width: 116px;
+              height: 120px;
+              background-color:$backColor;
+              position: relative;
+              & img{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: auto;
+                max-width: 115px;
+                max-height: 115px;
+              }
+            }
+            &__buttons{
+              display: flex;
+              &__edit{
+                width: 50%;
+                height: 44px;
+                background-color: $backColor;
+                text-align: center;
+                line-height: 44px;
+                font-size: 14px;
+                & a{
+                  @include reset_a-tag($newRegistrationBlue);
+                }
+                border-right: 1px solid #cecece;
+              }
+              &__delete{
+                width: 50%;
+                height: 44px;
+                background-color: $backColor;
+                text-align: center;
+                line-height: 44px;
+                font-size: 14px;
+                & a{
+                  @include reset_a-tag($newRegistrationBlue);
+                }
+              }
+            }
+          }
+        }
+      }
       &__h1 {
         font-size: 16px;
         font-weight: 600;
