@@ -1,6 +1,6 @@
-.payings
-  .payings__top
-    お支払い方法
+.credits
+  .credits__top
+    クレジットカード情報入力
   .payings__main
     = form_tag(pay_payings_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .payings__main__input
@@ -44,4 +44,4 @@
           = fa_icon "question-circle"
           カード背面の番号とは
       #card_token
-      = submit_tag "次へ進む",class: "payings__main__button", id: "token_submit"
+      = submit_tag "追加する",class: "payings__main__button", id: "token_submit"

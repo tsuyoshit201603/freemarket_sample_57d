@@ -73,11 +73,7 @@ gem 'mini_magick'
 gem 'ancestry'
 #テーブル省略
 gem 'active_hash'
-#生年月日計算
-gem 'happybirthday'
 
-# ページネーション
-gem 'kaminari'
 # パンくず
 gem 'gretel'
 # 認証
@@ -85,7 +81,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 # クレジット
-# gem 'payjp'
+gem 'payjp'
 # 応用機能で使用
 gem 'ransack'
 

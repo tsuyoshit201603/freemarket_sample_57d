@@ -1,50 +1,52 @@
+- breadcrumb :credit_information
+= render "layouts/breadcrumbs"
 .contents__outline
   = render 'shared/side.html.haml'
   .credits
     .credits__top
       クレジットカード情報入力
-    .credits__main
-      .credits__main__input
-        %span.label
-          カード番号
-        %span.sticker
-          必須
-        %input{placeholder:"半角数字のみ"}
-        = image_tag("http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif",class:"cardImage")
-      .credits__main__input
-        %span.label
-          有効期限
-        %span.sticker
-          必須
-        %br
-        .credits__selectbox
-          .credits__main__input__select
-            %select
-              - @month.each do |month|
-                %option
-                  = month
-            = fa_icon "chevron-down"
-          .credits__main__input__context
-            月
-          .credits__main__input__select
-            %select
-              - @year.each do |year|
-                %option
-                  = year
-            = fa_icon "chevron-down"
-          .credits__main__input__context
-            年
-      .credits__main__input
-        %span.label
-          セキュリティコード
-        %span.sticker
-          必須
-        %input{placeholder:"カード背面4桁もしくは3桁の番号"}
-      .credits__main__info
-        = link_to do
-          = fa_icon "question-circle"
-          カード背面の番号とは
-      = link_to new_payment_path do
-        .credits__main__button
-          追加する
+    .payings__main
+      = form_tag(pay_payings_path, method: :post, id: 'charge-form',  name: "inputForm") do
+        .payings__main__input
+          %span.label
+            カード番号
+          %span.sticker
+            必須
+          = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+          = image_tag("http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif",class:"cardImage")
+        .payings__main__input
+          %span.label
+            有効期限
+          %span.sticker
+            必須
+          %br
+          .payings__selectbox
+            .payings__main__input__select
+              %select#exp_month{name: "exp_month", type: "text"}
+                - @month.each do |month|
+                  %option
+                    = month
+              = fa_icon "chevron-down"
+            .payings__main__input__context
+              月
+            .payings__main__input__select
+              %select#exp_year{name: "exp_year", type: "text"}
+                - @year.each do |year|
+                  %option
+                    = year
+              = fa_icon "chevron-down"
+            .payings__main__input__context
+              年
+        .payings__main__input
+          %span.label
+            セキュリティコード
+          %span.sticker
+            必須
+          = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+        .payings__main__info
+          = link_to do
+            = fa_icon "question-circle"
+            カード背面の番号とは
+        #card_token
+        = submit_tag "追加する",class: "payings__main__button", id: "token_submit"
 = render "shared/exhibitbtn"

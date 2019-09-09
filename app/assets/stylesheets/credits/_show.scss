@@ -1,0 +1,6 @@
+.credit__btn {
+  @include reset_form;
+  color: $mercariRed;
+  font-size: 16px;
+  cursor: pointer;
+}
