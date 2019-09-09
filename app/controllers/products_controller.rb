@@ -50,4 +50,7 @@ class ProductsController < ApplicationController
         brand_id: 1
       )
   end
+  def image_params
+    params.permit(image:[]).require(:image)
+  end
 end
