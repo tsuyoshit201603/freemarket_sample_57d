@@ -4,32 +4,72 @@ lady = Category.create(
     name:"レディース"
   }
 )
-
-lady_tops = lady.children.create(
+mens = Category.create(
   {
     id: 2,
+    name:"メンズ"
+  }
+)
+mens_tops = mens.children.create(
+  {
+    name:"トップス"
+  }
+)
+mens_jacket = mens.children.create(
+  {
+    name:"ジャケット/アウター"
+  }
+)
+lady_tops = lady.children.create(
+  {
     name:"トップス"
   }
 )
 lady_jacket = lady.children.create(
   {
-    id: 3,
     name:"ジャケット/アウター"
   }
+)
+mens_tops.children.create(
+  [
+    {
+      name:"Tシャツ/カットソー(半袖/袖なし)"
+    },
+    {
+      name:"Tシャツ/カットソー(七分/長袖)"
+    },
+    {
+      name:"その他"
+    }
+  ]
+)
+
+mens_jacket.children.create(
+  [
+    {
+      name:"テーラードジャケット"
+    },
+    {
+      name:"ノーカラージャケット"
+    },
+    {
+      name:"Gジャン/デニムジャケット"
+    },
+    {
+      name:"その他"
+    }
+  ]
 )
 
 lady_tops.children.create(
   [
     {
-      id: 4,
       name:"Tシャツ/カットソー(半袖/袖なし)"
     },
     {
-      id: 5,
       name:"Tシャツ/カットソー(七分/長袖)"
     },
     {
-      id: 6,
       name:"その他"
     }
   ]
@@ -37,19 +77,15 @@ lady_tops.children.create(
 lady_jacket.children.create(
   [
     {
-      id: 7,
       name:"テーラードジャケット"
     },
     {
-      id: 8,
       name:"ノーカラージャケット"
     },
     {
-      id: 9,
       name:"Gジャン/デニムジャケット"
     },
     {
-      id: 10,
       name:"その他"
     }
   ]
@@ -271,7 +307,7 @@ Picture.create!(
     {
       id: 1,
       image: 'https://static.mercdn.net/thumb/photos/m81721927592_1.jpg?1566790718',
-      product_id: '1',
+      product_id: 1,
     }
   ]
 )
