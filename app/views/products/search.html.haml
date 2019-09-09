@@ -10,137 +10,58 @@
     = fa_icon "chevron-down", class: "search__left__icon" 
     .search__left__down
       %h3 詳細検索
-      .search__left__down__formgroup.search__left__down__formgroup--top
-        %label 
+      = search_form_for(@q, url:addsearch_products_path) do |f|
+        .search__left__down__formgroup.search__left__down__formgroup--top
           = fa_icon "plus"
-          %span キーワードを追加する
-        %input.search__left__down__formgroup__input{type: "text", placeholder: "例) 値下げ"}/
-      .search__left__down__formgroup
-        %label 
+          = f.label :name_cont, 'キーワードを追加する'
+          = f.search_field :name_cont, {class: 'search__left__down__formgroup__input', placeholder: "例) 値下げ"}
+        .search__left__down__formgroup
           = fa_icon "list"
-          %span カテゴリーを選択する
-        %select.search__left__down__formgroup__select
-          %option{value: "---"} すべて
-          %option{value: "1"} レディース
-          %option{value: "2"} メンズ
-          %option{value: "3"} ベビー・キッズ
-          %option{value: "4"} インテリア・住まい・小物
-          %option{value: "5"} 本・音楽・ゲーム
-          %option{value: "6"} おもちゃ・ホビー・グッズ
-          %option{value: "7"} コスメ・香水・美容
-          %option{value: "8"} 家電・スマホ・カメラ
-          %option{value: "9"} スポーツ・レジャー
-          %option{value: "10"} ハンドメイド
-          %option{value: "11"} チケット
-          %option{value: "12"} 自転車・オートバイ
-          %option{value: "13"} その他
-        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
-      .search__left__down__formgroup
-        %label 
+          = f.label :category_id_eq, 'カテゴリーを選択する'
+          = f.collection_select :category_id_eq, @categorys, :id, :name ,prompt:"すべて"
+          = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
+        .search__left__down__formgroup
           = fa_icon "tag"
-          %span ブランド名から探す
-        %input.search__left__down__formgroup__input{type: "text", placeholder: "例) シャネル"}/
-      .search__left__down__formgroup
-        %label 
+          = f.label :brand_id_cont, 'ブランド名から探す'
+          = f.search_field :brand_id_cont, {class: 'search__left__down__formgroup__input', placeholder: "例) シャネル"}
+        .search__left__down__formgroup
           = fa_icon "square"
-          %span サイズを指定する
-        %select.search__left__down__formgroup__select
-          %option{value: "---"} すべて
-          %option{value: "1"} 洋服のサイズ
-          %option{value: "2"} メンズの靴のサイズ
-          %option{value: "3"} レディースの靴のサイズ
-          %option{value: "4"} スカートのサイズ
-          %option{value: "5"} キッズの服のサイズ
-          %option{value: "6"} ベビー・キッズの服のサイズ
-          %option{value: "7"} ベビーの服のサイズ
-          %option{value: "8"} テレビのサイズ
-          %option{value: "9"} カメラレンズのサイズ
-          %option{value: "10"} オートバイのサイズ
-          %option{value: "11"} ヘルメットのサイズ
-          %option{value: "12"} タイヤのサイズ
-          %option{value: "13"} スキーのサイズ
-          %option{value: "14"} スノーボードのサイズ
-        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
-      .search__left__down__formgroup
-        %label 
+          = f.label :size_id_eq, 'サイズを指定する'
+          = f.collection_select :size_id_eq, @sizes, :id, :size, prompt:"すべて"
+          = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
+        .search__left__down__formgroup
           = fa_icon "money"
-          %span 価格
-        %select.search__left__down__formgroup__select
-          %option{value: "---"} 選択してください
-          %option{value: "1"} 300 〜 1000
-          %option{value: "2"} 1000 〜 5000
-          %option{value: "3"} 5000 〜 10000
-          %option{value: "4"} 10000 〜 30000
-          %option{value: "5"} 30000 〜 50000
-          %option{value: "6"} 50000 〜
-        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon-b" 
-        %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Min"}/
-        %span 〜
-        %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Max"}/
-      .search__left__down__formgroup
-        %label 
+          = f.label :price, '価格'
+          %select.search__left__down__formgroup__select
+            %option{value: "---"} 選択してください
+            %option{value: "1"} 300 〜 1000
+            %option{value: "2"} 1000 〜 5000
+            %option{value: "3"} 5000 〜 10000
+            %option{value: "4"} 10000 〜 30000
+            %option{value: "5"} 30000 〜 50000
+            %option{value: "6"} 50000 〜
+          = fa_icon "chevron-down", class: "search__left__down__formgroup__icon-b"
+          %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Min"}/
+          %span 〜
+          %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Max"}/
+        .search__left__down__formgroup
           = fa_icon "star"
-          %span 商品の状態
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span すべて
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 新品・未使用
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 未使用に近い
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 目立った傷や汚れなし
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span やや傷や汚れあり
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 傷や汚れあり
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 全体的に状態が悪い
-      .search__left__down__formgroup
-        %label 
+          = f.label :commodity_condition_id_in, '商品の状態'
+          %div
+            = f.collection_check_boxes :commodity_condition_id_in, @commodity_conditions, :id, :condition
+        .search__left__down__formgroup
           = fa_icon "truck"
-          %span 配送料の負担
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span すべて
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span  着払い（購入者負担）
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 送料込み（出品者負担）
-      .search__left__down__formgroup
-        %label 
-          = fa_icon "cart"
-          %span 販売状況
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span すべて
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span  販売中
-        %div
-          .search__left__down__formgroup__box
-            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
-            %span 売り切れ
-      .search__left__down__btn
-        %button.search__left__down__btn__left
-          クリア
-        %button.search__left__down__btn__right
-          完了
+          = f.label :shipping_charge_id_in, '配送料の負担'
+          %div
+            = f.collection_check_boxes :shipping_charge_id_in, @shipping_charges, :id, :method
+        .search__left__down__formgroup
+          = fa_icon "cart-plus"
+          = f.label :condition_id_in, '販売状況'
+          %div
+            = f.collection_check_boxes :condition_id_in, @conditions, :id, :condition
+        .search__left__down__btn
+          = f.submit "クリア", type: :reset, class:'search__left__down__btn__left'
+          = f.submit "完了", class:'search__left__down__btn__right'
   .search__right
     .search__right__head
       = params[:keyword]

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :ransack
   layout "simple" ,only: :new
   before_action :authenticate_user!, only: :new
   def index
@@ -22,8 +23,17 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @products = Product.all
+  end
+
   def search
     @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
+  def addsearch
+    @products = @q.result(distinct: true)
+    render 'products/search'
   end
   def show
     pre_id = params[:id].to_i - 1
@@ -68,4 +78,14 @@ class ProductsController < ApplicationController
   def image_params
     params.permit(image:[]).require(:image)
   end
+
+  def ransack
+    @categorys = Category.all
+    @sizes = Size.all
+    @commodity_conditions = CommodityCondition.all
+    @shipping_charges = ShippingCharge.all
+    @conditions = Condition.all 
+    @q = Product.ransack(params[:q])
+  end
+
 end

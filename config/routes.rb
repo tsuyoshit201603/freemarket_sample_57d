@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     end
     resources :buyings, only: :index
     collection do
-      get 'search'
+      get 'search' 
+    end
+    collection do
+      get 'addsearch' 
     end
   end
 
