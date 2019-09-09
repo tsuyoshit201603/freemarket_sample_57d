@@ -17,4 +17,11 @@ $(function(){
     position.append(html);
   }
 
+  function createSelect(data){
+    var option = "";
+    $.each(data,function(index,val){
+      option = option + `<option value= "${val.id}">${val.name}</option>\n`
+    });
+    return option
+  }
 })
