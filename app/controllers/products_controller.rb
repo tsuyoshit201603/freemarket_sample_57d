@@ -10,8 +10,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
-    Product.create(products_params)
+    @product = Product.create(products_params)
+    id = @product.id
+    image_params.each do |image|
+      pic = Picture.new
+      pic.image = image
+      pic.product_id = id
+      pic.save!
+    end
+    redirect_to root_path
   end
 
   private
