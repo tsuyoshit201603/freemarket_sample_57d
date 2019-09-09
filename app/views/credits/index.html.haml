@@ -1,0 +1,18 @@
+- breadcrumb :credit
+= render "layouts/breadcrumbs"
+.contents__outline
+  = render 'shared/side.html.haml'
+  .payments
+    .payments__top
+      支払い方法
+    .payments__contents
+      .payments__contents__title
+        クレジットカード一覧
+      = link_to new_credit_path, class: "payments__contents__btn" do
+        .payments__contents__btn
+          = fa_icon "credit-card"
+          クレジットカードを追加する
+      .payments__contents__guide
+        支払い方法について
+        =fa_icon "chevron-right"
+= render "shared/exhibitbtn"

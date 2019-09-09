@@ -60,6 +60,8 @@
       @include buttonParent(50px,343px);
       margin-top: 32px;
       background-color: $mercariRed;
+      color: #fff;
+      cursor: pointer;
     }
   }
 }
