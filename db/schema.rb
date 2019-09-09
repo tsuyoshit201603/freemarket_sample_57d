@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190906042820) do
 
+ActiveRecord::Schema.define(version: 20190906042820) do
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postalcode"
     t.integer  "prefecture"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20190906042820) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
-    t.string   "ancestry",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
     t.index ["name"], name: "index_categories_on_name", using: :btree
   end
@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 20190906042820) do
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image",      limit: 65535, null: false
-    t.integer  "product_id",               null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
     t.index ["product_id"], name: "index_pictures_on_product_id", using: :btree
   end
 
