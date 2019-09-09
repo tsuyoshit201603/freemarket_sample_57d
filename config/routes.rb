@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :buyings, only: :index
   end
+  namespace :api do
+    resources :products, only: :index, defaults: { format: 'json' }
+  end
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
