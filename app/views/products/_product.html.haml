@@ -1,14 +1,14 @@
-= link_to product_path(product.id) do
-  .contents__product-information__pickup__categorie__products__product
-    - product.pictures.each do |picture|
-      = image_tag(picture.image , class: "contents__product-information__pickup__categorie__products__product__picture")
-    .contents__product-information__pickup__categorie__products__product__textbox
-      .contents__product-information__pickup__categorie__products__product__textbox__name
-        = product.name
-      .contents__product-information__pickup__categorie__products__product__textbox__num
-        .contents__product-information__pickup__categorie__products__product__textbox__num__price
-          $
-          = product.price
-        .contents__product-information__pickup__categorie__products__product__textbox__num__favorite
-          =fa_icon "heart" , class: "contents__product-information__pickup__categorie__products__product__textbox__num__favorite__icon"
-          7
+.render__wrap
+  = link_to product_path(product.id) do
+    .contents__product-information__pickup__categorie__products__product
+      = image_tag(product.pictures.first.image , class: "contents__product-information__pickup__categorie__products__product__picture")
+      .contents__product-information__pickup__categorie__products__product__textbox
+        .contents__product-information__pickup__categorie__products__product__textbox__name
+          = product.name
+        .contents__product-information__pickup__categorie__products__product__textbox__num
+          .contents__product-information__pickup__categorie__products__product__textbox__num__price
+            $
+            = product.price
+          .contents__product-information__pickup__categorie__products__product__textbox__num__favorite
+            =fa_icon "heart" , class: "contents__product-information__pickup__categorie__products__product__textbox__num__favorite__icon"
+            7

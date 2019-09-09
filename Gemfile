@@ -73,11 +73,7 @@ gem 'mini_magick'
 gem 'ancestry'
 #テーブル省略
 gem 'active_hash'
-#生年月日計算
-gem 'happybirthday'
 
-# ページネーション
-gem 'kaminari'
 # パンくず
 gem 'gretel'
 # 認証

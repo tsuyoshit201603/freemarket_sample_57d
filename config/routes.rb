@@ -17,7 +17,11 @@ Rails.application.routes.draw do
       get 'addsearch' 
     end
   end
-  
+
+  namespace :api do
+    resources :products, only: :index, defaults: { format: 'json' }
+  end
+
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
