@@ -1,0 +1,152 @@
+.search
+  .search__left
+    %select.search__left__top
+      %option{value: "---"} 並び替え
+      %option{value: "1"} 価格の安い順
+      %option{value: "2"} 価格の高い順
+      %option{value: "3"} 出品の古い順
+      %option{value: "4"} 出品の新しい順
+      %option{value: "5"} いいねの多い順！
+    = fa_icon "chevron-down", class: "search__left__icon" 
+    .search__left__down
+      %h3 詳細検索
+      .search__left__down__formgroup.search__left__down__formgroup--top
+        %label 
+          = fa_icon "plus"
+          %span キーワードを追加する
+        %input.search__left__down__formgroup__input{type: "text", placeholder: "例) 値下げ"}/
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "list"
+          %span カテゴリーを選択する
+        %select.search__left__down__formgroup__select
+          %option{value: "---"} すべて
+          %option{value: "1"} レディース
+          %option{value: "2"} メンズ
+          %option{value: "3"} ベビー・キッズ
+          %option{value: "4"} インテリア・住まい・小物
+          %option{value: "5"} 本・音楽・ゲーム
+          %option{value: "6"} おもちゃ・ホビー・グッズ
+          %option{value: "7"} コスメ・香水・美容
+          %option{value: "8"} 家電・スマホ・カメラ
+          %option{value: "9"} スポーツ・レジャー
+          %option{value: "10"} ハンドメイド
+          %option{value: "11"} チケット
+          %option{value: "12"} 自転車・オートバイ
+          %option{value: "13"} その他
+        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "tag"
+          %span ブランド名から探す
+        %input.search__left__down__formgroup__input{type: "text", placeholder: "例) シャネル"}/
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "square"
+          %span サイズを指定する
+        %select.search__left__down__formgroup__select
+          %option{value: "---"} すべて
+          %option{value: "1"} 洋服のサイズ
+          %option{value: "2"} メンズの靴のサイズ
+          %option{value: "3"} レディースの靴のサイズ
+          %option{value: "4"} スカートのサイズ
+          %option{value: "5"} キッズの服のサイズ
+          %option{value: "6"} ベビー・キッズの服のサイズ
+          %option{value: "7"} ベビーの服のサイズ
+          %option{value: "8"} テレビのサイズ
+          %option{value: "9"} カメラレンズのサイズ
+          %option{value: "10"} オートバイのサイズ
+          %option{value: "11"} ヘルメットのサイズ
+          %option{value: "12"} タイヤのサイズ
+          %option{value: "13"} スキーのサイズ
+          %option{value: "14"} スノーボードのサイズ
+        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon" 
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "money"
+          %span 価格
+        %select.search__left__down__formgroup__select
+          %option{value: "---"} 選択してください
+          %option{value: "1"} 300 〜 1000
+          %option{value: "2"} 1000 〜 5000
+          %option{value: "3"} 5000 〜 10000
+          %option{value: "4"} 10000 〜 30000
+          %option{value: "5"} 30000 〜 50000
+          %option{value: "6"} 50000 〜
+        = fa_icon "chevron-down", class: "search__left__down__formgroup__icon-b" 
+        %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Min"}/
+        %span 〜
+        %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Max"}/
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "star"
+          %span 商品の状態
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span すべて
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 新品・未使用
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 未使用に近い
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 目立った傷や汚れなし
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span やや傷や汚れあり
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 傷や汚れあり
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 全体的に状態が悪い
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "truck"
+          %span 配送料の負担
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span すべて
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span  着払い（購入者負担）
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 送料込み（出品者負担）
+      .search__left__down__formgroup
+        %label 
+          = fa_icon "cart"
+          %span 販売状況
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span すべて
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span  販売中
+        %div
+          .search__left__down__formgroup__box
+            %input.search__left__down__formgroup__box__checkbox{type: "checkbox"}/
+            %span 売り切れ
+      .search__left__down__btn
+        %button.search__left__down__btn__left
+          クリア
+        %button.search__left__down__btn__right
+          完了
+  .search__right
+    .search__right__head
+      = params[:keyword]
+      %span の検索結果
+    .search__right__number
+      =@products.length
+      %span 件表示
+    .search__right__products
+      = render @products

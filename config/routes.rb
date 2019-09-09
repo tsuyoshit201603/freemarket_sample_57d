@@ -8,9 +8,13 @@ Rails.application.routes.draw do
         post 'pay', to: 'buyings#pay'
         get 'done', to: 'buyings#done'
       end
+    end
     resources :buyings, only: :index
     collection do
-      get 'search'
+      get 'search' 
+    end
+    collection do
+      get 'addsearch' 
     end
   end
   
