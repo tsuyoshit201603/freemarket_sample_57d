@@ -1,17 +1,15 @@
-* {
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-}
-
 .main {
   display: block;
   color: #333;
   &__product {
     width: 700px;
-    height: 2016px;
     margin: 0 auto;
     background: #fff;
+    &__delivery__sell-box__icon{
+      @include absoluteCenter(40%,90%);
+      z-index: 10;
+      color: gray;
+    }
     &__top {
       padding: 32px 16px;
       font-size: 22px;
@@ -100,24 +98,43 @@
       &__h3 {
         display: block;
         margin: 16px auto 0;
-        width: 538px;
+        width: 530px;
         padding: 40px;
         position: relative;
-        height: 80px;
+        height: 84px;
         background: #f5f5f5;
         border: 1px dashed #ccc;
         cursor: pointer;
-      }
-      &__h3-image__p {
-        position: absolute;
-        top: 25%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 14px;
-        white-space: pre-wrap;
-        color: #333;
-        font-weight: 600;
+        &__context {
+          position: absolute;
+          top: 25%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          white-space: pre-wrap;
+          color: #333;
+          font-weight: 600;
+          &--num4{
+            top: 0;
+          }
+        }
+        &--num1{
+          width: 410px;
+          margin: 16px 0 0;
+        }
+        &--num2{
+          width: 290px;
+          margin: 16px 0 0;
+        }
+        &--num3{
+          width: 163px;
+          margin: 16px 0 0;
+        }
+        &--num4{
+          width: 42px;
+          margin: 16px 0 0;
+        }
       }
     }
     &__name-explain{
@@ -131,13 +148,10 @@
         }
       }
       &__h1-text {
-        width: 94%;
+        @include reset_form;
+        @include mercariForm(25px,94%);
         margin: 8px 0 0;
-        height: 25px;
         padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
         line-height: 1.5;
         font-size: 16px;
         font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
@@ -152,68 +166,62 @@
       }
       &__h2-text {
         margin: 8px 0 0;
-        display: block;
         width: 96%;
-        max-width: 100%;
-        height: 120px;
+        min-width: 96%;
+        max-width: 96%;
+        min-height: 120px;
         padding: 10px;
         border: 1px solid #ccc;
         background: #fff;
         font-size: 16px;
         line-height: 1.5;
+        outline: none;
         font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+        &:focus{
+          border: solid 1px $newRegistrationBlue;
+        }
       }
     }
     &__details {
       border-top: 1px solid #eee;
       padding: 40px;
-      height: 180px;
+      display: flex;
+      justify-content: space-between;
       &__h1 {
-        float: left;
         color: #888;
         font-size: 14px;
         font-weight: 600;
       }
       &__sell-box {
-        float: right;
         width: 400px;
         margin: 0;
         position: relative;
-        &__icon-a{
-          padding: 0 16px;
-          position: absolute;
-          top: 22%;
-          right:0;
-          float: right;
-          color: #888;
-          font-size: 15px;
-        }
-        &__icon-b{
-          padding: 0 16px;
-          position: absolute;
-          top: 83%;
-          right:0;
-          float: right;
-          color: #888;
-          font-size: 15px;
-        }
       }
       &__h2 {
         font-size: 14px;
         font-weight: 600;
-        margin: 0;
+        &--margin{
+          margin-top: 25px;
+        }
         &  span {
           @include required;
         }
+        & .label__nini{
+          @include arbitrary;
+        }
       }
       &__h2-choice {
-        @include mercariForm;
-        margin: 8px 0 0;
-        width: 100%;
-        border: 1px solid #ccc;
-        background: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        position: relative;
+        & select{
+          @include reset_form;
+          @include mercariForm(50px,400px);
+          margin-bottom: 10px;
+        }
+        & input{
+          @include reset_form;
+          @include mercariForm(50px,388px);
+          margin-bottom: 10px;
+        }
       }
       &__h3 {
         font-size: 14px;
@@ -224,57 +232,28 @@
         }
       }
       &__h3-choice {
-        @include mercariForm;
-        margin: 8px 0 0;
-        width: 100%;
-        border: 1px solid #ccc;
-        background: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        position: relative;
+        & select{
+          @include reset_form;
+          @include mercariForm(50px,400px);
+          margin-bottom: 10px;
+        }
       }
     }
     &__delivery {
       border-top: 1px solid #eee;
       padding: 40px;
-      height: 290px;
+      display: flex;
+      justify-content: space-between;
       &__h1 {
-        float: left;
         color: #888;
         font-size: 14px;
         font-weight: 600;
       }
       &__sell-box {
-        float: right;
         width: 400px;
         margin: 0;
         position: relative;
-        &__icon-c{
-          padding: 0 16px;
-          position: absolute;
-          top: 14%;
-          right:0;
-          float: right;
-          color: #888;
-          font-size: 15px;
-        }
-        &__icon-d{
-          padding: 0 16px;
-          position: absolute;
-          top: 53%;
-          right:0;
-          float: right;
-          color: #888;
-          font-size: 15px;
-        }
-        &__icon-e{
-          padding: 0 16px;
-          position: absolute;
-          top: 91%;
-          right:0;
-          float: right;
-          color: #888;
-          font-size: 15px;
-        }
       }
       &__h2 {
         font-size: 14px;
@@ -283,15 +262,17 @@
         &  span {
           @include required;
         }
+        &--margin{
+          margin-top: 40px;
+        }
       }
       &__h2-choice {
-        @include mercariForm;
-        margin: 8px 0 0;
-        width: 100%;
-        border: 1px solid #ccc;
-        background: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        position: relative;
+        & select{
+          @include reset_form;
+          @include mercariForm(50px,400px);
+          margin-bottom: 10px;
+        }
       }
       &__h3 {
         font-size: 14px;
@@ -302,9 +283,12 @@
         }
       }
       &__h3-choice {
-        margin: 8px 0 0;
-        width: 96%;
-        padding: 0;
+        position: relative;
+        & select{
+          @include reset_form;
+          @include mercariForm(50px,400px);
+          margin-bottom: 10px;
+        }
       }
       &__h4 {
         font-size: 14px;
@@ -315,30 +299,28 @@
         }
       }
       &__h4-choice {
-        @include mercariForm;
-        margin: 8px 0 0;
-        width: 100%;
-        border: 1px solid #ccc;
-        background: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        position: relative;
+        & select{
+          @include reset_form;
+          @include mercariForm(50px,400px);
+          margin-bottom: 10px;
+        }
       }
     }
     &__price {
       border-top: 1px solid #eee;
       padding: 40px;
       height: 218px;
+      display: flex;
+      justify-content: space-between;
       &__h1 {
-        float: left;
         color: #888;
         font-size: 14px;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
       }
       &__sell-box {
-        float: right;
         width: 400px;
-        margin: 0;
       }
       &__h2 {
         font-weight: 600;
@@ -350,38 +332,60 @@
         &  span {
           @include required;
         }
+        & p{
+          float: right;
+          margin-right: 10px;
+          font-size: 11px;
+        }
       }
       &__h2-choice {
-        width: 32%;
+        position: relative;
+        @include reset_form;
+        @include mercariForm(50px,160px);
         text-align: right;
         float: right;
-        height: 28px;
         padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
+        box-sizing: border-box;
         line-height: 1.5;
         font-size: 13px;
+        margin-bottom: 10px;
+        font-weight: 500;
       }
       &__h3 {
         padding: 24px 0;
         border-top: 1px solid #ccc;
         font-size: 12px;
+        width:400px;
+        display: flex;
+        justify-content: space-between;
       }
       &__h4 {
         padding: 24px 0;
         border-top: 1px solid #ccc;
         font-weight: 600;
+        width:400px;
+        display: flex;
+        justify-content: space-between;
+        &__profit{
+          font-size:25px;
+          font-weight: bold;
+        }
       }
     }
     &__btn-box {
       border-top: 1px solid #eee;
       padding: 40px;
-      &  p {
+      font-size:0;
+      &__p {
         font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
         font-size: 14px;
-        &  span {
-          color: #0099e8;
+        & a{
+          @include reset_a-tag(#0099e8);
+          margin:0;
+          padding:0;
+          &:hover{
+          text-decoration: underline;
+          }
         }
       }
       &__exhibit {
@@ -398,18 +402,30 @@
         text-align: center;
       }
       &__return {
-        width: 45%;
-        margin: 24px auto 0;
-        background: #aaa;
-        border: 1px solid #aaa;
-        color: #fff;
-        display: block;
-        line-height: 48px;
-        font-size: 14px;
-        transition: all ease-out .3s;
-        cursor: pointer;
-        text-align: center;
+        & a{
+          @include reset_a-tag(#FFFFFF);
+        }
+        &__box{
+          width: 45%;
+          margin: 24px auto 0;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
       }
     }
   }
+}
+.hiddenInputForDetails{
+  display: none;
+}
+
+.hiddenInputForDelivery{
+  display: none;
 }
