@@ -52,4 +52,16 @@ $(function(){
     });
   }
 
+  //一段目のカテゴリーを選択した際に非同期通信
+  selectbox[0].on("change", function(){
+    ajaxForCategory($(this),1);
+  });
+  //二段目のカテゴリーを選択した際に非同期通信
+  selectbox[1].on("change", function(){
+    ajaxForCategory($(this),2);
+  });
+  //３段目のカテゴリーを選択した際にサイズとブランドの入力欄を表示
+  selectbox[2].on("change", function(){
+    $(".hiddenInputForDetails").removeClass("hiddenInputForDetails");
+  });
 })
