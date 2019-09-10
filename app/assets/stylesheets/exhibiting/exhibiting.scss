@@ -1,0 +1,45 @@
+.exhibiting__contents {
+  width: 100%;
+  color: $mercariBlack;
+  &__head {
+    padding: 0 16px;
+    height: 72px;
+    line-height: 72px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fafafa;
+  }
+  &__tags {
+    height: 74px;
+    line-height: 74px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #eee;
+    display: flex;
+    &__exhibiting {
+      width: 33%;
+      text-align: center;
+      @include reset_a-tag($mercariBlack);
+      border-top: 2px solid $mercariRed;
+      background-color: #fff;
+    }
+    &__trading {
+      width: 33%;
+      text-align: center;
+      @include reset_a-tag($mercariBlack);
+    }
+    &__sold {
+      width: 33%;
+      text-align: center;
+      @include reset_a-tag($mercariBlack);
+    }
+  }
+  &__content {
+    text-align: center;
+    &__text {
+      color: #ccc;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  }
+}

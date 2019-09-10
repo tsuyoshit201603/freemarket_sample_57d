@@ -1,0 +1,20 @@
+= link_to product_exhibitings_path(product.id), class: "reset" do
+  .sold__contents__selected
+    .sold__contents__selected__image
+      = image_tag(product.pictures.first.image, widht:"30px",height:"40px")
+    .sold__contents__selected__right
+      .sold__contents__selected__right__top
+        = product.name
+      .sold__contents__selected__right__bottom
+        = fa_icon "heart"
+        20
+        = fa_icon "comment"
+        10
+        %span.sold__contents__selected__right__bottom__status
+          - if product.condition_id == 1
+            出品中
+          - elsif product.condition_id == 2
+            取引中
+          - elsif product.condition_id == 3
+            売却済み
+    = fa_icon "angle-right", class: "sold__contents__selected__icon"
