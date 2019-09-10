@@ -1,0 +1,98 @@
+.details__content
+  %h1.details__content__title
+    = @product.name
+  .details__content__main
+    .details__content__main__table
+      = image_tag @product.pictures.first.image, class: "details__content__main__table__main"
+      - @product.pictures.each do |picture|
+        = image_tag picture.image, class: "details__content__main__table__sub"
+    .details__content__main__margin
+    .details__content__main__table
+      %table.details__content__main__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                = @product.user.nickname
+          %tr
+            %th カテゴリー
+            %td
+              = link_to root_path, class: "details__content__main__table__right" do
+                = @product.category.name
+              %br
+              = link_to root_path , class: "details__content__main__table__right" do
+                >
+                = @product.category.name
+              %br
+              = link_to root_path , class: "details__content__main__table__right" do
+                >
+                = @product.category.name
+          %tr
+            %th ブランド
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                - if @product.brand != nil
+                  = @product.brand.name
+          %tr
+            %th 商品のサイズ
+            %td
+              = @product.size.size
+          %tr
+            %th 商品の状態
+            %td
+              = @product.commodity_condition.condition
+          %tr
+            %th 配送料の負担
+            %td
+              = @product.shipping_charge.method
+          %tr
+            %th 配送の方法
+            %td
+              = @product.delivery_method.name
+          %tr
+            %th 配送元地域
+            %td
+              = link_to root_path , class: "details__content__main__table__right" do
+                = @product.prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @product.days_before_shipment.days
+  .details__content__prices
+    %span.details__content__prices__price
+      ¥
+      = @product.price.to_s(:delimited)
+    %span.details__content__prices__tax
+      (税込)
+    %span.details__content__prices__postage
+      送料込み
+  .details__content__comment
+    %p
+      = @product.explain
+.details__messages
+  - if @product.condition_id == 1
+    .details__messages__content
+      = link_to root_path, class: "details__content__buy__btn" do
+        .details__content__buy.details__content__buy--text
+          商品の編集
+      .details__messages__content__margin__or
+        or
+      = link_to root_path, class: "details__content__buy__sold" do
+        .details__content__buy.details__content__buy__sold.details__content__buy--text
+          出品を一旦停止する
+      = link_to root_path, class: "details__content__buy__sold" do
+        .details__content__buy.details__content__buy__sold.details__content__buy--text
+          この商品を削除する
+  - elsif @product.condition_id == 2
+    .details__messages__content--trading
+      .details__content__buy.details__content__buy__sold.details__content__buy--text
+        商品は取引中です
+  .details__messages__content
+    .details__messages__content__top
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .details__messages__content__mid
+      %textarea{class: "details__messages__content__mid__form"}
+      = link_to root_path, class: "details__messages__content__bottom" do
+        .details__messages__content__bottom
+          コメントする

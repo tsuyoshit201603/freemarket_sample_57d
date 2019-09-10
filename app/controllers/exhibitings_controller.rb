@@ -11,6 +11,10 @@ class ExhibitingsController < ApplicationController
     search_products(3)
   end
 
+  def index
+    @product = Product.find(params[:product_id])
+  end
+
   private
 
   def search_products(num)

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       get 'addsearch' 
     end
+    resources :exhibitings, only:[:index]
   end
 
   namespace :api do
