@@ -7,11 +7,20 @@
     .contents__product-information__pickup__text
       ピックアップカテゴリー
     .contents__product-information__pickup__categorie
-      - 4.times do
+      - @categories.each do |parent|
         .contents__product-information__pickup__categorie__text
-          新着アイテム
+          = parent.name
+          %span 新着アイテム
         .contents__product-information__pickup__categorie__products
-          = render @products
+          - i = 0
+          - parent.children.each do |child|
+            - child.children.each do |grandchild|
+              = render partial: "product", collection: grandchild.products.order("created_at DESC").limit(1)
+              - i += 1
+              - if i == 4
+                - break
+            - if i == 4
+              - break
   .contents__product-information__pickup.contents__product-information__pickup--brand
     .contents__product-information__pickup__text
       ピックアップブランド
