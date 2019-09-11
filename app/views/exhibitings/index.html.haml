@@ -22,11 +22,11 @@
             %th カテゴリー
             %td
               = link_to root_path, class: "details__content__main__table__right" do
-                = @product.category.name
+                = @product.category.parent.parent.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
                 >
-                = @product.category.name
+                = @product.category.parent.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
                 >
