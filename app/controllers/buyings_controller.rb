@@ -1,6 +1,7 @@
 class BuyingsController < ApplicationController
   before_action :authenticate_user!
   layout "simple"
+  before_action :back_to_root_path
   def index
     @product = Product.find(params[:product_id])
     card = Card.where(user_id: current_user.id).first
@@ -33,4 +34,12 @@ class BuyingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @product.update(condition_id: '2')
   end
+
+  private
+
+  def back_to_root_path
+    product = Product.find(params[:product_id])
+    redirect_to root_path if product.user_id == current_user.id || product.condition_id != 1
+  end
+
 end
