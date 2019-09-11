@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   layout "simple" ,only: :new
   before_action :authenticate_user!, only: :new
   def index
-    @products = Product.limit(4)
+    @products = Product.limit(4).order("created_at DESC")
+    @categories = Category.where(ancestry: nil)
   end
 
   def new
