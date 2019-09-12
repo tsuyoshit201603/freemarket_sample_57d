@@ -1,5 +1,6 @@
 class ExhibitingsController < ApplicationController
   before_action :authenticate_user!
+  before_action :back_to_root_path
   def exhibiting
     search_products(1)
   end
@@ -30,5 +31,10 @@ class ExhibitingsController < ApplicationController
     else
       @products = nil
     end
+  end
+
+  def back_to_root_path
+    product = Product.find(params[:product_id])
+    redirect_to root_path unless current_user.id == product.user_id
   end
 end
