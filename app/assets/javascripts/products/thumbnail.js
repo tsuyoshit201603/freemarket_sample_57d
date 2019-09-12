@@ -58,4 +58,38 @@ $(function(){
     reader.readAsDataURL(image);
   });
 
+  // ページが読み込まれたらサムネイルを生成する
+  if ($(".editMain").length){
+    window.onload = function(){
+      var url = `/api${window.location.pathname}`
+      $.ajax({
+        url: url
+      })
+      .done(function(data){
+        $.each(data,function(index,value){
+          fileArray.push(value.image.url);
+          listNum = index;
+          appendHTML(value.image.url,arrayNum,listNum,value.id);
+          listNum++;
+          if(index <= 5){
+            num = index + 1;
+          }
+          if(num >= 5){
+            num = num - 5;
+            arrayNum = 1;
+          }
+          if(index == 9){
+            num = 5;
+          }
+        });
+        fileArea.addClass(`main__product__item__h3--num${num}`);
+        context.addClass(`main__product__item__h3__context--num${num}`);
+        fileArea.attr("for",`product_image${listNum}`);
+      })
+      .fail(function(error){
+        window.alert("error");
+      });
+    }
+  }
+
 });
