@@ -96,4 +96,18 @@ $(function(){
     }
   }
 
+  // 削除リンクが押された際にサムネイルを削除する
+  $(document).on("click",".uploadedItem__buttons__delete", function(e){
+      e.preventDefault();
+      var thumbnail = $(this).parents(".uploadedItem");
+      var deleteListNum = thumbnail[0].dataset.num;
+      var deleteIDNum = thumbnail[0].dataset.id;
+      var allListsNum = list[0].children().length + list[1].children().length;
+      listNum = allListsNum - 1;
+      if(allListsNum > 5){
+        num = allListsNum - 5
+      }else{
+        num = allListsNum
+      }
+    });
 });
