@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :ransack
-  layout "simple" ,only: :new
+  layout "simple" ,only: [:new, :edit]
   before_action :authenticate_user!, only: :new
   def index
     @products = Product.limit(4)
