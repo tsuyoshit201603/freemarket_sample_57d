@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'credits#delete'
     end
   end
-  resources :payings, only:[:new,:show] do
+  resources :payings, only:[:new] do
     collection do
       post 'pay', to: 'payings#pay'
     end
