@@ -4,8 +4,11 @@
   .details__content__main
     .details__content__main__table
       = image_tag @product.pictures.first.image, class: "details__content__main__table__main"
-      - @product.pictures.each do |picture|
-        = image_tag picture.image, class: "details__content__main__table__sub"
+      - @product.pictures.each_with_index do |picture, i|
+        - if i == 0
+          = image_tag picture.image, class: "details__content__main__table__sub", style: "opacity: 1;"
+        - else
+          = image_tag picture.image, class: "details__content__main__table__sub"
     .details__content__main__margin
     .details__content__main__table
       %table.details__content__main__table
@@ -19,11 +22,11 @@
             %th カテゴリー
             %td
               = link_to root_path, class: "details__content__main__table__right" do
-                = @product.category.name
+                = @product.category.parent.parent.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
                 >
-                = @product.category.name
+                = @product.category.parent.name
               %br
               = link_to root_path , class: "details__content__main__table__right" do
                 >
