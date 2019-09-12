@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show,:search,:addsearch]
   before_action :setting_for_product, only: [:new,:edit]
   before_action :set_product, only: [:edit,:update, :show]
+  before_action :another_user,only: [:edit,:update]
 
   def index
     @products = Product.limit(4).order("created_at DESC")
@@ -126,5 +127,8 @@ class ProductsController < ApplicationController
     @shipping_charges = ShippingCharge.all
     @conditions = Condition.all
     @q = Product.ransack(params[:q])
+  end
+  def another_user
+    redirect_to root_path unless current_user&.id == @product.user.id
   end
 end
