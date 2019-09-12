@@ -21,9 +21,11 @@ class ProductsController < ApplicationController
       image_params.each do |pic|
         @product.pictures.build(image: pic)
       end
-    end
-    if @product.save
-      redirect_to root_path
+      if @product.save
+        redirect_to root_path
+      else
+        redirect_to new_product_path
+      end
     else
       redirect_to new_product_path
     end
