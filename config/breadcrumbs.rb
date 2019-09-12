@@ -40,6 +40,29 @@ crumb :log_out do
   parent :mypage
 end
 
+# 出品した商品-出品中
+crumb :exhibiting do
+  link "出品した商品-出品中", user_exhibiting_path(current_user.id)
+  parent :mypage
+end
+
+# 出品した商品-取引中
+crumb :trading do
+  link "出品した商品-取引中", user_trading_path(current_user.id) 
+  parent :mypage
+end
+
+# 出品した商品-売却済み
+crumb :sold do
+  link "出品した商品-売却済み", user_sold_path(current_user.id)
+  parent :mypage
+end
+
+# 出品商品画面
+crumb :index do
+  link "出品商品画面", product_path(current_user.id)
+  parent :exhibiting
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

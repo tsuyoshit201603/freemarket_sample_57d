@@ -1,3 +1,5 @@
+- breadcrumb :index
+= render "layouts/breadcrumbs"
 .details__content
   %h1.details__content__title
     = @product.name
@@ -81,7 +83,7 @@
       = link_to root_path, class: "details__content__buy__sold" do
         .details__content__buy.details__content__buy__sold.details__content__buy--text
           出品を一旦停止する
-      = link_to root_path, class: "details__content__buy__sold" do
+      = link_to "/products/#{@product.id}", method: :delete, class: "details__content__buy__sold" do
         .details__content__buy.details__content__buy__sold.details__content__buy--text
           この商品を削除する
   - elsif @product.condition_id == 2
