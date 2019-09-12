@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   layout "simple" ,only: [:new, :edit]
   before_action :authenticate_user!, only: :new
   before_action :setting_for_product, only: [:new,:edit]
+  before_action :set_product, only: [:edit,:update, :show]
+
   def index
     @products = Product.limit(4)
   end
@@ -76,6 +78,10 @@ class ProductsController < ApplicationController
     @shippingCharges = ShippingCharge.all
     @size = Size.all
     @categories = Category.where(ancestry: nil)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def products_params
