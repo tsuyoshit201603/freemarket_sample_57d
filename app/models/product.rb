@@ -13,4 +13,5 @@ class Product < ApplicationRecord
   has_one :buyer, class_name: 'User', through: :users_products, dependent: :destroy
   belongs_to :condition, dependent: :destroy
   belongs_to_active_hash :prefecture
+  attr_accessor :change
 end
