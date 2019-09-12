@@ -27,10 +27,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
+
   def update
-    @product = Product.find(params[:id])
     @product.update(products_params)
     id = @product.id
     if delete_params
@@ -58,10 +57,10 @@ class ProductsController < ApplicationController
     @products = @q.result(distinct: true)
     render 'products/search'
   end
+
   def show
     pre_id = params[:id].to_i - 1
     next_id = params[:id].to_i + 1
-    @product = Product.find(params[:id])
     @pre_product = Product.find_by(id: pre_id)
     @next_product = Product.find_by(id: next_id)
     user = User.find(@product.user_id)
@@ -100,11 +99,13 @@ class ProductsController < ApplicationController
         condition_id: 1,
         user_id: current_user.id,
         brand_id: 1
-      )
+    )
   end
+
   def image_params
     params[:image]
   end
+
   def delete_params
     splited = params[:product][:change].split(",")
     splited.delete("0");
@@ -123,5 +124,4 @@ class ProductsController < ApplicationController
     @conditions = Condition.all
     @q = Product.ransack(params[:q])
   end
-
 end
