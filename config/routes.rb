@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :identifications, only: [:index]
     resources :profiles, only:[:new]
-    get  "exhibiting"  => "exhibitings#exhibiting"
+    get  "exhibiting"  => "exhibitings#exhibiting" do
+      resources :products, only: [:destroy] 
+    end
     get  "trading"     => "exhibitings#trading"
     get  "sold"        => "exhibitings#sold"
   end

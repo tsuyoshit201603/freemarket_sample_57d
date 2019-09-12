@@ -50,6 +50,14 @@ class ProductsController < ApplicationController
     redirect_to user_exhibiting_path(current_user.id)
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to user_exhibiting_path(current_user.id)
+    end
+  end
+
   def show
     @products = Product.all
   end
