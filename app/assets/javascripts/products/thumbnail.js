@@ -109,5 +109,11 @@ $(function(){
       }else{
         num = allListsNum
       }
+      //ファイルアップロードエリアの大きさを変更する
+      fileArea.removeClass(`main__product__item__h3--num${num}`);
+      context.removeClass(`main__product__item__h3__context--num${num}`);
+      num--
+      fileArea.addClass(`main__product__item__h3--num${num}`);
+      context.addClass(`main__product__item__h3__context--num${num}`);
     });
 });
