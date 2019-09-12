@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     end
     resources :buyings, only: :index
     collection do
-      get 'search' 
+      get 'search'
     end
     collection do
-      get 'addsearch' 
+      get 'addsearch'
     end
     resources :exhibitings, only:[:index]
   end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get  "trading"     => "exhibitings#trading"
     get  "sold"        => "exhibitings#sold"
   end
-  resources :logouts, only:[:destroy]
+  resources :logouts, only:[:index]
   resources :signups, only:[:index]
   resources :finishings, only:[:index]
   resources :telphones, only:[:new,:create]

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :ransack
   layout "simple" ,only: [:new, :edit]
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, except: [:index,:show,:serach,:addsearch]
   before_action :setting_for_product, only: [:new,:edit]
   before_action :set_product, only: [:edit,:update, :show]
 

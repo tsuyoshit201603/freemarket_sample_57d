@@ -36,7 +36,7 @@ end
 
 # ログアウト
 crumb :log_out do
-  link "ログアウト", logout_path(current_user.id)
+  link "ログアウト", logouts_path
   parent :mypage
 end
 

@@ -1,4 +1,5 @@
 class CreditsController < ApplicationController
+  before_action :authenticate_user!
   def index
     card = Card.where(user_id: current_user.id).first
     redirect_to credit_path(card.id) if card.present?

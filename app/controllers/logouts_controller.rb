@@ -1,4 +1,5 @@
 class LogoutsController < ApplicationController
-  def destroy
+  before_action :authenticate_user!
+  def index
   end
 end

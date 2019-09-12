@@ -1,4 +1,5 @@
 class ExhibitingsController < ApplicationController
+  before_action :authenticate_user!
   def exhibiting
     search_products(1)
   end
