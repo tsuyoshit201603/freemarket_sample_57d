@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   before_action :ransack
-  layout "simple" ,only: :new
+  layout "simple" ,only: [:new, :edit]
   before_action :authenticate_user!, only: :new
+  before_action :setting_for_product, only: [:new,:edit]
+  before_action :set_product, only: [:edit,:update, :show]
+
   def index
     @products = Product.limit(4).order("created_at DESC")
     @categories = Category.where(ancestry: nil)
@@ -9,17 +12,37 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    setting_for_product
   end
 
   def create
-    @product = Product.create(products_params)
+    @product = Product.new(products_params)
+    if image_params
+      image_params.each do |pic|
+        @product.pictures.build(image: pic)
+      end
+    end
+    if @product.save
+      redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @product.update(products_params)
     id = @product.id
-    image_params.each do |image|
-      pic = Picture.new
-      pic.image = image
-      pic.product_id = id
-      pic.save!
+    if delete_params
+      delete_params.each do |deleteID|
+        Picture.find(deleteID).destroy
+      end
+    end
+    if image_params
+      image_params.each do |image|
+        Picture.create(image: image, product_id: id)
+      end
     end
     redirect_to root_path
   end
@@ -36,10 +59,10 @@ class ProductsController < ApplicationController
     @products = @q.result(distinct: true)
     render 'products/search'
   end
+
   def show
     pre_id = params[:id].to_i - 1
     next_id = params[:id].to_i + 1
-    @product = Product.find(params[:id])
     @pre_product = Product.find_by(id: pre_id)
     @next_product = Product.find_by(id: next_id)
     user = User.find(@product.user_id)
@@ -59,6 +82,10 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def products_params
     params.require(:product).permit(
       :name,
@@ -75,10 +102,21 @@ class ProductsController < ApplicationController
         condition_id: 1,
         user_id: current_user.id,
         brand_id: 1
-      )
+    )
   end
+
   def image_params
-    params.permit(image:[]).require(:image)
+    params[:image]
+  end
+
+  def delete_params
+    splited = params[:product][:change].split(",")
+    splited.delete("0");
+    if splited.length == Product.find(params[:id]).pictures.length && !image_params
+      return nil
+    else
+      return splited
+    end
   end
 
   def ransack
@@ -86,8 +124,7 @@ class ProductsController < ApplicationController
     @sizes = Size.all
     @commodity_conditions = CommodityCondition.all
     @shipping_charges = ShippingCharge.all
-    @conditions = Condition.all 
+    @conditions = Condition.all
     @q = Product.ransack(params[:q])
   end
-
 end

@@ -13,17 +13,17 @@
           %ul#uploadedListFirst.uploadedList
           %ul#uploadedListFinal.uploadedList
           .removefileuploader
-            = f.label :image1, class:"main__product__item__h3" do
-              = f.file_field :image1,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image2,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image3,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image4,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image5,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image6,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image7,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image8,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image9,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
-              = f.file_field :image10,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;"
+            = f.label :image0, class:"main__product__item__h3" do
+              = f.file_field :image0,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image1,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image2,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image3,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image4,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image5,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image6,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image7,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image8,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
+              = f.file_field :image9,name:"image[]", multiple: true, class: "main__product__item__h3__image",style:"display:none;", accept: ".jpg, .jpeg, .png"
               .main__product__item__h3__context
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
@@ -31,11 +31,11 @@
       .main__product__name-explain__h1
         商品名
         %span 必須
-      = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class:"main__product__name-explain__h1-text"
+      = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class:"main__product__name-explain__h1-text", value: @product.name
       .main__product__name-explain__h2
         商品の説明
         %span 必須
-      = f.text_area :explain,class:"main__product__name-explain__h2-text", placeholder: '商品の説明 (必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）&#13;&#10;2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe
+      = f.text_area :explain,class:"main__product__name-explain__h2-text", placeholder: '商品の説明 (必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）&#13;&#10;2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe, value: @product.explain
     .main__product__details
       .main__product__details__h1
         商品の詳細
@@ -46,7 +46,7 @@
         .ancestry
           .ancestry__parent
             .main__product__details__h2-choice
-              = f.collection_select :category_id, @categories, :id, :name, prompt:"---"
+              = f.collection_select :category_id, @categories, :id, :name, { include_blank: "---", selected:"" }
               = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
           .ancestry__child
           .ancestry__grandChild
@@ -55,19 +55,19 @@
             サイズ
             %span 必須
           .main__product__details__h2-choice
-            = f.collection_select :size_id, @size, :id, :size, prompt:"---"
+            = f.collection_select :size_id, @size, :id, :size, { include_blank: "---", selected:"" }
             = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .hiddenInputForDetails
           .main__product__details__h2.main__product__details__h2--margin
             ブランド
             %span.label__nini 任意
           .main__product__details__h2-choice
-            = f.text_field :brand_id, placeholder: "例) シャネル"
+            = f.text_field :brand_id, placeholder: "例) シャネル" , value: @product.brand&.name
         .main__product__details__h3
           商品の状態
           %span 必須
         .main__product__details__h3-choice
-          = f.collection_select :commodity_condition_id, @commodityConditions, :id, :condition, prompt:"---"
+          = f.collection_select :commodity_condition_id, @commodityConditions, :id, :condition, { include_blank: "---", selected:"" }
           = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
     .main__product__delivery
       .main__product__delivery__h1
@@ -77,26 +77,26 @@
           配送料の負担
           %span 必須
         .main__product__delivery__h2-choice
-          = f.collection_select :shipping_charge_id, @shippingCharges, :id, :method, prompt: "---"
+          = f.collection_select :shipping_charge_id, @shippingCharges, :id, :method, { include_blank: "---", selected:"" }
           = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .hiddenInputForDelivery
           .main__product__delivery__h2.main__product__delivery__h2--margin
             配送の方法
             %span 必須
           .main__product__delivery__h2-choice
-            = f.collection_select :delivery_method_id, @deliveryMethods, :id, :name, prompt: "---"
+            = f.collection_select :delivery_method_id, @deliveryMethods, :id, :name, { include_blank: "---", selected:"" }
             = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .main__product__delivery__h3
           発送元の地域
           %span 必須
         .main__product__delivery__h3-choice
-          = f.collection_select :prefecture_id, @prefectures, :id, :name, prompt: "---"
+          = f.collection_select :prefecture_id, @prefectures, :id, :name, { include_blank: "---", selected:"" }
           = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
         .main__product__delivery__h4
           発送までの日数
           %span 必須
         .main__product__delivery__h4-choice
-          = f.collection_select :days_before_shipment_id, @days,:id, :days, prompt: "---"
+          = f.collection_select :days_before_shipment_id, @days,:id, :days, { include_blank: "---", selected:"" }
           = fa_icon "chevron-down", class: "main__product__delivery__sell-box__icon"
     .main__product__price
       .main__product__price__h1
@@ -105,7 +105,7 @@
         .main__product__price__h2
           価格
           %span 必須
-          = f.text_field :price, placeholder:"例) 300", class: "main__product__price__h2-choice"
+          = f.text_field :price, placeholder:"例) 300", class: "main__product__price__h2-choice", value: @product.price
           %p ￥
         .main__product__price__h3
           .main__product__price__h3__info

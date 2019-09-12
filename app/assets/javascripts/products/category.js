@@ -27,7 +27,6 @@ $(function(){
   //非同期通信を行うfunction
   function ajaxForCategory(selected, i){
     var selectedNum = {selected: selected.find("select").val()};
-    console.table(selectedNum);
     $.ajax({
       url: url,
       data: selectedNum
@@ -39,11 +38,11 @@ $(function(){
         appendHTML(selectbox[i],option);
       }else{
         if(i == 1){
-          selectbox[1].html("");
-          selectbox[2].html("");
+          selectbox[1].empty();
+          selectbox[2].empty();
         }
         else{
-          selectbox[2].html("");
+          selectbox[2].empty();
         }
       }
     })

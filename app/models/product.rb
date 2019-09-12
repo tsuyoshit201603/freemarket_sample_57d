@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many   :pictures, dependent: :destroy
+  accepts_nested_attributes_for :pictures
   belongs_to :category
   belongs_to :size
   belongs_to :brand
@@ -13,4 +14,5 @@ class Product < ApplicationRecord
   has_one :buyer, class_name: 'User', through: :users_products, dependent: :destroy
   belongs_to :condition, dependent: :destroy
   belongs_to_active_hash :prefecture
+  attr_accessor :change
 end
