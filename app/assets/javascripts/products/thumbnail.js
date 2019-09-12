@@ -89,6 +89,10 @@ $(function(){
       .fail(function(error){
         window.alert("error");
       });
+      setTimeout(function() {
+        $(".loadingArea").fadeOut();
+        $(".editMain").fadeIn();
+      }, 500);
     }
   }
 
