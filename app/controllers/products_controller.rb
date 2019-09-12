@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
         Picture.create(image: image, product_id: id)
       end
     end
-    redirect_to root_path
+    redirect_to user_exhibiting_path(current_user.id)
   end
 
   def show
