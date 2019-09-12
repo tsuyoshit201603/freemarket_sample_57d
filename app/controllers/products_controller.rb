@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
         @product.pictures.build(image: pic)
       end
     end
-    binding.pry
     if @product.save
       redirect_to root_path
     else
