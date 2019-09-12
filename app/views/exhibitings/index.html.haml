@@ -76,7 +76,7 @@
 .details__messages
   - if @product.condition_id == 1
     .details__messages__content
-      = link_to root_path, class: "details__content__buy__btn" do
+      = link_to edit_product_path(@product.id) , class: "details__content__buy__btn" do
         .details__content__buy.details__content__buy--text
           商品の編集
       .details__messages__content__margin__or
