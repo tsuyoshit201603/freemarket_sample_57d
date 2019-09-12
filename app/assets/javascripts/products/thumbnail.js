@@ -139,5 +139,8 @@ $(function(){
       }else{
         list[0].children().last().remove();
       }
+      deleteIDArray.push(deleteIDNum);
+      //hiddenFormに削除された画像のIDを保存する
+      $(".hiddenForm").val(deleteIDArray);
     });
 });
