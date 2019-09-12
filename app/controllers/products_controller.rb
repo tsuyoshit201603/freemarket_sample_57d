@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
     user = User.find(@product.user_id)
     @products = Product.where(user_id: user.id).limit(6)
     @same_products = Product.where("name LIKE ?", "%#{@product.name}%").limit(6)
-    redirect_to product_exhibitings_path(params[:id]) if current_user.id == @product.user_id
+    redirect_to product_exhibitings_path(params[:id]) if current_user&.id == @product.user_id
   end
 
   private
