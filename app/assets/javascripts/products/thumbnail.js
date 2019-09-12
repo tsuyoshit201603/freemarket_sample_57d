@@ -115,5 +115,15 @@ $(function(){
       num--
       fileArea.addClass(`main__product__item__h3--num${num}`);
       context.addClass(`main__product__item__h3__context--num${num}`);
+      var deletedForm = $(`#product_image${deleteListNum}`);
+      var lastForm = $(`#product_image${listNum}`);
+
+      // 削除されたサムネイルを保存していたフォームの内容を削除
+      if(deletedForm.val().length){
+        deletedForm.val("");
+        deletedForm.attr("id",`product_image${listNum}`);
+        lastForm.attr("id",`product_image${deleteListNum}`);
+        fileArea.attr("for",`product_image${listNum}`);
+      }
     });
 });
