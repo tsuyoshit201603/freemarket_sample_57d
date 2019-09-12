@@ -92,6 +92,14 @@ class ProductsController < ApplicationController
   def image_params
     params[:image]
   end
+  def delete_params
+    splited = params[:product][:change].split(",")
+    splited.delete("0");
+    if splited.length == Product.find(params[:id]).pictures.length && !image_params
+      return nil
+    else
+      return splited
+    end
   end
 
   def ransack
