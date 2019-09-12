@@ -114,7 +114,7 @@ class ProductsController < ApplicationController
     @sizes = Size.all
     @commodity_conditions = CommodityCondition.all
     @shipping_charges = ShippingCharge.all
-    @conditions = Condition.all 
+    @conditions = Condition.all
     @q = Product.ransack(params[:q])
   end
 
