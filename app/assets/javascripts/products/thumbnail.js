@@ -30,4 +30,32 @@ $(function(){
     list[arrayNum].append(html);
   }
 
+  // ファイルフィールドのファイルが変更された際にファイルを読み込む
+  file.on('change',function() {
+    var image = this.files[0];
+    var reader = new FileReader();
+    // ファイルの読み込みが終わった際に処理を行う
+    reader.onload = (function() {
+      fileArray.push(reader.result);
+      appendHTML(fileArray[fileArray.length - 1],arrayNum,listNum);
+      listNum++;
+      fileArea.attr("for",`product_image${listNum}`);
+      fileArea.removeClass(`main__product__item__h3--num${num}`);
+      context.removeClass(`main__product__item__h3__context--num${num}`);
+      if(num >= 0 && num <= 3){
+        num++;
+      }
+      else{
+        num = 0;
+        if(arrayNum == 1){
+          num = 5;
+        }
+        arrayNum++;
+      }
+      fileArea.addClass(`main__product__item__h3--num${num}`);
+      context.addClass(`main__product__item__h3__context--num${num}`);
+    });
+    reader.readAsDataURL(image);
+  });
+
 });
