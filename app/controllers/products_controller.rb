@@ -23,6 +23,10 @@ class ProductsController < ApplicationController
       redirect_to new_product_path
     end
   end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
     id = @product.id
     image_params.each do |image|
       pic = Picture.new
