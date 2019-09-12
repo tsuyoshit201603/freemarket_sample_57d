@@ -34,6 +34,11 @@ class ExhibitingsController < ApplicationController
   end
 
   def back_to_root_path
-    redirect_to root_path if current_user.id != params[:user_id].to_i
+    if params[:product_id] != nil 
+      product = Product.find(params[:product_id])
+      redirect_to root_path if current_user.id != product.user_id
+    elsif params[:user_id] != nil
+      redirect_to root_path if current_user.id != params[:user_id].to_i
+    end
   end
 end
