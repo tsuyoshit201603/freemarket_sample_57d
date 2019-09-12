@@ -90,7 +90,8 @@ class ProductsController < ApplicationController
       )
   end
   def image_params
-    params.permit(image:[]).require(:image)
+    params[:image]
+  end
   end
 
   def ransack
