@@ -27,12 +27,19 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
   end
+  def update
+    @product = Product.find(params[:id])
+    @product.update(products_params)
     id = @product.id
-    image_params.each do |image|
-      pic = Picture.new
-      pic.image = image
-      pic.product_id = id
-      pic.save!
+    if delete_params
+      delete_params.each do |deleteID|
+        Picture.find(deleteID).destroy
+      end
+    end
+    if image_params
+      image_params.each do |image|
+        Picture.create(image: image, product_id: id)
+      end
     end
     redirect_to root_path
   end
