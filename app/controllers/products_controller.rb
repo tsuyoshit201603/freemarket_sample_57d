@@ -12,7 +12,17 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(products_params)
+    if image_params
+      @product = Product.create(products_params)
+      id = @product.id
+      image_params.each do |image|
+        Picture.create(image: image, product_id: id)
+      end
+      redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
+  end
     id = @product.id
     image_params.each do |image|
       pic = Picture.new
