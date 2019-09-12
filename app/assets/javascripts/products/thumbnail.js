@@ -134,5 +134,10 @@ $(function(){
           $($(".uploadedItem")[index])[0].dataset.id = $($(".uploadedItem")[index + 1])[0].dataset.id;
         }
       })
+      if(allListsNum > 5){
+        list[1].children().last().remove();
+      }else{
+        list[0].children().last().remove();
+      }
     });
 });
