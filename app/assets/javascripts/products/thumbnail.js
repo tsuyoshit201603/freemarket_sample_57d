@@ -125,5 +125,14 @@ $(function(){
         lastForm.attr("id",`product_image${deleteListNum}`);
         fileArea.attr("for",`product_image${listNum}`);
       }
+
+      //削除されたサムネイルの画像を差し替える
+      fileArray.splice(deleteListNum, 1);
+      $.each(fileArray, function(index,value){
+        $($(".uploadedItem")[index]).find("img").attr("src",value);
+        if(index >= deleteListNum){
+          $($(".uploadedItem")[index])[0].dataset.id = $($(".uploadedItem")[index + 1])[0].dataset.id;
+        }
+      })
     });
 });
