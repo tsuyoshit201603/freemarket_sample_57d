@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.limit(4).order("created_at DESC")
-    @categories = Category.where(ancestry: nil)
+    @categories = Category.where(ancestry: nil).limit(4)
   end
 
   def new
