@@ -35,11 +35,6 @@
           top: 60%;
           right:5%;
         }
-        &__icon-b{
-          position: absolute;
-          top: 35%;
-          right:5%;
-        }
         &__input{
           width: 248px;
           margin: 8px 0 0;
@@ -56,14 +51,19 @@
         &  div{
           display: flex;
           margin: 16px 0 0;
+          flex-flow: row wrap;
+          &  label{
+            width: 220px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+          }
         }
 
         &__select{
-          width: 248px;
-          height: 48px;
-          margin: 8px 0 0;
-          -webkit-appearance: none;
-          padding: 0 16px;
+          flex-flow: row wrap;
+          &  div{
+            width: 120px;
+          }
         }
         #q_category_id_eq{
           width: 248px;

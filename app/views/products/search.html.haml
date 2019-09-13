@@ -32,18 +32,28 @@
         .search__left__down__formgroup
           = fa_icon "money"
           = f.label :price, '価格'
-          %select.search__left__down__formgroup__select
-            %option{value: "---"} 選択してください
-            %option{value: "1"} 300 〜 1000
-            %option{value: "2"} 1000 〜 5000
-            %option{value: "3"} 5000 〜 10000
-            %option{value: "4"} 10000 〜 30000
-            %option{value: "5"} 30000 〜 50000
-            %option{value: "6"} 50000 〜
-          = fa_icon "chevron-down", class: "search__left__down__formgroup__icon-b"
-          %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Min"}/
-          %span 〜
-          %input.search__left__down__formgroup__input.search__left__down__formgroup__input--span{type: "number", placeholder: "¥ Max"}/
+          .search__left__down__formgroup__select
+            %div
+              = f.radio_button 'price_gteq', '',{checked: true}
+              指定なし
+            %div
+              = f.radio_button 'price_gteq', '300'
+              300円以上
+            %div
+              = f.radio_button 'price_gteq', '1000'
+              1000円以上
+            %div
+              = f.radio_button 'price_gteq', '5000'
+              5000円以上
+            %div
+              = f.radio_button 'price_gteq', '10000'
+              10000円以上
+            %div
+              = f.radio_button 'price_gteq', '30000'
+              30000円以上
+            %div
+              = f.radio_button 'price_gteq', '50000'
+              50000円以上
         .search__left__down__formgroup
           = fa_icon "star"
           = f.label :commodity_condition_id_in, '商品の状態'
