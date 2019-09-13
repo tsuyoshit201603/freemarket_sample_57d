@@ -36,4 +36,11 @@ $(function(){
     $(".categoryIndex__grandchildren").hide();
   })
 
+  // 孫カテゴリーに関するイベント駆動
+  $(".categoryIndex__grandchildren__grandchild").on("mouseenter", function(){
+    $(this).css("background-color","#f4f4f4")
+  })
+  .on("mouseleave", function(){
+    $(this).css("background-color","#FFFFFF");
+  })
 })
