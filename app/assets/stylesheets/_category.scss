@@ -1,0 +1,52 @@
+.categoryIndex{
+  & a{
+    @include reset_a-tag($mercariBlack);
+  }
+  position: relative;
+  z-index: 100;
+  background-color: #FFFFFF;
+  &__parents{
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 224px;
+    box-shadow: 0 3px 4px #a7a7a7;
+    line-height: 44px;
+    font-size: 14px;
+    height: 572px;
+    &__parent{
+      padding-left: 10px;
+    }
+  }
+  &__children{
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 224px;
+    top: 0px;
+    width: 224px;
+    box-shadow: 0px 3px 4px #a7a7a7;
+    line-height: 30px;
+    display: none;
+    font-size: 14px;
+    height: 572px;
+    &__child{
+      padding-left: 10px;
+    }
+  }
+  &__grandchildren{
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 224px;
+    top: 0px;
+    width: 260px;
+    box-shadow: 0 3px 4px #a7a7a7;
+    line-height: 30px;
+    display: none;
+    font-size: 14px;
+    height: 572px;
+    &__grandchild{
+      padding-left: 10px;
+    }
+  }
+}
