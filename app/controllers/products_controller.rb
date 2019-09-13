@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
       image_params.each do |pic|
         @product.pictures.build(image: pic)
       end
-      if @product.save
+      if @product&.save
         redirect_to root_path
       else
         redirect_to new_product_path
@@ -35,19 +35,22 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(products_params)
     id = @product.id
-    if delete_params
-      delete_params.each do |deleteID|
-        Picture.find(deleteID).destroy
+    if @product.update(products_params)
+      if delete_params
+        delete_params.each do |deleteID|
+          Picture.find(deleteID).destroy
+        end
       end
-    end
-    if image_params
-      image_params.each do |image|
-        Picture.create(image: image, product_id: id)
+      if image_params
+        image_params.each do |image|
+          Picture.create(image: image, product_id: id)
+        end
       end
+      redirect_to user_exhibiting_path(current_user.id)
+    else
+      redirect_to edit_product_path(id)
     end
-    redirect_to user_exhibiting_path(current_user.id)
   end
 
   def destroy
