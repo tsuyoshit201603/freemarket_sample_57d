@@ -23,4 +23,17 @@ $(function(){
     $(this).find(".categoryIndex__parents__parent__name").css("color","#000000");
   });
 
+  // 子供カテゴリーに関するイベント駆動
+  $(".categoryIndex__children__child").on("mouseenter", function(){
+    $(this).find(".categoryIndex__grandchildren").show();
+    $(this).css("background-color","#f4f4f4");
+  })
+  .on("mouseleave", function(){
+    $(this).find(".categoryIndex__grandchildren").hide();
+    $(this).css("background-color","#FFFFFF");
+  });
+  $(".categoryIndex__children").on("mouseleave", function(){
+    $(".categoryIndex__grandchildren").hide();
+  })
+
 })
