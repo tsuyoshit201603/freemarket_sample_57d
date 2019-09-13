@@ -7,7 +7,7 @@
     .contents__product-information__pickup__text
       ピックアップカテゴリー
     .contents__product-information__pickup__categorie
-      - @categories.each do |parent|
+      - @categories.limit(4).each do |parent|
         .contents__product-information__pickup__categorie__text
           = parent.name
           %span 新着アイテム
