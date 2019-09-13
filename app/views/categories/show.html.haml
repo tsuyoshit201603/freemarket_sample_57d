@@ -10,30 +10,18 @@
 .categoryShow
   %h2.categoryShow__top
     = "#{@category.name}の商品一覧"
-  - case @family
-  - when "parent"
-    .categoryShow__Products
+  .categoryShow__Products
+    - case @family
+    - when "parent"
       - @category.children.each do |children|
         - if children&.products
           - children.children.each do|grandchildren|
-            -if grandchildren&.products
-              - grandchildren.products.each do |product|
-                .categroyProducts__product
-                  = render partial: "products/product" , locals:{product: product}
-  - when "child"
-    .categoryShow__Products
+            = render partial: "products/product", collection: grandchildren.products, as: :product
+    - when "child"
       - @category.children.each do |grandchildren|
-        - if grandchildren&.products
-          - grandchildren.products.each do |product|
-            .categroyProducts__product
-              = render partial: "products/product" , locals:{product: product}
-  - when "grandchild"
-    .categoryShow__Products
-      - if @category&.products
-        - @category.products.each do |product|
-          .categroyProducts__product
-            = render partial: "products/product" , locals:{product: product}
-
+        = render partial: "products/product" , collection: grandchildren.products, as: :product
+    - when "grandchild"
+      = render partial: "products/product", collection: @category.products, as: :product
   .categoryShow
     .categoryShow__box
       .categoryShow__box__top
