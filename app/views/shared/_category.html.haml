@@ -1,0 +1,20 @@
+- parents = Category.where(ancestry: nil)
+.categoryIndex
+  %ul.categoryIndex__parents
+    - parents.each do |parent|
+      %li.categoryIndex__parents__parent
+        = link_to category_path(parent.id) do
+          .categoryIndex__parents__parent__name
+            = parent.name
+        %ul.categoryIndex__children
+          - parent.children.each do |child|
+            %li.categoryIndex__children__child
+              = link_to category_path(child.id) do
+                .categoryIndex__children__child__name
+                  = child.name
+              %ul.categoryIndex__grandchildren
+                - child.children.each do |grandchild|
+                  %li.categoryIndex__grandchildren__grandchild
+                    = link_to category_path(grandchild.id) do
+                      .categoryIndex__grandchildren__grandchild__name
+                        = grandchild.name
