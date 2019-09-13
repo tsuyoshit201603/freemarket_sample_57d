@@ -1,0 +1,32 @@
+.categoryShow{
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 1200px;
+  &__top{
+    margin:0 0 15px 20px;
+    @include font_data($mercariBlack,20px, bold);
+  }
+  &__Products{
+    display:flex;
+    flex-flow: row wrap;
+    &__product{
+    }
+  }
+  &__box{
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    &__top{
+      @include text_center(50px,center);
+      @include font_data(#FFFFFF,25px, bold);
+      background-color: $mercariRed;
+    }
+    &__info{
+      background-color: #FFFFFF;
+      padding: 20px;
+      &__context{
+        @include font_data($mercariBlack, 13px);
+      }
+    }
+  }
+}
