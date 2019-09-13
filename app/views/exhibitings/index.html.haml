@@ -5,12 +5,13 @@
     = @product.name
   .details__content__main
     .details__content__main__table
-      = image_tag @product.pictures.first.image, class: "details__content__main__table__main"
-      - @product.pictures.each_with_index do |picture, i|
-        - if i == 0
-          = image_tag picture.image, class: "details__content__main__table__sub", style: "opacity: 1;"
-        - else
-          = image_tag picture.image, class: "details__content__main__table__sub"
+      - if @product.pictures.first&.image
+        = image_tag @product.pictures.first.image, class: "details__content__main__table__main"
+        - @product.pictures.each_with_index do |picture, i|
+          - if i == 0
+            = image_tag picture.image, class: "details__content__main__table__sub", style: "opacity: 1;"
+          - else
+            = image_tag picture.image, class: "details__content__main__table__sub"
     .details__content__main__margin
     .details__content__main__table
       %table.details__content__main__table

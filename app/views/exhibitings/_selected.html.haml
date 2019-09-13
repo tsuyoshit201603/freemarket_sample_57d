@@ -1,7 +1,8 @@
 = link_to product_exhibitings_path(product.id), class: "reset" do
   .sold__contents__selected
     .sold__contents__selected__image
-      = image_tag(product.pictures.first.image, widht:"30px",height:"40px")
+      - if product.pictures.first&.image
+        = image_tag(product.pictures.first.image, widht:"30px",height:"40px")
     .sold__contents__selected__right
       .sold__contents__selected__right__top
         = product.name
