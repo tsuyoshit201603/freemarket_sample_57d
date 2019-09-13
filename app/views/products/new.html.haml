@@ -105,7 +105,7 @@
         .main__product__price__h2
           価格
           %span 必須
-          = f.text_field :price, placeholder:"例) 300", class: "main__product__price__h2-choice", value: @product.price
+          = f.telephone_field :price, placeholder:"例) 300", class: "main__product__price__h2-choice", value: @product.price, maxlength: 7
           %p ￥
         .main__product__price__h3
           .main__product__price__h3__info
