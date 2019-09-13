@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
     resources :exhibitings, only:[:index]
   end
-
+  resources :categories, only: :show
   namespace :api do
     resources :products, only: [:index,:edit], defaults: { format: 'json' }
   end
