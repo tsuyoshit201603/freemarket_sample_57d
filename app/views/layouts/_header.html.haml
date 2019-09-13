@@ -13,6 +13,7 @@
           = link_to root_path  do
             =fa_icon "list" , class: "contents__header__inner__down__left__category__icon"
             カテゴリーから探す
+          = render "shared/category"
         .contents__header__inner__down__left__tag
           = link_to root_path do
             =fa_icon "tag" , class: "contents__header__inner__down__left__tag__icon"
@@ -41,4 +42,3 @@
             = link_to user_session_path, method: :post do
               .contents__header__inner__down__right__login__context
                 ログイン
-

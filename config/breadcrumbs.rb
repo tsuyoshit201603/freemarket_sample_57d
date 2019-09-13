@@ -64,6 +64,46 @@ crumb :index do
   parent :exhibiting
 end
 
+# カテゴリー
+crumb :categories do
+  link "カテゴリ一覧", root_path
+  parent :root
+end
+
+crumb :category do
+  category = Category.find(params[:id])
+  if category.ancestry
+    if category.children.present?
+      # 子供である
+      link category.parent.name, category_path(category.parent.id)
+    else
+      # 孫である
+      link category.parent.parent.name, category_path(category.parent.parent.id)
+    end
+  else
+    # 親である
+    link category.name, category_path(params[:id])
+  end
+  parent :categories
+end
+
+crumb :childCategory do
+  category = Category.find(params[:id])
+  if category.children.present?
+    # 子供である
+    link category.name, category_path(params[:id])
+  else
+    # 孫である
+    link category.parent.name, category_path(category.parent.id)
+  end
+  parent :category
+end
+
+crumb :grandchildCategory do
+  link Category.find(params[:id]).name, category_path(params[:id])
+  parent :childCategory
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -20,7 +20,10 @@
 @import "users/show";
 @import "header";
 @import "footer";
+@import "category";
 @import "logouts/destroy";
+
+@import "category/show";
 
 @import "identifications/index";
 @import "profiles/profiles";

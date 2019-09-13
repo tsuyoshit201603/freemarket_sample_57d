@@ -1,0 +1,36 @@
+- case @family
+- when "parent"
+  - breadcrumb :category
+- when "child"
+  - breadcrumb :childCategory
+- when "grandchild"
+  - breadcrumb :grandchildCategory
+= render "layouts/breadcrumbs"
+= render "shared/exhibitbtn"
+.categoryShow
+  %h2.categoryShow__top
+    = "#{@category.name}の商品一覧"
+  .categoryShow__Products
+    - case @family
+    - when "parent"
+      - @category.children.each do |children|
+        - if children&.products
+          - children.children.each do|grandchildren|
+            = render partial: "products/product", collection: grandchildren.products, as: :product
+    - when "child"
+      - @category.children.each do |grandchildren|
+        = render partial: "products/product" , collection: grandchildren.products, as: :product
+    - when "grandchild"
+      = render partial: "products/product", collection: @category.products, as: :product
+  .categoryShow
+    .categoryShow__box
+      .categoryShow__box__top
+        = @category.name
+      .categoryShow__box__info
+        .categoryShow__box__info__context
+          = "#{@category.name}の着ない服、いらない洋服を売るならメルカリへ。"
+          %br
+          = "#{@category.name}の商品は100万点以上あります。人気のあるカテゴリーはネックレスとひざ丈ワンピースです"
+          %br
+          = "人気の商品は「☆9/16まで。再お値下げ【北欧・暮らしの道具店】ネックレス」や「theory　セオリー　シルク混　ひざ丈　ニットワンピース　黒　S」があります。"
+          = "#{@category.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。"
