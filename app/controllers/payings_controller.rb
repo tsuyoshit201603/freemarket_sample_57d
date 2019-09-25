@@ -1,6 +1,7 @@
 class PayingsController < TelphonesController
   require "payjp"
   layout "simple"
+  layout "devise", only: :new
   def new
     @active = ["is-active","is-active","is-active",""]
     @year = [*19..30]
