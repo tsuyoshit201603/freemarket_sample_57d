@@ -9,6 +9,11 @@
   &__Products{
     display:flex;
     flex-flow: row wrap;
+    & .render__wrap{
+      & a{
+        @include reset_a-tag(black);
+      }
+    }
   }
   &__box{
     width: 80%;
